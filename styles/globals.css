@@ -1,16 +1,36 @@
-html,
+:root {
+    --primary-color: hsla(15, 100%, 64%, 1);
+    --secondary-color: none;
+    --font-color: hsla(158, 24%, 93%, 1);
+
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+html, body {
+    padding: 1rem 0 0 0;
+    margin: 0;
+    font-family: 'Inter', 'Roboto', sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, 
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+    color: var(--font-color);
+    background: #1C1F21;
+}
+
+h1, h2, h3, p {
+    padding: 0;
+    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
