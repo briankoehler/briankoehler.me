@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Post } from '../types'
 
 
 const PostSnippetWrapper = styled.div`
@@ -28,14 +29,18 @@ const PostSnippetDate = styled.p`
     font-size: 0.75rem;
 `
 
-const PostSnippet = (props: { title: string, description: string, date: Date }) => {
+type Props = {
+    post: Post
+}
+
+const PostSnippet = ({post}: Props) => {
     return (
         <PostSnippetWrapper>
             <PostSnippetHead>
-                <PostSnippetTitle>{props.title}</PostSnippetTitle>
-                <PostSnippetDate>{props.date.getMonth() + 1}/{props.date.getDate()}/{props.date.getFullYear()}</PostSnippetDate>
+                <PostSnippetTitle>{post.title}</PostSnippetTitle>
+                <PostSnippetDate>{post.date}</PostSnippetDate>
             </PostSnippetHead>
-            <PostSnippetDescription>{props.description}</PostSnippetDescription>
+            <PostSnippetDescription>{post.description}</PostSnippetDescription>
         </PostSnippetWrapper>
     )
 }
