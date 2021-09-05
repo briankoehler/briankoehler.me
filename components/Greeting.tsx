@@ -20,7 +20,7 @@ const ShortAbout = styled.p`
 const Greeting = () => {
     return (
         <GreetingWrapper>
-            <BigHello>I'm Brian, software engineer.</BigHello>
+            <BigHello>Hey, I'm Brian, software engineer.</BigHello>
             <ShortAbout>
                 Welcome to my website! I’m a developer studying at the University of Florida with a strong 
                 interest in all things web development. Glance over my GitHub, or peruse my posts for some 

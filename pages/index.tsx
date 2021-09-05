@@ -1,3 +1,4 @@
+import FeaturedProject from '@/components/FeaturedProject'
 import Greeting from '@/components/Greeting'
 import LatestPosts from '@/components/LatestPosts/LatestPosts'
 import Navbar from '@/components/Navbar'
@@ -16,19 +17,28 @@ const ContentWrapper = styled.div`
 const SplitColumns = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
+    gap: 5em;
 `
 
 type Props = {
+    featuredProject: {
+        link: string,
+        cover: {
+            width: number,
+            height: number,
+            url: string
+        }
+    },
     posts: Post[]
 }
 
-const HomePage = ({posts}: Props) => {
+const HomePage = ({featuredProject, posts}: Props) => {
     return (
         <ContentWrapper>
             <Navbar />
             <Greeting />
             <SplitColumns>
-                <h1>Featured Project</h1>
+                <FeaturedProject featuredProject={featuredProject} />
                 <LatestPosts posts={posts}/>
             </SplitColumns>
         </ContentWrapper>
@@ -36,10 +46,17 @@ const HomePage = ({posts}: Props) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const resp = await fetch('http://localhost:1337/posts')
-    const posts = await resp.json()
+    /* Get featured project */
+    const featuredProjectResp = await fetch('http://localhost:1337/featured-project')
+    const featuredProject = await featuredProjectResp.json()
+
+    /* Get latest posts */
+    const latestPostsResp = await fetch('http://localhost:1337/posts')
+    const posts = await latestPostsResp.json()
+
+    /* Return props */
     return {
-        props: { posts }
+        props: { featuredProject, posts }
     }
 }
 
