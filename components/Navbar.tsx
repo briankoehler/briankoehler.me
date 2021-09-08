@@ -18,32 +18,28 @@ const NavLinks = styled.ol`
     list-style-type: none;
 `
 
-const NavItem = styled.li`
-    transition: all 0.2s;
-`
-
 const Navbar = () => {
     return (
         <NavWrapper>
             <Link href='/'>
-                <a>Brian Koehler</a>
+                <a className='underline'>Brian Koehler</a>
             </Link>
             <NavLinks>
-                <NavItem>
+                <li>
                     <Link href='/about'>
-                        <a>About</a>
+                        <a className='underline'>About</a>
                     </Link>
-                </NavItem>
-                <NavItem>
+                </li>
+                <li>
                     <Link href='/projects'>
-                        <a>Projects</a>
+                        <a className='underline'>Projects</a>
                     </Link>
-                </NavItem>
-                <NavItem>
+                </li>
+                <li>
                     <Link href='/posts'>
-                        <a>Posts</a>
+                        <a className='underline'>Posts</a>
                     </Link>
-                </NavItem>
+                </li>
             </NavLinks>
         </NavWrapper>
     )

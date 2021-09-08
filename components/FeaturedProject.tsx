@@ -12,6 +12,10 @@ const FeaturedProjectWrapper = styled.section`
 
     .image {
         border-radius: 8px;
+
+        :hover {
+            
+        }
     }
 `
 

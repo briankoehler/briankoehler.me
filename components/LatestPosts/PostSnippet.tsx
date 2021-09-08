@@ -5,12 +5,16 @@ import { Post } from '../types'
 const PostSnippetWrapper = styled.div`
     display: grid;
     gap: 0.5em;
+    padding: 0.5em;
+    border-radius: 8px;
+    border: 2px solid #f1f1f1;
+    cursor: pointer;
 `
 
 const PostSnippetHead = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2ch;
 `
 
 const PostSnippetTitle = styled.h3`

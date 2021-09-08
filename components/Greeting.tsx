@@ -26,7 +26,7 @@ const Greeting = () => {
             <ShortAbout>
                 Welcome to my website! I’m a developer studying at the University of Florida with a strong 
                 interest in all things web development. <a href='https://github.com/briankoehler/' className='blue'>Glance over my GitHub</a>, 
-                or <Link href='/posts/'><a className='orange'>peruse my posts</a></Link> for some nonsensical thoughts.
+                or <Link href='/posts/'><a className='orange'>peruse some posts</a></Link> for some nonsensical thoughts.
             </ShortAbout>
         </GreetingWrapper>
     )
