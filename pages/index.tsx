@@ -3,7 +3,7 @@ import Greeting from '@/components/Greeting'
 import LatestPosts from '@/components/LatestPosts/LatestPosts'
 import Navbar from '@/components/Navbar'
 import { Post } from '@/components/types'
-import type { GetStaticProps } from 'next'
+import type { GetServerSideProps } from 'next'
 import styled from 'styled-components'
 
 
@@ -12,6 +12,11 @@ const ContentWrapper = styled.div`
     margin: auto;
     display: grid;
     gap: 7em;
+
+    main {
+        display: grid;
+        gap: 7em;
+    }
 `
 
 const SplitColumns = styled.div`
@@ -36,16 +41,18 @@ const HomePage = ({featuredProject, posts}: Props) => {
     return (
         <ContentWrapper>
             <Navbar />
-            <Greeting />
-            <SplitColumns>
-                <FeaturedProject featuredProject={featuredProject} />
-                <LatestPosts posts={posts}/>
-            </SplitColumns>
+            <main>
+                <Greeting />
+                <SplitColumns>
+                    <FeaturedProject featuredProject={featuredProject} />
+                    <LatestPosts posts={posts}/>
+                </SplitColumns>
+            </main>
         </ContentWrapper>
     )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
     /* Get featured project */
     const featuredProjectResp = await fetch('http://localhost:1337/featured-project')
     const featuredProject = await featuredProjectResp.json()

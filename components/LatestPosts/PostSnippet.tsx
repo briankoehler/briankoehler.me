@@ -14,18 +14,19 @@ const PostSnippetHead = styled.div`
 `
 
 const PostSnippetTitle = styled.h3`
+    color: var(--font-primary);
     font-size: 1.125rem;
     font-weight: regular;
     font-weight: 400;
     `
 
 const PostSnippetDescription = styled.p`
-    color: hsla(0, 0%, 65%, 1);
+    color: var(--font-secondary);
     font-size: 1rem;
 `
 
 const PostSnippetDate = styled.p`
-    color: hsla(0, 0%, 65%, 1);
+    color: var(--font-secondary);
     font-size: 0.75rem;
 `
 

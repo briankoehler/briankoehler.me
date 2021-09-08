@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 
-const NavWrapper = styled.nav`
+const NavWrapper = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,10 +20,6 @@ const NavLinks = styled.ol`
 
 const NavItem = styled.li`
     transition: all 0.2s;
-
-    :hover {
-        color: hsl(31, 94%, 61%);
-    }
 `
 
 const Navbar = () => {

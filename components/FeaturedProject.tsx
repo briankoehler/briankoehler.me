@@ -2,9 +2,13 @@ import Image from 'next/image'
 import styled from 'styled-components'
 
 
-const FeaturedProjectWrapper = styled.div`
+const FeaturedProjectWrapper = styled.section`
     display: grid;
     gap: 1.5em;
+
+    a {
+        filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
+    }
 
     .image {
         border-radius: 8px;
@@ -12,7 +16,7 @@ const FeaturedProjectWrapper = styled.div`
 `
 
 const FeaturedProjectTitle = styled.h2`
-    color: var(--primary-color);
+    color: var(--font-primary);
     font-weight: normal;
     font-size: 1.5rem;
     font-weight: 600;
