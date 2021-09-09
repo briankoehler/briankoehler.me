@@ -1,3 +1,4 @@
+import Button from '@/components/Button'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -28,6 +29,7 @@ const Greeting = () => {
                 interest in all things web development. <a href='https://github.com/briankoehler/' className='blue'>Glance over my GitHub</a>, 
                 or <Link href='/posts/'><a className='orange'>peruse some posts</a></Link> for some nonsensical thoughts.
             </ShortAbout>
+            <Button href='#contact'>Let's connect</Button>
         </GreetingWrapper>
     )
 }

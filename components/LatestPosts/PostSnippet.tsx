@@ -7,14 +7,13 @@ const PostSnippetWrapper = styled.div`
     gap: 0.5em;
     padding: 0.5em;
     border-radius: 8px;
-    border: 2px solid #f1f1f1;
+    border: 2px solid #f3f3f3;
     cursor: pointer;
 `
 
 const PostSnippetHead = styled.div`
-    display: grid;
-    grid-auto-flow: column;
-    gap: 2ch;
+    display: flex;
+    justify-content: space-between;
 `
 
 const PostSnippetTitle = styled.h3`
@@ -22,6 +21,7 @@ const PostSnippetTitle = styled.h3`
     font-size: 1.125rem;
     font-weight: regular;
     font-weight: 400;
+    margin-right: 2ch;
     `
 
 const PostSnippetDescription = styled.p`

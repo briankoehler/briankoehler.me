@@ -8,14 +8,29 @@ const FeaturedProjectWrapper = styled.section`
 
     a {
         filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
+        position: relative;
+
+        :active {
+            top: 2px;
+        }
+
+        ::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            max-height: 99%;
+            background: hsla(0, 0%, 0%, 0.25);
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        :hover::after {
+            background: none;
+        }
     }
 
     .image {
         border-radius: 8px;
-
-        :hover {
-            
-        }
     }
 `
 
