@@ -42,7 +42,7 @@ const FeaturedProject = ({featuredProject}: Props) => {
         <FeaturedProjectWrapper>
             <FeaturedProjectTitle>Featured Project</FeaturedProjectTitle>
             <a href={featuredProject.link}>
-                <Image className='image' src={`http://localhost:1337${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
+                <Image className='image' alt='Webpage of featured project' src={`http://localhost:1337${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
             </a>
         </FeaturedProjectWrapper>
     )
