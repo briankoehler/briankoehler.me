@@ -13,10 +13,15 @@ const ButtonWrapper = styled.a`
 	max-width: 8em;
 	font-weight: 500;
 	font-size: 1.125rem;
+	transition: background 0.2s;
 
 	:active {
 		position: relative;
 		top: 2px;
+	}
+
+	:hover {
+		background: hsl(0, 0%, 16.07843137254902%);
 	}
 `
 

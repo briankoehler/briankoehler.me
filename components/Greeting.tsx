@@ -29,7 +29,7 @@ const Greeting = () => {
                 interest in all things web development. <a href='https://github.com/briankoehler/' className='black'>Glance over my GitHub</a>, 
                 or <Link href='/posts'><a className='black'>peruse some posts</a></Link> for some nonsensical thoughts.
             </ShortAbout>
-            <Button href='/about'>Let's connect</Button>
+            <Button href='#contact'>Let's connect</Button>
         </GreetingWrapper>
     )
 }

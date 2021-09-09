@@ -11,7 +11,6 @@ const FeaturedProjectWrapper = styled.section`
         position: relative;
 
         :active {
-            position: relative;
             top: 2px;
         }
 
@@ -19,7 +18,9 @@ const FeaturedProjectWrapper = styled.section`
             content: '';
             position: absolute;
             inset: 0;
-            background: hsla(0, 0%, 100%, 0.2);
+            max-height: 99%;
+            background: hsla(0, 0%, 0%, 0.25);
+            border-radius: 8px;
             transition: background 0.2s;
         }
 
@@ -30,10 +31,6 @@ const FeaturedProjectWrapper = styled.section`
 
     .image {
         border-radius: 8px;
-
-        :hover {
-            
-        }
     }
 `
 
