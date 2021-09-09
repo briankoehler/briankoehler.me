@@ -11,11 +11,11 @@ const ContentWrapper = styled.div`
     max-width: 60%;
     margin: auto;
     display: grid;
-    gap: 7em;
+    gap: 5em;
 
     main {
         display: grid;
-        gap: 7em;
+        gap: 5em;
     }
 `
 
@@ -54,11 +54,11 @@ const HomePage = ({featuredProject, posts}: Props) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
     /* Get featured project */
-    const featuredProjectResp = await fetch('http://localhost:1337/featured-project')
+    const featuredProjectResp = await fetch('http://localhost:8082/featured-project')
     const featuredProject = await featuredProjectResp.json()
 
     /* Get latest posts */
-    const latestPostsResp = await fetch('http://localhost:1337/posts')
+    const latestPostsResp = await fetch('http://localhost:8082/posts')
     const posts = await latestPostsResp.json()
 
     /* Return props */

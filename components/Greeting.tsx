@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styled from 'styled-components'
+import Button from '@/components/Button'
 
 
 const GreetingWrapper = styled.section`
@@ -25,9 +26,10 @@ const Greeting = () => {
             <BigHello>I'm Brian, software engineer.</BigHello>
             <ShortAbout>
                 Welcome to my website! I’m a developer studying at the University of Florida with a strong 
-                interest in all things web development. <a href='https://github.com/briankoehler/' className='blue'>Glance over my GitHub</a>, 
-                or <Link href='/posts/'><a className='orange'>peruse some posts</a></Link> for some nonsensical thoughts.
+                interest in all things web development. <a href='https://github.com/briankoehler/' className='black'>Glance over my GitHub</a>, 
+                or <Link href='/posts'><a className='black'>peruse some posts</a></Link> for some nonsensical thoughts.
             </ShortAbout>
+            <Button href='/about'>Let's connect</Button>
         </GreetingWrapper>
     )
 }

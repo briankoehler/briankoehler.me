@@ -8,6 +8,24 @@ const FeaturedProjectWrapper = styled.section`
 
     a {
         filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
+        position: relative;
+
+        :active {
+            position: relative;
+            top: 2px;
+        }
+
+        ::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: hsla(0, 0%, 100%, 0.2);
+            transition: background 0.2s;
+        }
+
+        :hover::after {
+            background: none;
+        }
     }
 
     .image {
@@ -42,7 +60,7 @@ const FeaturedProject = ({featuredProject}: Props) => {
         <FeaturedProjectWrapper>
             <FeaturedProjectTitle>Featured Project</FeaturedProjectTitle>
             <a href={featuredProject.link}>
-                <Image className='image' src={`http://localhost:1337${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
+                <Image className='image' src={`http://localhost:8082${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
             </a>
         </FeaturedProjectWrapper>
     )

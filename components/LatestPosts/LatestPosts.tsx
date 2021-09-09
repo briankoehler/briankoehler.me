@@ -17,8 +17,9 @@ const LatestPostsTitle = styled.h2`
 `
 
 const PostsListWrapper = styled.div`
-    display: grid;
-    gap: 0.75em;
+    gap: 1.5em;
+    display: flex;
+    flex-direction: column;
 `
 
 type Props = {

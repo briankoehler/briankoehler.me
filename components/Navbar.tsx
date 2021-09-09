@@ -7,7 +7,7 @@ const NavWrapper = styled.header`
     justify-content: space-between;
     align-items: center;
     min-width: 100%;
-    font-weight: bold;
+    font-weight: 400;
     font-size: 1.125rem;
 `
 

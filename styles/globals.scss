@@ -52,10 +52,25 @@ Class Properties
 */
 .orange {
     color: hsl(15, 100%, 64%);
+    font-weight: 500;
+
+    &:hover {
+        color: hsl(15, 97%, 57%);
+    }
 }
 
 .blue {
     color: hsl(202, 100%, 50%);
+    font-weight: 500;
+
+    &:hover {
+        color: hsl(202, 100%, 44%);
+    }
+}
+
+.black {
+    color: var(--font-primary);
+    font-weight: 500;
 }
 
 .underline { /* Underline animation found https://css-irl.info/animating-underlines/ */
