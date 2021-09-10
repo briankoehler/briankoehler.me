@@ -4,7 +4,7 @@ import { SiCss3, SiGithub, SiHtml5, SiJavascript, SiNextDotJs, SiPython, SiReact
 import styled from 'styled-components'
 
 
-const TechnologiesWrapper = styled.div`
+const TechnologiesWrapper = styled.section`
 	display: grid;
 	gap: 1.5em;
 `
