@@ -1,5 +1,5 @@
+import { Post } from '@/components/types'
 import styled from 'styled-components'
-import { Post } from '../types'
 
 
 const PostSnippetWrapper = styled.div`
@@ -38,7 +38,7 @@ type Props = {
     post: Post
 }
 
-const PostSnippet = ({post}: Props) => {
+const PostSnippet = ({ post }: Props) => {
     return (
         <PostSnippetWrapper>
             <PostSnippetHead>

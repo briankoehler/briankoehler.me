@@ -26,7 +26,7 @@ type Props = {
     posts: Post[]
 }
 
-const LatestPosts = ({posts}: Props) => {
+const LatestPosts = ({ posts }: Props) => {
     return (
         <LatestPostsWrapper>
             <LatestPostsTitle>Latest Posts</LatestPostsTitle>
