@@ -6,28 +6,10 @@ import styled from 'styled-components'
 const FeaturedProjectWrapper = styled.section`
     display: grid;
     gap: 1.5em;
+    grid-template-rows: min-content auto;
 
     a {
         filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
-        position: relative;
-
-        :active {
-            top: 2px;
-        }
-
-        ::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            max-height: 99%;
-            background: hsla(0, 0%, 0%, 0.25);
-            border-radius: 8px;
-            transition: background 0.2s;
-        }
-
-        :hover::after {
-            background: none;
-        }
     }
 
     .image {
@@ -51,7 +33,7 @@ const FeaturedProject = ({ featuredProject }: Props) => {
         <FeaturedProjectWrapper>
             <Subtitle>Featured Project</Subtitle>
             <a href={featuredProject.link}>
-                <Image className='image' alt='Webpage of featured project' src={`http://localhost:8082${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
+                <Image className='image' alt='Image of featured project' src={`http://localhost:8082${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
             </a>
         </FeaturedProjectWrapper>
     )
