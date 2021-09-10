@@ -1,4 +1,4 @@
-import Subtitle from '@/components/Subtitle'
+import Subheading from '@/components/Subheading'
 import TechBlock from '@/components/Technologies/TechBlock'
 import { SiCss3, SiGithub, SiHtml5, SiJavascript, SiNextDotJs, SiPython, SiReact } from 'react-icons/Si'
 import styled from 'styled-components'
@@ -35,7 +35,7 @@ const data = [
 const Technologies = () => {
 	return (
 		<TechnologiesWrapper>
-			<Subtitle>Technologies</Subtitle>
+			<Subheading>Technologies</Subheading>
 			<BlocksWrapper>
 				{
 					data.map((tech, index) => <li key={index}><TechBlock name={tech.name} icon={tech.icon} /></li>)

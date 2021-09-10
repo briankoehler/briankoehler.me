@@ -1,5 +1,5 @@
 import PostSnippet from '@/components/LatestPosts/PostSnippet'
-import Subtitle from '@/components/Subtitle'
+import Subheading from '@/components/Subheading'
 import { Post } from '@/components/types'
 import styled from 'styled-components'
 
@@ -23,7 +23,7 @@ type Props = {
 const LatestPosts = ({ posts }: Props) => {
     return (
         <LatestPostsWrapper>
-            <Subtitle>Latest Posts</Subtitle>
+            <Subheading>Latest Posts</Subheading>
             <PostsListWrapper>
                 {
                     posts.map((data, index) => <PostSnippet key={index} post={data} />)
