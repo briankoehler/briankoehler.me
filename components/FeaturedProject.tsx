@@ -1,3 +1,4 @@
+import Subtitle from '@/components/Subtitle'
 import Image from 'next/image'
 import styled from 'styled-components'
 
@@ -34,13 +35,6 @@ const FeaturedProjectWrapper = styled.section`
     }
 `
 
-const FeaturedProjectTitle = styled.h2`
-    color: var(--font-primary);
-    font-weight: normal;
-    font-size: 1.5rem;
-    font-weight: 600;
-`
-
 type Props = {
     featuredProject: {
         link: string,
@@ -55,7 +49,7 @@ type Props = {
 const FeaturedProject = ({ featuredProject }: Props) => {
     return (
         <FeaturedProjectWrapper>
-            <FeaturedProjectTitle>Featured Project</FeaturedProjectTitle>
+            <Subtitle>Featured Project</Subtitle>
             <a href={featuredProject.link}>
                 <Image className='image' alt='Webpage of featured project' src={`http://localhost:8082${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
             </a>

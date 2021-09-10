@@ -1,19 +1,13 @@
+import PostSnippet from '@/components/LatestPosts/PostSnippet'
+import Subtitle from '@/components/Subtitle'
 import { Post } from '@/components/types'
 import styled from 'styled-components'
-import PostSnippet from './PostSnippet'
 
 
 const LatestPostsWrapper = styled.section`
     display: grid;
     gap: 1.5em;
     grid-template-rows: min-content auto;
-`
-
-const LatestPostsTitle = styled.h2`
-    color: var(--font-primary);
-    font-weight: normal;
-    font-size: 1.5rem;
-    font-weight: 600;
 `
 
 const PostsListWrapper = styled.div`
@@ -29,7 +23,7 @@ type Props = {
 const LatestPosts = ({ posts }: Props) => {
     return (
         <LatestPostsWrapper>
-            <LatestPostsTitle>Latest Posts</LatestPostsTitle>
+            <Subtitle>Latest Posts</Subtitle>
             <PostsListWrapper>
                 {
                     posts.map((data, index) => <PostSnippet key={index} post={data} />)
