@@ -50,15 +50,15 @@ const HomePage = ({ featuredProject, posts }: Props) => {
                     <Heading bigText='I&apos;m Brian, software engineer.' littleText={
                         [
                             `Welcome to my website! I'm a developer studying at the University of Florida with a strong interest in all things web development. `,
-                            <a href='https://github.com/briankoehler/' className='blue'>Glance over my GitHub</a>,
+                            <a key='github' href='https://github.com/briankoehler/' className='blue'>Glance over my GitHub</a>,
                             ' or ',
-                            <Link href='/posts/'><a className='blue'>peruse some posts</a></Link>,
+                            <Link key='link' href='/posts/'><a className='blue'>peruse some posts</a></Link>,
                             ' for some nonsensical thoughts.'
                         ]
                     }>
                         <Button href='#contact'>Let's connect</Button>
                     </Heading>
-                    <Image src={Portrait} />
+                    <Image src={Portrait} alt='Cartoon portrait of me smiling!' />
                 </SplitColumns>
 
                 <SplitColumns>

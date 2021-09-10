@@ -35,7 +35,7 @@ type Props = {
 
 const Button = (props: Props) => {
 	return (
-		<Link href={props.href}>
+		<Link href={props.href} passHref>
 			<ButtonWrapper>{props.children}</ButtonWrapper>
 		</Link>
 	)
