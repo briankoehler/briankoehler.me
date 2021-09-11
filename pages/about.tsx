@@ -1,3 +1,4 @@
+import Experience from '@/components/Experience/Experience'
 import Heading from '@/components/Heading'
 import Navbar from '@/components/Navbar'
 import Technologies from '@/components/Technologies/Technologies'
@@ -23,6 +24,7 @@ const AboutPage = () => {
 			<main>
 				<Heading bigText='Get to know me.' littleText='The one-stop shop to find anything about me from my experience, to my favorite technologies, and even what I enjoy doing.' />
 				<Technologies />
+                <Experience />
 			</main>
 		</ContentWrapper>
 	)

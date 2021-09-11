@@ -18,11 +18,12 @@ const PostSnippetHead = styled.div`
 
 const PostSnippetTitle = styled.h3`
     color: var(--font-primary);
+    font-size: 1rem;
     font-size: 1.125rem;
     font-weight: regular;
     font-weight: 400;
     margin-right: 2ch;
-    `
+`
 
 const PostSnippetDescription = styled.p`
     color: var(--font-secondary);

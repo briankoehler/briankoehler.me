@@ -1,4 +1,4 @@
-import Subtitle from '@/components/Subtitle'
+import Subheading from '@/components/Subheading'
 import Image from 'next/image'
 import styled from 'styled-components'
 
@@ -31,9 +31,9 @@ type Props = {
 const FeaturedProject = ({ featuredProject }: Props) => {
     return (
         <FeaturedProjectWrapper>
-            <Subtitle>Featured Project</Subtitle>
+            <Subheading>Featured Project</Subheading>
             <a href={featuredProject.link}>
-                <Image className='image' alt='Image of featured project' src={`http://localhost:8082${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
+                <Image className='image' alt='Image of featured project' src={`http://${process.env.CMS_URL}${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
             </a>
         </FeaturedProjectWrapper>
     )

@@ -72,11 +72,11 @@ const HomePage = ({ featuredProject, posts }: Props) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
     /* Get featured project */
-    const featuredProjectResp = await fetch('http://localhost:8082/featured-project')
+    const featuredProjectResp = await fetch(`http://${process.env.CMS_URL}/featured-project`)
     const featuredProject = await featuredProjectResp.json()
 
     /* Get latest posts */
-    const latestPostsResp = await fetch('http://localhost:8082/posts')
+    const latestPostsResp = await fetch(`http://${process.env.CMS_URL}/posts`)
     const posts = await latestPostsResp.json()
 
     /* Return props */
