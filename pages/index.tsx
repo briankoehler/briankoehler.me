@@ -38,10 +38,11 @@ type Props = {
             url: string
         }
     },
-    posts: Post[]
+    posts: Post[],
+    url: string
 }
 
-const HomePage = ({ featuredProject, posts }: Props) => {
+const HomePage = ({ featuredProject, posts, url }: Props) => {
     return (
         <ContentWrapper>
             <Navbar />
@@ -62,7 +63,7 @@ const HomePage = ({ featuredProject, posts }: Props) => {
                 </SplitColumns>
 
                 <SplitColumns>
-                    <FeaturedProject featuredProject={featuredProject} />
+                    <FeaturedProject featuredProject={featuredProject} url={url} />
                     <LatestPosts posts={posts} />
                 </SplitColumns>
             </main>
@@ -79,9 +80,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const latestPostsResp = await fetch(`http://${process.env.CMS_URL}/posts`)
     const posts = await latestPostsResp.json()
 
+    /* Bad practice? */
+    const url = process.env.CMS_URL
+
     /* Return props */
     return {
-        props: { featuredProject, posts }
+        props: { featuredProject, posts, url }
     }
 }
 

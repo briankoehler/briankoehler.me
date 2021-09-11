@@ -1,6 +1,6 @@
 import Subheading from '@/components/Subheading'
 import TechBlock from '@/components/Technologies/TechBlock'
-import { SiCss3, SiGithub, SiHtml5, SiJavascript, SiNextDotJs, SiPython, SiReact } from 'react-icons/Si'
+import { SiCss3, SiGithub, SiHtml5, SiJavascript, SiNextDotJs, SiPython, SiReact } from 'react-icons/si'
 import styled from 'styled-components'
 
 

@@ -25,15 +25,16 @@ type Props = {
             height: number,
             url: string
         }
-    }
+    },
+    url: string
 }
 
-const FeaturedProject = ({ featuredProject }: Props) => {
+const FeaturedProject = ({ featuredProject, url }: Props) => {
     return (
         <FeaturedProjectWrapper>
             <Subheading>Featured Project</Subheading>
             <a href={featuredProject.link}>
-                <Image className='image' alt='Image of featured project' src={`http://${process.env.CMS_URL}${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
+                <Image className='image' alt='Image of featured project' src={`http://${url}${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
             </a>
         </FeaturedProjectWrapper>
     )
