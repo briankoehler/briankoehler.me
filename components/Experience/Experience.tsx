@@ -65,7 +65,7 @@ const Experience = () => {
     const [activeBlock, setActiveBlock] = useState(0)
 
     return (
-        <ExperiencesWrapper>
+        <ExperiencesWrapper id='experience'>
             <Subheading>Experience</Subheading>
             <InfoWrapper>
                 <PositionsWrapper>

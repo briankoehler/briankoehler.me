@@ -4,7 +4,7 @@ import Heading from '@/components/Heading'
 import LatestPosts from '@/components/LatestPosts/LatestPosts'
 import Navbar from '@/components/Navbar'
 import { Post } from '@/components/types'
-import Portrait from '@/public/portrait3.jpg'
+import Portrait from '@/public/portrait.jpg'
 import type { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -59,7 +59,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                     }>
                         <Button href='#contact'>Let's connect</Button>
                     </Heading>
-                    <Image src={Portrait} alt='Cartoon portrait of me smiling!' />
+                    <Image src={Portrait} alt='Cartoon portrait of me smiling!' priority />
                 </SplitColumns>
 
                 <SplitColumns>
