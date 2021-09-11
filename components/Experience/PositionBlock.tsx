@@ -31,7 +31,8 @@ type Props = {
 const PositionBlock = ({ company, children, onClick }: Props) => {
     return (
         <PositionBlockWrapper onClick={onClick}>
-            <p>{children + ' '}<span className='company'>@{company}</span></p>
+            <p>{children}</p>
+            <p className='company'>@{company}</p>
         </PositionBlockWrapper>
     )
 }
