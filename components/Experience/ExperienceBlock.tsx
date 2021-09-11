@@ -44,7 +44,7 @@ const ExperienceBlock = ({ company, position, responsibilities, period, url }: P
             </Header>
             <ResponsibilitiesWrapper>
                 {
-                    responsibilities.map(responsibility => <p>{responsibility}</p>)
+                    responsibilities.map((responsibility, index) => <p key={index}>{responsibility}</p>)
                 }
             </ResponsibilitiesWrapper>
         </ExperienceBlockWrapper>
