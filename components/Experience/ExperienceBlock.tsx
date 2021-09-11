@@ -7,15 +7,19 @@ const ExperienceBlockWrapper = styled.div`
     padding: 1em;
     border: 2px solid #f3f3f3;
     border-radius: 8px;
+    height: 100%;
+`
+
+const Header = styled.div`
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.125rem;
 `
 
 const ResponsibilitiesWrapper = styled.div`
     display: grid;
     gap: 0.5em;
-`
-
-const Responsibility = styled.p`
-    
+    color: var(--font-secondary);
 `
 
 const Period = styled.p`
@@ -24,19 +28,25 @@ const Period = styled.p`
 `
 
 type Props = {
+    company: string,
+    position: string,
     responsibilities: string[],
-    period: string
+    period: string,
+    url: string
 }
 
-const ExperienceBlock = ({responsibilities, period}: Props) => {
+const ExperienceBlock = ({ company, position, responsibilities, period, url }: Props) => {
     return (
         <ExperienceBlockWrapper>
+            <Header>
+                <p>{position} <a className='blue' href={url}>@{company}</a></p>
+                <Period>{period}</Period>
+            </Header>
             <ResponsibilitiesWrapper>
                 {
-                    responsibilities.map(responsibility => <Responsibility>{responsibility}</Responsibility>)
+                    responsibilities.map(responsibility => <p>{responsibility}</p>)
                 }
             </ResponsibilitiesWrapper>
-            <Period>{period}</Period>
         </ExperienceBlockWrapper>
     )
 }
