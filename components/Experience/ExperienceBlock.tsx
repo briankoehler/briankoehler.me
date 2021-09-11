@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Experience, Responsibility } from '../types'
 
 
 const ExperienceBlockWrapper = styled.div`
@@ -27,15 +28,7 @@ const Period = styled.p`
     font-size: 0.75rem;
 `
 
-type Props = {
-    company: string,
-    position: string,
-    responsibilities: string[],
-    period: string,
-    url: string
-}
-
-const ExperienceBlock = ({ company, position, responsibilities, period, url }: Props) => {
+const ExperienceBlock = ({ company, position, period, url, responsibilities }: Experience) => {
     return (
         <ExperienceBlockWrapper>
             <Header>
@@ -44,7 +37,7 @@ const ExperienceBlock = ({ company, position, responsibilities, period, url }: P
             </Header>
             <ResponsibilitiesWrapper>
                 {
-                    responsibilities.map((responsibility, index) => <p key={index}>{responsibility}</p>)
+                    responsibilities.map((responsibility: Responsibility, index: number) => <p key={index}>{responsibility.value}</p>)
                 }
             </ResponsibilitiesWrapper>
         </ExperienceBlockWrapper>
