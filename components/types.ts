@@ -24,3 +24,11 @@ export interface Experience {
     url: string,
     responsibilities: Responsibility[]
 }
+
+export interface Project {
+    id: number,
+    name: string,
+    description: string,
+    github?: string,
+    link?: string
+}
