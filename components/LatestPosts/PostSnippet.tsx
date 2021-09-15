@@ -35,11 +35,11 @@ const PostSnippetDate = styled.p`
     font-size: 0.75rem;
 `
 
-type Props = {
+type PostSnippetProps = {
     post: Post
 }
 
-const PostSnippet = ({ post }: Props) => {
+const PostSnippet = ({ post }: PostSnippetProps) => {
     return (
         <PostSnippetWrapper>
             <PostSnippetHead>

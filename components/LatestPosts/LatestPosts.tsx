@@ -16,17 +16,17 @@ const PostsListWrapper = styled.div`
     flex-direction: column;
 `
 
-type Props = {
+type LatestPostsProps = {
     posts: Post[]
 }
 
-const LatestPosts = ({ posts }: Props) => {
+const LatestPosts = ({ posts }: LatestPostsProps) => {
     return (
         <LatestPostsWrapper>
             <Subheading>Latest Posts</Subheading>
             <PostsListWrapper>
                 {
-                    posts.map((data, index) => <PostSnippet key={index} post={data} />)
+                    posts.map((data: Post, index: number) => <PostSnippet key={index} post={data} />)
                 }
             </PostsListWrapper>
         </LatestPostsWrapper>

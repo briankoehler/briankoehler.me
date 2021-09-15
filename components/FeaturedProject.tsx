@@ -17,7 +17,7 @@ const FeaturedProjectWrapper = styled.section`
     }
 `
 
-type Props = {
+type FeaturedProjectProps = {
     featuredProject: {
         link: string,
         cover: {
@@ -29,7 +29,7 @@ type Props = {
     url: string
 }
 
-const FeaturedProject = ({ featuredProject, url }: Props) => {
+const FeaturedProject = ({ featuredProject, url }: FeaturedProjectProps) => {
     return (
         <FeaturedProjectWrapper>
             <Subheading>Featured Project</Subheading>

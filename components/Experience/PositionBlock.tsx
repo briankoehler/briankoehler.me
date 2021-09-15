@@ -21,14 +21,14 @@ const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
     }
 `
 
-type Props = {
+type PositionBlockProps = {
     company: string,
     children: React.ReactNode,
     current: boolean,
     onClick: () => void
 }
 
-const PositionBlock = ({ company, children, onClick }: Props) => {
+const PositionBlock = ({ company, children, onClick }: PositionBlockProps) => {
     return (
         <PositionBlockWrapper onClick={onClick}>
             <p>{children}</p>

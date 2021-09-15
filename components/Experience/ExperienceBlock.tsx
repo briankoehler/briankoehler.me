@@ -21,6 +21,7 @@ const ResponsibilitiesWrapper = styled.div`
     display: grid;
     gap: 0.5em;
     color: var(--font-secondary);
+    line-height: 150%;
 `
 
 const Period = styled.p`

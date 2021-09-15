@@ -19,11 +19,11 @@ const ContentWrapper = styled.div`
     }
 `
 
-type Props = {
+type AboutPageProps = {
 	experiences: Experience[]
 }
 
-const AboutPage = ({ experiences }: Props) => {
+const AboutPage = ({ experiences }: AboutPageProps) => {
 	return (
 		<ContentWrapper>
 			<Navbar />

@@ -37,12 +37,12 @@ const PositionsWrapper = styled.div<{height: string, top: string}>`
     }
 `
 
-type Props = {
+type ExperienceAreaProps = {
     experiences: Experience[]
 }
 
-const ExperienceArea = ({ experiences }: Props) => {
-    const [activeBlock, setActiveBlock] = useState(0)
+const ExperienceArea = ({ experiences }: ExperienceAreaProps) => {
+    const [activeBlock, setActiveBlock] = useState<number>(0)
 
     return (
         <ExperiencesWrapper>

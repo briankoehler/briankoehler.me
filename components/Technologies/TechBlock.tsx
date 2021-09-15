@@ -14,12 +14,12 @@ const TechBlockWrapper = styled.figure`
 	margin: 0;
 `
 
-type Props = {
+type TechBlockProps = {
 	name: string,
 	icon: React.ReactNode,
 }
 
-const TechBlock = ({ name, icon }: Props) => {
+const TechBlock = ({ name, icon }: TechBlockProps) => {
 	return (
 		<TechBlockWrapper>
 			{icon}

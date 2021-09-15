@@ -24,19 +24,19 @@ const ButtonWrapper = styled.a`
 	}
 
 	:hover {
-		background: hsl(0, 0%, 16.07843137254902%);
+		background: hsl(0, 0%, 21.176470588235293%);
 	}
 `
 
-type Props = {
+type ButtonProps = {
 	href: string,
 	children: React.ReactNode
 }
 
-const Button = (props: Props) => {
+const Button = ({ href, children }: ButtonProps) => {
 	return (
-		<Link href={props.href} passHref>
-			<ButtonWrapper>{props.children}</ButtonWrapper>
+		<Link href={href} passHref>
+			<ButtonWrapper>{children}</ButtonWrapper>
 		</Link>
 	)
 }
