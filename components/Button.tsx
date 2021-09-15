@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const ButtonWrapper = styled.a`
 	background: var(--font-primary);
 	color: white;
-	border-radius: 8px;
+	border-radius: 4px;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
 	width: 8em;

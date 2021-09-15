@@ -13,7 +13,7 @@ const FeaturedProjectWrapper = styled.section`
     }
 
     .image {
-        border-radius: 8px;
+        border-radius: 4px;
     }
 `
 

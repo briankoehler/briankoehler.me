@@ -7,8 +7,8 @@ const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
     background: none;
     display: grid;
     place-content: center;
-    border: 2px solid #f3f3f3;
-    border-radius: 8px;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
     padding: 1em;
     font-size: 1rem;
     font-family: 'Rubik';

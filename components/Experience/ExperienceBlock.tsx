@@ -6,8 +6,8 @@ const ExperienceBlockWrapper = styled.div`
     display: grid;
     gap: 1em;
     padding: 1em;
-    border: 2px solid #f3f3f3;
-    border-radius: 8px;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
     height: min-content;
 `
 
