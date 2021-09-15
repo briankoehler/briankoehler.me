@@ -48,7 +48,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
             <Navbar />
             <main>
                 <SplitColumns>
-                    <Heading bigText='I&apos;m Brian, software engineer.' littleText={
+                    <Heading bigText='I&apos;m Brian, software&nbsp;engineer.' littleText={
                         [
                             `Welcome to my website! I'm a developer studying at the University of Florida with a strong interest in all things web development. `,
                             <a key='github' href='https://github.com/briankoehler/' className='blue'>Glance over my GitHub</a>,
