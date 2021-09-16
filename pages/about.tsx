@@ -20,7 +20,7 @@ const AboutPage = ({ experiences }: AboutPageProps) => {
 	)
 }
 
-export const getStaticProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	/* Get experiences */
 	const experiencesResp = await fetch(`http://${process.env.CMS_URL}/experiences`)
 	const experiences = await experiencesResp.json()
