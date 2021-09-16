@@ -1,5 +1,5 @@
-import { Project } from "../types"
-import ProjectInfo from "./ProjectInfo"
+import ProjectInfo from "@/components/Projects/ProjectInfo"
+import { Project } from "@/components/types"
 
 
 type ProjectAreaProps = {

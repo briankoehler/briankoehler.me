@@ -1,9 +1,9 @@
 import ExperienceBlock from '@/components/Experience/ExperienceBlock'
+import PositionBlock from '@/components/Experience/PositionBlock'
 import Subheading from '@/components/Subheading'
+import { Experience } from '@/components/types'
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Experience } from '../types'
-import PositionBlock from './PositionBlock'
 
 
 const ExperiencesWrapper = styled.section`
@@ -18,7 +18,7 @@ const InfoWrapper = styled.div`
     gap: 8em;
 `
 
-const PositionsWrapper = styled.div<{height: string, top: string}>`
+const PositionsWrapper = styled.div<{ height: string, top: string }>`
     display: flex;
     flex-direction: column;
     gap: 0.5em;

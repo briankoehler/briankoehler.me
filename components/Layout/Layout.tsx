@@ -1,6 +1,6 @@
+import Navbar from '@/components/Layout/Navbar'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import Navbar from './Navbar'
 
 
 const ContentWrapper = styled.div`

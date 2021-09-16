@@ -1,5 +1,5 @@
+import { Project } from '@/components/types'
 import styled from 'styled-components'
-import { Project } from '../types'
 
 
 const ProjectInfoWrapper = styled.div`

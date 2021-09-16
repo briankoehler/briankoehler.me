@@ -1,5 +1,5 @@
+import { Experience, Responsibility } from '@/components/types'
 import styled from 'styled-components'
-import { Experience, Responsibility } from '../types'
 
 
 const ExperienceBlockWrapper = styled.div`
