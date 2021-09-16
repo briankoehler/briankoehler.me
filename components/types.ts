@@ -29,6 +29,7 @@ export interface Project {
     id: number,
     name: string,
     description: string,
+    stack: string[],
     github?: string,
     link?: string
 }
