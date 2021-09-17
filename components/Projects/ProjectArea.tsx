@@ -6,8 +6,8 @@ import styled from 'styled-components'
 
 const ProjectsAreaWrapper = styled.div`
     display: grid;
-    gap: 1.5em;
-    grid-template-columns: 1fr 1fr;
+    gap: 4em;
+    grid-template-columns: 3fr 2fr;
 `
 
 type ProjectAreaProps = {
