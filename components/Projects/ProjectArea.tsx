@@ -7,7 +7,17 @@ import styled from 'styled-components'
 const ProjectsAreaWrapper = styled.div`
     display: grid;
     gap: 4em;
-    grid-template-columns: 3fr 2fr;
+`
+
+const ProjectWrapper = styled.div<{ invert?: boolean }>`
+    display: grid;
+    gap: 4em;
+    align-items: center;
+    grid-template-columns: ${props => props.invert ? '2fr 3fr' : '3fr 2fr'};
+
+    span {
+        filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
+    }
 `
 
 type ProjectAreaProps = {
@@ -20,10 +30,27 @@ const ProjectArea = ({ projects, url }: ProjectAreaProps) => {
         <ProjectsAreaWrapper>
             {
                 projects.map((project: Project, index: number) => {
+                    if (index % 2 === 0) {
+                        return (
+                            <>
+                                <ProjectWrapper>
+                                    <span>
+                                        <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.url}`} width={project.image.width} height={project.image.height} priority />
+                                    </span>
+                                    <ProjectInfo key={index} {...project} />
+                                </ProjectWrapper>
+                            </>
+                        )
+                    }
+
                     return (
                         <>
-                            <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.formats.small.url}`} width={project.image.formats.small.width} height={project.image.formats.small.height} priority />
-                            <ProjectInfo key={index} {...project} />
+                            <ProjectWrapper invert>
+                                <ProjectInfo key={index} {...project} />
+                                <span>
+                                    <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.url}`} width={project.image.width} height={project.image.height} priority />
+                                </span>
+                            </ProjectWrapper>
                         </>
                     )
                 })

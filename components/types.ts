@@ -33,12 +33,8 @@ export interface Project {
     github?: string,
     link?: string,
     image: {
-        formats: {
-            small: {
-                url: string,
-                width: number,
-                height: number
-            }
-        }
+        width: number,
+        height: number,
+        url: string
     }
 }
