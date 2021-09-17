@@ -1,5 +1,6 @@
 import Subheading from '@/components/Subheading'
 import TechBlock from '@/components/Technologies/TechBlock'
+import { ReactNode } from 'react'
 import { SiCss3, SiGithub, SiHtml5, SiJavascript, SiNextDotJs, SiPython, SiReact } from 'react-icons/si'
 import styled from 'styled-components'
 
@@ -22,7 +23,12 @@ const BlocksWrapper = styled.ul`
 	}
 `
 
-const data = [
+interface TechData {
+    name: string,
+    icon: ReactNode
+}
+
+const data: TechData[] = [
 	{ name: 'JavaScript', icon: <SiJavascript size='4em' /> },
 	{ name: 'Python', icon: <SiPython size='4em' /> },
 	{ name: 'ReactJS', icon: <SiReact size='4em' /> },
@@ -38,7 +44,7 @@ const Technologies = () => {
 			<Subheading>Technologies</Subheading>
 			<BlocksWrapper>
 				{
-					data.map((tech, index) => <li key={index}><TechBlock name={tech.name} icon={tech.icon} /></li>)
+					data.map((tech: {name: string, icon: ReactNode}, index: number) => <li key={index}><TechBlock name={tech.name} icon={tech.icon} /></li>)
 				}
 			</BlocksWrapper>
 		</TechnologiesWrapper>

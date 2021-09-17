@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const ButtonWrapper = styled.a`
 	background: var(--font-primary);
 	color: white;
-	border-radius: 8px;
+	border-radius: 4px;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
 	width: 8em;
@@ -24,19 +24,19 @@ const ButtonWrapper = styled.a`
 	}
 
 	:hover {
-		background: hsl(0, 0%, 16.07843137254902%);
+		background: hsl(0, 0%, 21.176470588235293%);
 	}
 `
 
-type Props = {
+type ButtonProps = {
 	href: string,
 	children: React.ReactNode
 }
 
-const Button = (props: Props) => {
+const Button = ({ href, children }: ButtonProps) => {
 	return (
-		<Link href={props.href} passHref>
-			<ButtonWrapper>{props.children}</ButtonWrapper>
+		<Link href={href} passHref>
+			<ButtonWrapper>{children}</ButtonWrapper>
 		</Link>
 	)
 }

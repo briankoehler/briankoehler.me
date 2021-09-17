@@ -1,14 +1,14 @@
+import { Experience, Responsibility } from '@/components/types'
 import styled from 'styled-components'
-import { Experience, Responsibility } from '../types'
 
 
 const ExperienceBlockWrapper = styled.div`
     display: grid;
     gap: 1em;
     padding: 1em;
-    border: 2px solid #f3f3f3;
-    border-radius: 8px;
-    height: min-content;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    height: max-content;
 `
 
 const Header = styled.div`
@@ -21,6 +21,7 @@ const ResponsibilitiesWrapper = styled.div`
     display: grid;
     gap: 0.5em;
     color: var(--font-secondary);
+    line-height: 150%;
 `
 
 const Period = styled.p`

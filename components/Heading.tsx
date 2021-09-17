@@ -19,13 +19,13 @@ const ShortAbout = styled.p`
     line-height: 150%;
 `
 
-type Props = {
+type HeadingProps = {
     bigText: string,
     littleText: (string | React.ReactNode)[] | string,
     children?: React.ReactNode
 }
 
-const Heading = ({ bigText, littleText, children }: Props) => {
+const Heading = ({ bigText, littleText, children }: HeadingProps) => {
     return (
         <HeadingWrapper>
             <BigHello>{bigText}</BigHello>

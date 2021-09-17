@@ -1,10 +1,9 @@
 import ExperienceBlock from '@/components/Experience/ExperienceBlock'
-import SelectedPosition from '@/components/Experience/SelectedPosition'
+import PositionBlock from '@/components/Experience/PositionBlock'
 import Subheading from '@/components/Subheading'
+import { Experience } from '@/components/types'
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Experience } from '../types'
-import PositionBlock from './PositionBlock'
 
 
 const ExperiencesWrapper = styled.section`
@@ -19,29 +18,40 @@ const InfoWrapper = styled.div`
     gap: 8em;
 `
 
-const PositionsWrapper = styled.div`
+const PositionsWrapper = styled.div<{ height: string, top: string }>`
     display: flex;
     flex-direction: column;
     gap: 0.5em;
     position: relative;
+
+    ::before {
+        content: '';
+        box-sizing: border-box;
+        width: 100%;
+        height: ${props => props.height};
+        border: 1px solid var(--font-primary);
+        border-radius: 4px;
+        position: absolute;
+        top: ${props => props.top};
+        transition: top 0.2s;
+    }
 `
 
-type Props = {
+type ExperienceAreaProps = {
     experiences: Experience[]
 }
 
-const ExperienceArea = ({ experiences }: Props) => {
-    const [activeBlock, setActiveBlock] = useState(0)
+const ExperienceArea = ({ experiences }: ExperienceAreaProps) => {
+    const [activeBlock, setActiveBlock] = useState<number>(0)
 
     return (
         <ExperiencesWrapper>
             <Subheading>Experience</Subheading>
             <InfoWrapper>
-                <PositionsWrapper>
+                <PositionsWrapper height={`calc((100% - ${(experiences.length - 1) * 0.5}em) / ${experiences.length})`} top={`calc((((100% - ${(experiences.length - 1) * 0.5}em) / ${experiences.length}) + 0.5em) * ${activeBlock})`}>
                     {
                         experiences.map((experience: Experience, index: number) => <PositionBlock key={index} company={experience.company} current={index === activeBlock} onClick={() => setActiveBlock(index)}>{experience.position}</PositionBlock>)
                     }
-                    <SelectedPosition width='100%' height={`calc((100% - ${(experiences.length - 1) * 0.5}em) / ${experiences.length})`} top={`calc((((100% - ${(experiences.length - 1) * 0.5}em) / ${experiences.length}) + 0.5em) * ${activeBlock})`} />
                 </PositionsWrapper>
                 <ExperienceBlock {...experiences[activeBlock]} />
             </InfoWrapper>

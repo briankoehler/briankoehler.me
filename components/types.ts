@@ -1,5 +1,5 @@
 
-export type Post = {
+export interface Post {
     id: number,
     title: string,
     description: string,
@@ -11,16 +11,30 @@ export type Post = {
     // updated_at: string
 }
 
-export type Responsibility = {
+export interface Responsibility {
     id: number,
     value: string
 }
 
-export type Experience = {
+export interface Experience {
     id: number,
     company: string,
     position: string,
     period: string,
     url: string,
     responsibilities: Responsibility[]
+}
+
+export interface Project {
+    id: number,
+    name: string,
+    description: string,
+    stack: string[],
+    github?: string,
+    link?: string,
+    image: {
+        width: number,
+        height: number,
+        url: string
+    }
 }
