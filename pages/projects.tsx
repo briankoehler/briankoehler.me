@@ -1,30 +1,34 @@
-import Heading from "@/components/Heading"
-import Layout from "@/components/Layout/Layout"
-import ProjectArea from "@/components/Projects/ProjectArea"
+import Heading from '@/components/Heading'
+import Layout from '@/components/Layout/Layout'
+import ProjectArea from '@/components/Projects/ProjectArea'
 import { Project } from '@/components/types'
 import { GetServerSideProps } from 'next'
 
 
 type ProjectsPageProps = {
-    projects: Project[]
+    projects: Project[],
+    url: string
 }
 
-const ProjectsPage = ({ projects }: ProjectsPageProps) => {
+const ProjectsPage = ({ projects, url }: ProjectsPageProps) => {
     return (
         <Layout>
             <Heading bigText='Check out my work.' littleText='A collection of my favorite projects I’ve contributed to or hacked at solo. Each project also has a list of technologies that I learned a lot about.' />
-            <ProjectArea projects={projects} />
+            <ProjectArea projects={projects} url={url} />
         </Layout>
     )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
     /* Get projects */
-	const projectsResp = await fetch(`http://${process.env.CMS_URL}/projects`)
-	const projects = await projectsResp.json()
+    const projectsResp = await fetch(`http://${process.env.CMS_URL}/projects`)
+    const projects = await projectsResp.json()
+
+    /* Bad practice? */
+    const url = process.env.CMS_URL
 
     return {
-        props: { projects }
+        props: { projects, url }
     }
 }
 

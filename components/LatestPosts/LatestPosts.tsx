@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const LatestPostsWrapper = styled.section`
     display: grid;
     gap: 1.5em;
-    grid-template-rows: min-content auto;
+    grid-template-rows: max-content auto;
 `
 
 const PostsListWrapper = styled.div`

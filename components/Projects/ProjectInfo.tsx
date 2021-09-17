@@ -9,10 +9,12 @@ import DynamicIcon from '../DynamicIcon'
 const ProjectInfoWrapper = styled.div`
     display: grid;
     grid-auto-flow: row;
-    gap: 2em;
+    align-self: center;
+    gap: 1em;
     border-radius: 4px;
     border: 1px solid #e7e7e7;
     padding: 1em;
+    height: max-content;
 `
 
 const Header = styled.div`
@@ -33,13 +35,14 @@ const ProjectTitle = styled.h3`
 const ProjectDescription = styled.p`
     color: var(--font-secondary);
     font-size: 1rem;
+    line-height: 150%;
 `
 
 const Stack = styled.div`
     display: grid;
     grid-auto-flow: column;
     gap: 2em;
-    width: min-content;
+    width: max-content;
 `
 
 const ProjectInfo = ({ name, description, stack, github, link }: Project) => {
@@ -48,8 +51,8 @@ const ProjectInfo = ({ name, description, stack, github, link }: Project) => {
             <Header>
                 <ProjectTitle>{name}</ProjectTitle>
                 <div>
-                    {github && <a href={github}><SiGithub size='2rem' /></a>}
-                    {link && <a href={link}><FiExternalLink size='2rem' /></a>}
+                    {github && <a href={github}><SiGithub size='1.5em' /></a>}
+                    {link && <a href={link}><FiExternalLink size='1.5rem' /></a>}
                 </div>
             </Header>
             <ProjectDescription>{description}</ProjectDescription>

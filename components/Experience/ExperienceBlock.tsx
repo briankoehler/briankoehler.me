@@ -8,7 +8,7 @@ const ExperienceBlockWrapper = styled.div`
     padding: 1em;
     border: 1px solid #e7e7e7;
     border-radius: 4px;
-    height: min-content;
+    height: max-content;
 `
 
 const Header = styled.div`

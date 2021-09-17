@@ -31,5 +31,14 @@ export interface Project {
     description: string,
     stack: string[],
     github?: string,
-    link?: string
+    link?: string,
+    image: {
+        formats: {
+            small: {
+                url: string,
+                width: number,
+                height: number
+            }
+        }
+    }
 }

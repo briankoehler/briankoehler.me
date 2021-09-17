@@ -6,14 +6,10 @@ import styled from 'styled-components'
 const FeaturedProjectWrapper = styled.section`
     display: grid;
     gap: 1.5em;
-    grid-template-rows: min-content auto;
+    grid-template-rows: max-content auto;
 
     a {
         filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
-    }
-
-    .image {
-        border-radius: 4px;
     }
 `
 
