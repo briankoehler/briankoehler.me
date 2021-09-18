@@ -1,4 +1,5 @@
-import Button from '@/components/Button'
+import { LinkButton } from '@/components/Button'
+import ContactForm from '@/components/ContactForm/ContactForm'
 import FeaturedProject from '@/components/FeaturedProject'
 import Heading from '@/components/Heading'
 import LatestPosts from '@/components/LatestPosts/LatestPosts'
@@ -43,7 +44,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                         ' for some nonsensical thoughts.'
                     ]
                 }>
-                    <Button href='#contact'>Let's connect</Button>
+                    <LinkButton href='#contact'>Let's connect</LinkButton>
                 </Heading>
                 <Image src={Portrait} alt='Cartoon portrait of me smiling!' priority />
             </SplitColumns>
@@ -52,6 +53,8 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                 <FeaturedProject featuredProject={featuredProject} url={url} />
                 <LatestPosts posts={posts} />
             </SplitColumns>
+
+            <ContactForm />
         </Layout>
     )
 }
