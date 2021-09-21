@@ -70,7 +70,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
             </SplitColumns>
 
             <SplitColumns cols='1fr 1fr'>
-                <Heading bigText='Wanna get in contact?' littleText={`Checkout the links below, or fill out this form and I'll get back to you in a jiffy.`}>
+                <Heading bigText='Wanna get in contact?' littleText={`Check out the links below, or fill out this form and I'll get back to you in a jiffy.`}>
                     <ContactList>
                         <li>
                             <ContactLink className='blue' href='mailto:briandkoehler@gmail.com'>
