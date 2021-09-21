@@ -1,15 +1,17 @@
 import Link from 'next/link'
+import { ComponentProps } from 'react'
 import styled from 'styled-components'
 
 
-const ButtonWrapper = styled.a`
+const buttonStyles = `
 	background: var(--font-primary);
 	color: white;
 	border-radius: 4px;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
-	width: 8em;
-	height: 2.5em;
+	width: max-content;
+	height: max-content;
+	padding: 0.75em 1em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -28,17 +30,26 @@ const ButtonWrapper = styled.a`
 	}
 `
 
-type ButtonProps = {
+const LinkButtonWrapper = styled.a`${buttonStyles}`
+const InteractionButtonWrapper = styled.button`
+	${buttonStyles}
+	font-family: inherit;
+	border: none;
+`
+
+type LinkButtonProps = {
 	href: string,
 	children: React.ReactNode
 }
 
-const Button = ({ href, children }: ButtonProps) => {
+export const LinkButton = ({ href, children }: LinkButtonProps) => {
 	return (
 		<Link href={href} passHref>
-			<ButtonWrapper>{children}</ButtonWrapper>
+			<LinkButtonWrapper>{children}</LinkButtonWrapper>
 		</Link>
 	)
 }
 
-export default Button
+export const InteractionButton = ({ type, children }: ComponentProps<'button'>) => {
+	return <InteractionButtonWrapper type={type} >{children}</InteractionButtonWrapper>
+}

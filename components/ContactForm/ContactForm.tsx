@@ -1,0 +1,74 @@
+import styled from 'styled-components'
+import { InteractionButton } from '../Button'
+
+
+const ContactFormWrapper = styled.form`
+	display: grid;
+	gap: 1.5em;
+	border: 1px solid #e7e7e7;
+	border-radius: 4px;
+	padding: 1em;
+	width: 100%;
+
+	fieldset {
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.5em;
+		border: none;
+	}
+`
+
+const InputField = styled.input`
+	font-family: inherit;
+	outline: none;
+	border: 1px solid #e7e7e7;
+	border-radius: 4px;
+	font-size: 1rem;
+	padding: 0.5em;
+	transition: border 0.2s;
+
+	:focus {
+		border: 1px solid var(--font-secondary);
+	}
+`
+
+const TextAreaField = styled.textarea`
+	resize: none;
+	font-family: inherit;
+	outline: none;
+	border: 1px solid #e7e7e7;
+	border-radius: 4px;
+	font-size: 1rem;
+	padding: 0.5em;
+	transition: border 0.2s;
+
+	:focus {
+		border: 1px solid var(--font-secondary);
+	}
+`
+
+const ContactForm = () => {
+	return (
+		<ContactFormWrapper id='contact' action='https://formspree.io/f/xzbyogyq' method='POST'>
+			<fieldset>
+				<label htmlFor='name'>Name</label>
+				<InputField id='name' type='text' name='name' placeholder='Jane Doe' required />
+			</fieldset>
+
+			<fieldset>
+				<label htmlFor='email'>Email Address</label>
+				<InputField id='email' type='email' name='email' placeholder='janedoe@example.com' required />
+			</fieldset>
+
+			<fieldset>
+				<label htmlFor='message'>Message</label>
+				<TextAreaField id='message' name='message' placeholder={`Cool stuff! Let's collab 🤙`} required />
+			</fieldset>
+
+			<InteractionButton type='submit'>Send</InteractionButton>
+		</ContactFormWrapper>
+	)
+}
+
+export default ContactForm
