@@ -1,5 +1,5 @@
 import { DiSqllite } from 'react-icons/di'
-import { SiAmazonaws, SiCss3, SiNextDotJs, SiPython, SiReact } from 'react-icons/si'
+import { SiAmazonaws, SiBootstrap, SiCss3, SiDjango, SiNextDotJs, SiPython, SiReact } from 'react-icons/si'
 
 
 type DynamicIconProps = {
@@ -15,6 +15,8 @@ const DynamicIcon = ({ name, size }: DynamicIconProps) => {
             'SiAmazonaws': <SiAmazonaws size={size} />,
             'SiCss3': <SiCss3 size={size} />,
             'SiPython': <SiPython size={size} />,
+            'SiDjango': <SiDjango size={size} />,
+            'SiBootstrap': <SiBootstrap size={size} />,
             'DiSqllite': <DiSqllite size={size} />
         }[name] || <></>
     )
