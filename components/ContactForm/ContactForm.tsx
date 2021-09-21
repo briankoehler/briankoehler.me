@@ -7,8 +7,16 @@ const ContactFormWrapper = styled.form`
 	gap: 1.5em;
 	border: 1px solid #e7e7e7;
 	border-radius: 4px;
-	padding: 0.5em;
-	width: 33%;
+	padding: 1em;
+	width: 100%;
+
+	fieldset {
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.5em;
+		border: none;
+	}
 `
 
 const InputField = styled.input`
@@ -21,7 +29,7 @@ const InputField = styled.input`
 	transition: border 0.2s;
 
 	:focus {
-		border: 1px solid var(--font-primary);
+		border: 1px solid var(--font-secondary);
 	}
 `
 
@@ -36,21 +44,27 @@ const TextAreaField = styled.textarea`
 	transition: border 0.2s;
 
 	:focus {
-		border: 1px solid var(--font-primary);
+		border: 1px solid var(--font-secondary);
 	}
 `
 
 const ContactForm = () => {
 	return (
 		<ContactFormWrapper id='contact' action='https://formspree.io/f/xzbyogyq' method='POST'>
-			<label htmlFor='fullName'>Full Name</label>
-			<InputField id='fullName' type='text' name='fullName' placeholder='Relheok Nairb' />
+			<fieldset>
+				<label htmlFor='name'>Name</label>
+				<InputField id='name' type='text' name='name' placeholder='Jane Doe' required />
+			</fieldset>
 
-			<label htmlFor='email'>Email Address</label>
-			<InputField id='email' type='email' name='email' placeholder='ilove@briankoehler.me' />
+			<fieldset>
+				<label htmlFor='email'>Email Address</label>
+				<InputField id='email' type='email' name='email' placeholder='janedoe@example.com' required />
+			</fieldset>
 
-			<label htmlFor='message'>Message</label>
-			<TextAreaField id='message' name='message' placeholder={`Cool stuff! Let's collab 🤙`} />
+			<fieldset>
+				<label htmlFor='message'>Message</label>
+				<TextAreaField id='message' name='message' placeholder={`Cool stuff! Let's collab 🤙`} required />
+			</fieldset>
 
 			<InteractionButton type='submit'>Send</InteractionButton>
 		</ContactFormWrapper>

@@ -9,13 +9,28 @@ import Portrait from '@/public/portrait.jpg'
 import type { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaRegPaperPlane } from 'react-icons/fa'
+import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si'
 import styled from 'styled-components'
 
 
-const SplitColumns = styled.div`
+const SplitColumns = styled.div<{ cols?: string }>`
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: ${props => props.cols || '2fr 1fr'};
     gap: 5em;
+`
+
+const ContactList = styled.ul`
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+`
+
+const ContactLink = styled.a`
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    width: max-content;
 `
 
 type Props = {
@@ -54,7 +69,37 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                 <LatestPosts posts={posts} />
             </SplitColumns>
 
-            <ContactForm />
+            <SplitColumns cols='1fr 1fr'>
+                <Heading bigText='Wanna get in contact?' littleText={`Checkout the links below, or fill out this form and I'll get back to you in a jiffy.`}>
+                    <ContactList>
+                        <li>
+                            <ContactLink className='blue' href='mailto:briandkoehler@gmail.com'>
+                                <FaRegPaperPlane size='2em' />
+                                <p>briandkoehler@gmail.com</p>
+                            </ContactLink>
+                        </li>
+                        <li>
+                            <ContactLink className='blue' href='https://github.com/briankoehler'>
+                                <SiGithub size='2em' />
+                                <p>github.com/briankoehler</p>
+                            </ContactLink>
+                        </li>
+                        <li>
+                            <ContactLink className='blue' href='https://instagram.com/koehlerexpress'>
+                                <SiInstagram size='2em' />
+                                <p>@koehlerexpress</p>
+                            </ContactLink>
+                        </li>
+                        <li>
+                            <ContactLink className='blue' href='https://linkedin.com/in/briandkoehler'>
+                                <SiLinkedin size='2em' />
+                                <p>in/briandkoehler</p>
+                            </ContactLink>
+                        </li>
+                    </ContactList>
+                </Heading>
+                <ContactForm />
+            </SplitColumns>
         </Layout>
     )
 }
