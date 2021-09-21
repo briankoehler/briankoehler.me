@@ -18,6 +18,12 @@ const SplitColumns = styled.div<{ cols?: string }>`
     display: grid;
     grid-template-columns: ${props => props.cols || '2fr 1fr'};
     gap: 5em;
+
+    /* @media only screen and (max-width: 950px) {
+        grid-template-columns: 1fr;
+        grid-template-areas: none;
+        grid-template-areas: 'row-1' 'row-2';
+    } */
 `
 
 const ContactList = styled.ul`
@@ -61,7 +67,9 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                 }>
                     <LinkButton href='#contact'>Let's connect</LinkButton>
                 </Heading>
-                <Image src={Portrait} alt='Cartoon portrait of me smiling!' priority />
+                <div className='portrait'> {/* div was necessary b/c Vercel can't fix their Image component */}
+                    <Image className='test' src={Portrait} alt='Cartoon portrait of me smiling!' priority />
+                </div>
             </SplitColumns>
 
             <SplitColumns>
@@ -70,7 +78,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
             </SplitColumns>
 
             <SplitColumns cols='1fr 1fr'>
-                <Heading bigText='Wanna get in contact?' littleText={`Checkout the links below, or fill out this form and I'll get back to you in a jiffy.`}>
+                <Heading bigText='Wanna get in contact?' littleText={`Check out the links below, or fill out this form and I'll get back to you in a jiffy.`}>
                     <ContactList>
                         <li>
                             <ContactLink className='blue' href='mailto:briandkoehler@gmail.com'>
