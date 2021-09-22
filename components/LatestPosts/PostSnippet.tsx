@@ -10,6 +10,11 @@ const PostSnippetWrapper = styled.a`
     border-radius: 4px;
     border: 1px solid var(--border-primary);
     cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+
+    :hover {
+        box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.05);
+    }
 `
 
 const PostSnippetHead = styled.div`
