@@ -20,14 +20,15 @@ const ShortAbout = styled.p`
 `
 
 type HeadingProps = {
+    className?: string,
     bigText: string,
     littleText: (string | React.ReactNode)[] | string,
     children?: React.ReactNode
 }
 
-const Heading = ({ bigText, littleText, children }: HeadingProps) => {
+const Heading = ({ className, bigText, littleText, children }: HeadingProps) => {
     return (
-        <HeadingWrapper>
+        <HeadingWrapper className={className}>
             <BigHello>{bigText}</BigHello>
             <ShortAbout>{littleText}</ShortAbout>
             {children}

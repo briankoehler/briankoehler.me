@@ -17,12 +17,13 @@ const PostsListWrapper = styled.div`
 `
 
 type LatestPostsProps = {
+    className?: string,
     posts: Post[]
 }
 
-const LatestPosts = ({ posts }: LatestPostsProps) => {
+const LatestPosts = ({ className, posts }: LatestPostsProps) => {
     return (
-        <LatestPostsWrapper>
+        <LatestPostsWrapper className={className}>
             <Subheading>Latest Posts</Subheading>
             <PostsListWrapper>
                 {

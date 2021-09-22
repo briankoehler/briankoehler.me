@@ -20,7 +20,7 @@ const NavLinks = styled.ol<{ left: string }>`
     margin: 0;
 
     @media only screen and (max-width: 950px) {
-        background: white;
+        /* background: white;
         grid-auto-flow: row;
         place-content: center;
         position: absolute;
@@ -28,7 +28,8 @@ const NavLinks = styled.ol<{ left: string }>`
         left: ${props => props.left};
         min-width: 100vw;
         min-height: 100vh;
-        transition: left 0.2s;
+        transition: left 0.2s; */
+        display: none;
     }
 `
 
