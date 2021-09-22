@@ -8,11 +8,14 @@ const ContentWrapper = styled.div`
     padding: 3em 0 1em;
     display: grid;
     gap: 5em;
-    transition: max-width 0.2s;
 
     main {
         display: grid;
         gap: 5em;
+    }
+
+    @media only screen and (max-width: 950px) {
+        padding: 2em 0 1em;
     }
 `
 

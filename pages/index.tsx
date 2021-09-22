@@ -29,7 +29,7 @@ const ContactLink = styled.a`
 
 const PortraitWrapper = styled.div`
     @media only screen and (max-width: 950px) {
-        max-width: calc(100% / 3);
+        max-width: 45%;
         justify-self: center;
     }
 `
