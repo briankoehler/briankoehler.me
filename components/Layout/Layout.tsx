@@ -5,7 +5,7 @@ import Footer from './Footer'
 
 
 const ContentWrapper = styled.div`
-    padding: 1em 0;
+    padding: 3em 0 1em;
     display: grid;
     gap: 5em;
     transition: max-width 0.2s;

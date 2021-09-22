@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { useReducer } from 'react'
-import { CgMenuRight } from 'react-icons/cg'
 import styled from 'styled-components'
 
 
@@ -11,14 +10,6 @@ const NavWrapper = styled.header`
     min-width: 100%;
     font-weight: 400;
     font-size: var(--font-large);
-
-    .burger {
-        display: none;
-
-        @media only screen and (max-width: 950px) {
-            display: block;
-        }
-    }
 `
 
 const NavLinks = styled.ol<{ left: string }>`
@@ -26,6 +17,7 @@ const NavLinks = styled.ol<{ left: string }>`
     grid-auto-flow: column;
     gap: 2em;
     list-style-type: none;
+    margin: 0;
 
     @media only screen and (max-width: 950px) {
         background: white;
@@ -40,15 +32,61 @@ const NavLinks = styled.ol<{ left: string }>`
     }
 `
 
+const MenuToggle = styled.button<{open: boolean}>`
+    border: none;
+    background: none;
+    display: grid;
+    gap: 0.3em;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2;
+
+    span {
+        display: block;
+        height: 0.4em;
+        background: var(--font-primary);
+        border-radius: 4px;
+        transition: all 0.1s ease-in-out;
+    }
+
+    span:nth-child(1) {
+        width: 3em;
+        transform: ${props => props.open && 'rotate(45deg) translateX(0.42rem)'};
+    }
+
+    span:nth-child(2) {
+        display: ${props => props.open && 'none'};
+        width: 2em;
+        transform: translateX(calc(3em - 2em));
+    }
+
+    span:nth-child(3) {
+        width: 3em;
+        transform: ${props => props.open && 'rotate(-45deg) translateX(0.42rem)'};
+    }
+
+    @media only screen and (min-width: 950px) {
+        display: none;
+    }
+`
+
 const Navbar = () => {
     const [left, toggleLeft] = useReducer((state) => state === '100vw' ? '0' : '100vw', '100vw')
+    const [open, toggleOpen] = useReducer((state) => state === true ? false : true, false)
+
+    const toggleMobileMenu = () => {
+        toggleLeft()
+        toggleOpen()
+    }
 
     return (
         <NavWrapper>
+            {/* Left-side name */}
             <Link href='/'>
                 <a className='underline'>Brian Koehler</a>
             </Link>
 
+            {/* Right-side list of links */}
             <NavLinks left={left}>
                 <li>
                     <Link href='/about'>
@@ -67,7 +105,13 @@ const Navbar = () => {
                 </li>
             </NavLinks>
 
-            <CgMenuRight className='burger' size='2em' onClick={toggleLeft} />
+            {/* Toggle Menu */}
+            <MenuToggle open={open} onClick={toggleMobileMenu}>
+                <span />
+                <span />
+                <span />
+            </MenuToggle>
+
         </NavWrapper>
     )
 }
