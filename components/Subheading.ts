@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Subheading = styled.h2`
 	color: var(--font-primary);
     font-weight: normal;
-    font-size: 1rem;
+    font-size: var(--font-medium);
     font-weight: 600;
 `
 

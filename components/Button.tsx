@@ -16,7 +16,7 @@ const buttonStyles = `
 	justify-content: center;
 	align-items: center;
 	font-weight: 500;
-	font-size: 1.125rem;
+	font-size: var(--font-large);
 	user-select: none;
 	transition: background 0.2s;
 

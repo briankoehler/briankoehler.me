@@ -2,7 +2,7 @@ import Heading from '@/components/Heading'
 import Layout from '@/components/Layout/Layout'
 import ProjectArea from '@/components/Projects/ProjectArea'
 import { Project } from '@/components/types'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 
 
 type ProjectsPageProps = {
@@ -19,7 +19,7 @@ const ProjectsPage = ({ projects, url }: ProjectsPageProps) => {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     /* Get projects */
     const projectsResp = await fetch(`http://${process.env.CMS_URL}/projects`)
     const projects = await projectsResp.json()

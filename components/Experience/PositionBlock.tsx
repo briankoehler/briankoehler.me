@@ -7,16 +7,16 @@ const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
     background: none;
     display: grid;
     place-content: center;
-    border: 1px solid #e7e7e7;
+    border: 1px solid var(--border-primary);
     border-radius: 4px;
-    padding: 1em;
-    font-size: 1rem;
+    padding: var(--box-padding);
+    font-size: var(--font-medium);
     font-family: 'Rubik';
-    font-size: 1.125rem;
+    font-size: var(--font-large);
 
     .company {
         color: var(--font-secondary);
-        font-size: 0.75rem;
+        font-size: var(--font-small);
         white-space: nowrap;
     }
 `

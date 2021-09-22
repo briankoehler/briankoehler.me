@@ -6,7 +6,7 @@ import LatestPosts from '@/components/LatestPosts/LatestPosts'
 import Layout from '@/components/Layout/Layout'
 import { Post } from '@/components/types'
 import Portrait from '@/public/portrait.jpg'
-import type { GetServerSideProps } from 'next'
+import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaRegPaperPlane } from 'react-icons/fa'
@@ -112,7 +112,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     /* Get featured project */
     const featuredProjectResp = await fetch(`http://${process.env.CMS_URL}/featured-project`)
     const featuredProject = await featuredProjectResp.json()

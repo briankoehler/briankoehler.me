@@ -12,8 +12,8 @@ const ProjectInfoWrapper = styled.div`
     align-self: center;
     gap: 1em;
     border-radius: 4px;
-    border: 1px solid #e7e7e7;
-    padding: 1em;
+    border: 1px solid var(--border-primary);
+    padding: var(--box-padding);
     height: max-content;
 `
 
@@ -25,8 +25,8 @@ const Header = styled.div`
 
 const ProjectTitle = styled.h3`
     color: var(--font-primary);
-    font-size: 1rem;
-    font-size: 1.125rem;
+    font-size: var(--font-medium);
+    font-size: var(--font-large);
     font-weight: regular;
     font-weight: 400;
     margin-right: 2ch;
@@ -34,7 +34,7 @@ const ProjectTitle = styled.h3`
 
 const ProjectDescription = styled.p`
     color: var(--font-secondary);
-    font-size: 1rem;
+    font-size: var(--font-medium);
     line-height: 150%;
 `
 
