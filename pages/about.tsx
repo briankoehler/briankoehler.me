@@ -3,7 +3,7 @@ import Heading from '@/components/Heading'
 import Layout from '@/components/Layout/Layout'
 import Technologies from '@/components/Technologies/Technologies'
 import { Experience } from '@/components/types'
-import type { GetServerSideProps } from 'next'
+import type { GetStaticProps } from 'next'
 
 
 type AboutPageProps = {
@@ -13,14 +13,14 @@ type AboutPageProps = {
 const AboutPage = ({ experiences }: AboutPageProps) => {
 	return (
 		<Layout>
-            <Heading bigText='Get to know me.' littleText='The one-stop shop to find anything about me from my experience, to my favorite technologies, and even what I enjoy doing.' />
-            <Technologies />
-            <ExperienceArea experiences={experiences} />
-        </Layout>
+			<Heading bigText='Get to know me.' littleText='The one-stop shop to find anything about me from my experience, to my favorite technologies, and even what I enjoy doing.' />
+			<Technologies />
+			<ExperienceArea experiences={experiences} />
+		</Layout>
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 	/* Get experiences */
 	const experiencesResp = await fetch(`http://${process.env.CMS_URL}/experiences`)
 	const experiences = await experiencesResp.json()

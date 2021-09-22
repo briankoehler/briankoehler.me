@@ -6,7 +6,7 @@ const TechBlockWrapper = styled.figure`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	border: 1px solid #e7e7e7;
+	border: 1px solid var(--border-primary);
 	border-radius: 4px;
 	padding: 0.5em;
 	width: 8em;

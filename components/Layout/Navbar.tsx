@@ -8,7 +8,7 @@ const NavWrapper = styled.header`
     align-items: center;
     min-width: 100%;
     font-weight: 400;
-    font-size: 1.125rem;
+    font-size: var(--font-large);
 `
 
 const NavLinks = styled.ol`

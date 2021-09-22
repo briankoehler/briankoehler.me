@@ -5,8 +5,8 @@ import styled from 'styled-components'
 const ExperienceBlockWrapper = styled.div`
     display: grid;
     gap: 1em;
-    padding: 1em;
-    border: 1px solid #e7e7e7;
+    padding: var(--box-padding);
+    border: 1px solid var(--border-primary);
     border-radius: 4px;
     height: max-content;
 `
@@ -14,7 +14,7 @@ const ExperienceBlockWrapper = styled.div`
 const Header = styled.div`
     display: flex;
     justify-content: space-between;
-    font-size: 1.125rem;
+    font-size: var(--font-large);
 `
 
 const ResponsibilitiesWrapper = styled.div`
@@ -26,7 +26,7 @@ const ResponsibilitiesWrapper = styled.div`
 
 const Period = styled.p`
     color: var(--font-secondary);
-    font-size: 0.75rem;
+    font-size: var(--font-small);
 `
 
 const ExperienceBlock = ({ company, position, period, url, responsibilities }: Experience) => {

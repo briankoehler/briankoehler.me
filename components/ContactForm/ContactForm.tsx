@@ -5,9 +5,9 @@ import { InteractionButton } from '../Button'
 const ContactFormWrapper = styled.form`
 	display: grid;
 	gap: 1.5em;
-	border: 1px solid #e7e7e7;
+	border: 1px solid var(--border-primary);
 	border-radius: 4px;
-	padding: 1em;
+	padding: var(--box-padding);
 	width: 100%;
 
 	fieldset {
@@ -22,9 +22,9 @@ const ContactFormWrapper = styled.form`
 const InputField = styled.input`
 	font-family: inherit;
 	outline: none;
-	border: 1px solid #e7e7e7;
+	border: 1px solid var(--border-primary);
 	border-radius: 4px;
-	font-size: 1rem;
+	font-size: var(--font-medium);
 	padding: 0.5em;
 	transition: border 0.2s;
 
@@ -37,9 +37,9 @@ const TextAreaField = styled.textarea`
 	resize: none;
 	font-family: inherit;
 	outline: none;
-	border: 1px solid #e7e7e7;
+	border: 1px solid var(--border-primary);
 	border-radius: 4px;
-	font-size: 1rem;
+	font-size: var(--font-medium);
 	padding: 0.5em;
 	transition: border 0.2s;
 

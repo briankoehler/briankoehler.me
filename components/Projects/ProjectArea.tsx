@@ -33,11 +33,11 @@ const ProjectArea = ({ projects, url }: ProjectAreaProps) => {
                     if (index % 2 === 0) {
                         return (
                             <>
-                                <ProjectWrapper>
+                                <ProjectWrapper key={index}>
                                     <span>
                                         <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.url}`} width={project.image.width} height={project.image.height} priority />
                                     </span>
-                                    <ProjectInfo key={index} {...project} />
+                                    <ProjectInfo {...project} />
                                 </ProjectWrapper>
                             </>
                         )

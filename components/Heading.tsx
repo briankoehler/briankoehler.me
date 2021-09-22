@@ -15,7 +15,7 @@ const BigHello = styled.h1`
 
 const ShortAbout = styled.p`
     color: var(--font-secondary);
-    font-size: 1.125rem;
+    font-size: var(--font-large);
     line-height: 150%;
 `
 
