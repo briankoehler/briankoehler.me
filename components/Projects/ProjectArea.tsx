@@ -9,14 +9,41 @@ const ProjectsAreaWrapper = styled.div`
     gap: 4em;
 `
 
-const ProjectWrapper = styled.div<{ invert?: boolean }>`
+const ProjectWrapper = styled.div<{ revert: boolean }>`
     display: grid;
     gap: 4em;
     align-items: center;
-    grid-template-columns: ${props => props.invert ? '2fr 3fr' : '3fr 2fr'};
+    grid-template-columns: 1fr 1fr 1fr;
 
     span {
         filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
+    }
+
+    .project-image {
+        grid-area: image;
+        grid-column: ${props => props.revert ? '1 / span 2' : '2 / span 2'};
+        grid-row: 1;
+    }
+
+    .project-info {
+        grid-area: desc;
+        grid-column: ${props => props.revert ? '2' : '1'};
+        grid-row: 1;
+    }
+
+    @media only screen and (max-width: 950px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        .project-image {
+            grid-row: 2;
+            grid-column: 1;
+        }
+
+        .project-info {
+            grid-row: 1;
+            grid-column: 1;
+        }
     }
 `
 
@@ -30,28 +57,13 @@ const ProjectArea = ({ projects, url }: ProjectAreaProps) => {
         <ProjectsAreaWrapper>
             {
                 projects.map((project: Project, index: number) => {
-                    if (index % 2 === 0) {
-                        return (
-                            <>
-                                <ProjectWrapper key={index}>
-                                    <span>
-                                        <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.url}`} width={project.image.width} height={project.image.height} priority />
-                                    </span>
-                                    <ProjectInfo {...project} />
-                                </ProjectWrapper>
-                            </>
-                        )
-                    }
-
                     return (
-                        <>
-                            <ProjectWrapper invert>
-                                <ProjectInfo key={index} {...project} />
-                                <span>
-                                    <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.url}`} width={project.image.width} height={project.image.height} priority />
-                                </span>
-                            </ProjectWrapper>
-                        </>
+                        <ProjectWrapper revert={index % 2 === 0} key={index}>
+                            <span className='project-image'>
+                                <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.url}`} width={project.image.width} height={project.image.height} priority />
+                            </span>
+                            <ProjectInfo className='project-info' {...project} />
+                        </ProjectWrapper>
                     )
                 })
             }

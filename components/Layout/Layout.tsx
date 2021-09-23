@@ -21,7 +21,7 @@ const ContentWrapper = styled.div`
     }
 `
 
-const ReturnButton = styled.button<{scrolled: boolean}>`
+const ReturnButton = styled.button<{ scrolled: boolean }>`
     display: grid;
     place-content: center;
     position: fixed;
@@ -34,7 +34,12 @@ const ReturnButton = styled.button<{scrolled: boolean}>`
     min-width: 6em;
     aspect-ratio: 1;
     filter: drop-shadow(2px 2px 2px hsla(0, 0%, 0%, 0.05));
-    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    transition: right 0.4s ease-in-out, bottom 0.2s;
+
+    :active {
+        bottom: 4em;
+    }
 `
 
 type LayoutProps = {
