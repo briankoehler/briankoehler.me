@@ -18,11 +18,13 @@ const NavLinks = styled.ol<{ open: boolean }>`
     gap: 2em;
     list-style-type: none;
     margin: 0;
+    padding: 0;
 
     @media only screen and (max-width: 950px) {
         background: white;
         grid-auto-flow: row;
         place-content: center;
+        justify-items: center;
         position: absolute;
         min-width: 100vw;
         min-height: 100vh;
@@ -30,7 +32,8 @@ const NavLinks = styled.ol<{ open: boolean }>`
         left: 0;
         z-index: 2;
         clip-path: circle(${props => props.open ? '100' : '0'}%);
-        transition: all 0.5s;
+        display: ${props => !props.open && 'none'};
+        transition: clip-path 0.5s;
     }
 `
 
