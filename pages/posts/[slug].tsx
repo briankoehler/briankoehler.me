@@ -1,7 +1,26 @@
+import Heading from '@/components/Heading'
 import Layout from '@/components/Layout/Layout'
 import { Post } from '@/components/types'
+import marked from 'marked'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import ReactHtmlParser from 'react-html-parser'
+import styled from 'styled-components'
 
+
+const Writing = styled.p`
+	font-size: var(--font-large);
+	line-height: 175%;
+	max-width: 75%;
+
+	a {
+		color: hsl(202, 100%, 50%);
+		font-weight: 500;
+
+		&:hover {
+			color: hsl(202, 100%, 44%);
+		}
+	}
+`
 
 type PostPageProps = {
 	post: Post
@@ -10,7 +29,10 @@ type PostPageProps = {
 const PostPage = ({ post }: PostPageProps) => {
 	return (
 		<Layout>
-			{post.writing}
+			<Heading bigText={post.title} littleText={post.description} />
+			<Writing>
+				{ReactHtmlParser(marked(post.writing))}
+			</Writing>
 		</Layout>
 	)
 }

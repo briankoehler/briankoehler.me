@@ -13,6 +13,11 @@ const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
     font-size: var(--font-medium);
     font-family: 'Rubik';
     font-size: var(--font-large);
+    transition: background 0.2s, box-shadow 0.2s;
+
+    :hover {
+        box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.05);
+    }
 
     .company {
         color: var(--font-secondary);

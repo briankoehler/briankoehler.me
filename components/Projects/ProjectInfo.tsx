@@ -21,6 +21,15 @@ const Header = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    a {
+        color: var(--font-secondary);
+        transition: color 0.2s;
+
+        :hover {
+            color: var(--font-primary);
+        }
+    }
 `
 
 const ProjectTitle = styled.h3`

@@ -14,6 +14,7 @@ const FeaturedProjectWrapper = styled.section`
 `
 
 type FeaturedProjectProps = {
+    className?: string,
     featuredProject: {
         link: string,
         cover: {
@@ -25,9 +26,9 @@ type FeaturedProjectProps = {
     url: string
 }
 
-const FeaturedProject = ({ featuredProject, url }: FeaturedProjectProps) => {
+const FeaturedProject = ({ className, featuredProject, url }: FeaturedProjectProps) => {
     return (
-        <FeaturedProjectWrapper>
+        <FeaturedProjectWrapper className={className}>
             <Subheading>Featured Project</Subheading>
             <a href={featuredProject.link}>
                 <Image className='image' alt='Image of featured project' src={`http://${url}${featuredProject.cover.url}`} width={featuredProject.cover.width} height={featuredProject.cover.height} priority />
