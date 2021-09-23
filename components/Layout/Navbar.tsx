@@ -32,7 +32,7 @@ const NavLinks = styled.ol<{ open: boolean }>`
         left: 0;
         z-index: 2;
         clip-path: circle(${props => props.open ? '200' : '0'}% at 100% 0);
-        /* display: ${props => !props.open && 'none'}; */
+        pointer-events: ${props => !props.open && 'none'};
         transition: clip-path 0.5s;
 
         li {
