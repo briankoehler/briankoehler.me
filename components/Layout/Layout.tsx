@@ -16,6 +16,7 @@ const ContentWrapper = styled.div`
 
     @media only screen and (max-width: 950px) {
         padding: 2em 0 1em;
+        gap: 3em;
     }
 `
 

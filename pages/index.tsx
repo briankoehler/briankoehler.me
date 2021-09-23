@@ -41,14 +41,14 @@ const IndexGrid = styled.div`
         'project project posts'
         'contact form form';
     grid-template-columns: 3fr 0.5fr 2fr;
-    gap: 5em;
+    gap: inherit;
 
     .greeting {
         grid-area: greeting;
     }
 
     .portrait {
-        grid-area: portrait
+        grid-area: portrait;
     }
 
     .featured-project {
@@ -70,7 +70,6 @@ const IndexGrid = styled.div`
     @media only screen and (max-width: 950px) {
         grid-template-areas: 'portrait' 'greeting' 'project' 'posts' 'contact' 'form';
         grid-template-columns: 1fr;
-        gap: 3em;
     }
 `
 
@@ -116,7 +115,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                 <LatestPosts className='latest-posts' posts={posts} />
 
                 {/* Contact form heading */}
-                <Heading className='socials' bigText='Wanna get in contact?' littleText={`Check out the links below, or fill out this form and I'll get back to you in a jiffy.`}>
+                <Heading className='socials' bigText='Wanna get in&nbsp;contact?' littleText={`Check out the links below, or fill out this form and I'll get back to you in a jiffy.`}>
                     <ContactList>
                         <li>
                             <ContactLink className='blue' href='mailto:briandkoehler@gmail.com'>
@@ -144,7 +143,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                         </li>
                     </ContactList>
                 </Heading>
-                
+
                 {/* Contact Form */}
                 <ContactForm />
             </IndexGrid>

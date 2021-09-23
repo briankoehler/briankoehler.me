@@ -9,7 +9,7 @@ const HeadingWrapper = styled.section`
 
 const BigHello = styled.h1`
     color: var(--font-primary);
-    font-size: 3rem;
+    font-size: clamp(2.25rem, 8vw, 3rem);
     font-weight: 600;
 `
 
