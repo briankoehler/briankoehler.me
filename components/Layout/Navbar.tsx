@@ -23,21 +23,25 @@ const NavLinks = styled.ol<{ open: boolean }>`
     @media only screen and (max-width: 950px) {
         background: white;
         grid-auto-flow: row;
-        place-content: center;
-        justify-items: center;
+        align-content: center;
         position: absolute;
+        padding: 0 1em;
         min-width: 100vw;
         min-height: 100vh;
         top: 0;
         left: 0;
         z-index: 2;
-        clip-path: circle(${props => props.open ? '100' : '0'}%);
-        display: ${props => !props.open && 'none'};
+        clip-path: circle(${props => props.open ? '200' : '0'}% at 100% 0);
+        pointer-events: ${props => !props.open && 'none'};
         transition: clip-path 0.5s;
+
+        li {
+            font-size: 3rem;
+        }
     }
 `
 
-const MenuToggle = styled.button<{open: boolean}>`
+const MenuToggle = styled.button<{ open: boolean }>`
     border: none;
     background: none;
     display: grid;
@@ -76,8 +80,10 @@ const MenuToggle = styled.button<{open: boolean}>`
 `
 
 const Navbar = () => {
+    /* States */
     const [open, toggleOpen] = useReducer((state) => state === true ? false : true, false)
 
+    /* Prevent scrolling when open */
     useEffect(() => {
         document.body.style.overflow = open ? 'hidden' : 'scroll'
     }, [open])
