@@ -31,6 +31,7 @@ const ProjectWrapper = styled.div<{ revert: boolean }>`
     @media only screen and (max-width: 950px) {
         grid-template-columns: 1fr;
         grid-template-areas: 'info' 'image';
+        gap: calc(var(--page-gap) / 2);
     }
 `
 
