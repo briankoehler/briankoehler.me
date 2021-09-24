@@ -5,7 +5,7 @@ import Heading from '@/components/Heading'
 import LatestPosts from '@/components/LatestPosts/LatestPosts'
 import Layout from '@/components/Layout/Layout'
 import { Post } from '@/components/types'
-import Portrait from '@/public/portrait.jpg'
+import Portrait from '@/public/portrait2.webp'
 import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -88,7 +88,7 @@ type Props = {
 
 const HomePage = ({ featuredProject, posts, url }: Props) => {
     return (
-        <Layout>
+        <Layout title='Brian Koehler' description='Portfolio of Brian Koehler.' url='https://briankoehler.me' >
             <IndexGrid>
                 {/* Greeting */}
                 <Heading className='greeting' bigText='I&apos;m Brian, software&nbsp;engineer.' littleText={
