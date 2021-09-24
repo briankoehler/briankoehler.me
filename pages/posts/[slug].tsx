@@ -28,7 +28,7 @@ type PostPageProps = {
 
 const PostPage = ({ post }: PostPageProps) => {
 	return (
-		<Layout>
+		<Layout title={`Brian Koehler - ${post.title}`} description={post.description} url={`https://briankoehler.me/posts/${post.slug}`} >
 			<Heading bigText={post.title} littleText={post.description} />
 			<Writing>
 				{ReactHtmlParser(marked(post.writing))}

@@ -4,7 +4,7 @@ import { InteractionButton } from '../Button'
 
 const ContactFormWrapper = styled.form`
 	display: grid;
-	gap: 1.5em;
+	gap: var(--medium-list-gap);
 	border: 1px solid var(--border-primary);
 	border-radius: 4px;
 	padding: var(--box-padding);
@@ -26,6 +26,7 @@ const InputField = styled.input`
 	border-radius: 4px;
 	font-size: var(--font-medium);
 	padding: 0.5em;
+    -webkit-appearance: none;
 	transition: border 0.2s;
 
 	:focus {
@@ -41,6 +42,7 @@ const TextAreaField = styled.textarea`
 	border-radius: 4px;
 	font-size: var(--font-medium);
 	padding: 0.5em;
+    -webkit-appearance: none;
 	transition: border 0.2s;
 
 	:focus {

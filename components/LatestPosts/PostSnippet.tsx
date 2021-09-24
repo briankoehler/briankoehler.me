@@ -5,12 +5,12 @@ import styled from 'styled-components'
 
 const PostSnippetWrapper = styled.a`
     display: grid;
-    gap: 0.5em;
+    gap: var(--small-subheading-gap);
     padding: var(--box-padding);
     border-radius: 4px;
     border: 1px solid var(--border-primary);
     cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
+    transition: box-shadow 0.2s;
 
     :hover {
         box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.05);

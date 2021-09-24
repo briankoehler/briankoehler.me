@@ -5,38 +5,72 @@ import Heading from '@/components/Heading'
 import LatestPosts from '@/components/LatestPosts/LatestPosts'
 import Layout from '@/components/Layout/Layout'
 import { Post } from '@/components/types'
-import Portrait from '@/public/portrait.jpg'
+import Portrait from '@/public/portrait4.webp'
 import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaRegPaperPlane } from 'react-icons/fa'
 import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si'
 import styled from 'styled-components'
-
-
-const SplitColumns = styled.div<{ cols?: string }>`
-    display: grid;
-    grid-template-columns: ${props => props.cols || '2fr 1fr'};
-    gap: 5em;
-
-    /* @media only screen and (max-width: 950px) {
-        grid-template-columns: 1fr;
-        grid-template-areas: none;
-        grid-template-areas: 'row-1' 'row-2';
-    } */
-`
+4
 
 const ContactList = styled.ul`
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: var(--medium-list-gap);
 `
 
 const ContactLink = styled.a`
     display: flex;
-    gap: 1em;
+    gap: var(--medium-list-gap);
     align-items: center;
     width: max-content;
+`
+
+const PortraitWrapper = styled.div`
+    @media only screen and (max-width: 950px) {
+        max-width: 60%;
+        justify-self: center;
+    }
+`
+
+const IndexGrid = styled.div`
+    display: grid;
+    grid-template-areas: 
+        'greeting greeting portrait'
+        'project project posts'
+        'contact form form';
+    grid-template-columns: 3fr 0.5fr 2fr;
+    gap: inherit;
+
+    .greeting {
+        grid-area: greeting;
+    }
+
+    .portrait {
+        grid-area: portrait;
+    }
+
+    .featured-project {
+        grid-area: project;
+    }
+
+    .latest-posts {
+        grid-area: posts;
+    }
+
+    .socials {
+        grid-area: contact;
+    }
+
+    form {
+        grid-area: form;
+    }
+
+    @media only screen and (max-width: 950px) {
+        grid-template-areas: 'portrait' 'greeting' 'project' 'posts' 'contact' 'form';
+        grid-template-columns: 1fr;
+    }
 `
 
 type Props = {
@@ -54,9 +88,10 @@ type Props = {
 
 const HomePage = ({ featuredProject, posts, url }: Props) => {
     return (
-        <Layout>
-            <SplitColumns>
-                <Heading bigText='I&apos;m Brian, software&nbsp;engineer.' littleText={
+        <Layout title='Brian Koehler' description='Portfolio of Brian Koehler.' url='https://briankoehler.me' >
+            <IndexGrid>
+                {/* Greeting */}
+                <Heading className='greeting' bigText='I&apos;m Brian, software&nbsp;engineer.' littleText={
                     [
                         `Welcome to my website! I'm a developer studying at the University of Florida with a strong interest in all things web development. `,
                         <a key='github' href='https://github.com/briankoehler/' className='blue'>Glance over my GitHub</a>,
@@ -67,18 +102,20 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                 }>
                     <LinkButton href='#contact'>Let's connect</LinkButton>
                 </Heading>
-                <div className='portrait'> {/* div was necessary b/c Vercel can't fix their Image component */}
+
+                {/* Cartoon portrait */}
+                <PortraitWrapper className='portrait'> {/* div was necessary b/c Vercel can't fix their Image component */}
                     <Image className='test' src={Portrait} alt='Cartoon portrait of me smiling!' priority />
-                </div>
-            </SplitColumns>
+                </PortraitWrapper>
 
-            <SplitColumns>
-                <FeaturedProject featuredProject={featuredProject} url={url} />
-                <LatestPosts posts={posts} />
-            </SplitColumns>
+                {/* Featured project */}
+                <FeaturedProject className='featured-project' featuredProject={featuredProject} url={url} />
 
-            <SplitColumns cols='1fr 1fr'>
-                <Heading bigText='Wanna get in contact?' littleText={`Check out the links below, or fill out this form and I'll get back to you in a jiffy.`}>
+                {/* Some latest posts */}
+                <LatestPosts className='latest-posts' posts={posts} />
+
+                {/* Contact form heading */}
+                <Heading className='socials' bigText='Wanna get in&nbsp;contact?' littleText={`Check out the links below, or fill out this form and I'll get back to you in a jiffy.`}>
                     <ContactList>
                         <li>
                             <ContactLink className='blue' href='mailto:briandkoehler@gmail.com'>
@@ -106,8 +143,10 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                         </li>
                     </ContactList>
                 </Heading>
+
+                {/* Contact Form */}
                 <ContactForm />
-            </SplitColumns>
+            </IndexGrid>
         </Layout>
     )
 }

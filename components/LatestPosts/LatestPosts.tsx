@@ -6,23 +6,24 @@ import styled from 'styled-components'
 
 const LatestPostsWrapper = styled.section`
     display: grid;
-    gap: 1.5em;
+    gap: var(--subheading-gap);
     grid-template-rows: max-content auto;
 `
 
 const PostsListWrapper = styled.div`
-    gap: 1.5em;
+    gap: var(--medium-list-gap);
     display: flex;
     flex-direction: column;
 `
 
 type LatestPostsProps = {
+    className?: string,
     posts: Post[]
 }
 
-const LatestPosts = ({ posts }: LatestPostsProps) => {
+const LatestPosts = ({ className, posts }: LatestPostsProps) => {
     return (
-        <LatestPostsWrapper>
+        <LatestPostsWrapper className={className}>
             <Subheading>Latest Posts</Subheading>
             <PostsListWrapper>
                 {

@@ -54,9 +54,9 @@ const Stack = styled.div`
     width: max-content;
 `
 
-const ProjectInfo = ({ name, description, stack, github, link }: Project) => {
+const ProjectInfo = ({ className, name, description, stack, github, link }: Project & { className: string }) => {
     return (
-        <ProjectInfoWrapper>
+        <ProjectInfoWrapper className={className}>
             <Header>
                 <ProjectTitle>{name}</ProjectTitle>
                 <div>
