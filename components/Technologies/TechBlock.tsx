@@ -10,8 +10,20 @@ const TechBlockWrapper = styled.figure`
 	border-radius: 4px;
 	padding: 0.5em;
 	width: 8em;
-	height: 7.5em;
+	aspect-ratio: calc(8 / 7.5);
 	margin: 0;
+
+	.tech-icon {
+		font-size: 4em;
+	}
+
+	@media only screen and (max-width: 950px) {
+		width: 6em;
+		
+		.tech-icon {
+			font-size: 3em;
+		}
+	}
 `
 
 type TechBlockProps = {
