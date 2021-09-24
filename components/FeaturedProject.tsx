@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const FeaturedProjectWrapper = styled.section`
     display: grid;
-    gap: 1.5em;
+    gap: var(--subheading-gap);
     grid-template-rows: max-content auto;
 
     a {

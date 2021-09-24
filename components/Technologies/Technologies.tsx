@@ -7,14 +7,14 @@ import styled from 'styled-components'
 
 const TechnologiesWrapper = styled.section`
 	display: grid;
-	gap: 1.5em;
+	gap: var(--subheading-gap);
 `
 
 const BlocksWrapper = styled.ul`
 	display: grid;
 	justify-content: space-between;
 	grid-template-columns: repeat(auto-fit, 8em);
-	gap: 1em;
+	gap: var(--medium-list-gap);
 	padding: 0;
 	margin: 0;
 
@@ -24,8 +24,8 @@ const BlocksWrapper = styled.ul`
 `
 
 interface TechData {
-    name: string,
-    icon: ReactNode
+	name: string,
+	icon: ReactNode
 }
 
 const data: TechData[] = [
@@ -44,7 +44,7 @@ const Technologies = () => {
 			<Subheading>Technologies</Subheading>
 			<BlocksWrapper>
 				{
-					data.map((tech: {name: string, icon: ReactNode}, index: number) => <li key={index}><TechBlock name={tech.name} icon={tech.icon} /></li>)
+					data.map((tech: { name: string, icon: ReactNode }, index: number) => <li key={index}><TechBlock name={tech.name} icon={tech.icon} /></li>)
 				}
 			</BlocksWrapper>
 		</TechnologiesWrapper>

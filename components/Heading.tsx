@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const HeadingWrapper = styled.section`
     display: grid;
-    gap: 1.5em;
+    gap: var(--subheading-gap);
     align-content: center;
 `
 

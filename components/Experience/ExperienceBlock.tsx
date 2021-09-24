@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const ExperienceBlockWrapper = styled.div`
     display: grid;
-    gap: 1em;
+    gap: var(--medium-list-gap);
     padding: var(--box-padding);
     border: 1px solid var(--border-primary);
     border-radius: 4px;
@@ -19,7 +19,7 @@ const Header = styled.div`
 
 const ResponsibilitiesWrapper = styled.div`
     display: grid;
-    gap: 0.5em;
+    gap: calc(var(--medium-list-gap) / 2);
     color: var(--font-secondary);
     line-height: 150%;
 `
@@ -29,9 +29,9 @@ const Period = styled.p`
     font-size: var(--font-small);
 `
 
-const ExperienceBlock = ({ company, position, period, url, responsibilities }: Experience) => {
+const ExperienceBlock = ({ className, company, position, period, url, responsibilities }: Experience & { className: string }) => {
     return (
-        <ExperienceBlockWrapper>
+        <ExperienceBlockWrapper className={className}>
             <Header>
                 <p>{position} <a className='blue' href={url}>@{company}</a></p>
                 <Period>{period}</Period>
