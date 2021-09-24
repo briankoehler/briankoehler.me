@@ -5,14 +5,14 @@ import Heading from '@/components/Heading'
 import LatestPosts from '@/components/LatestPosts/LatestPosts'
 import Layout from '@/components/Layout/Layout'
 import { Post } from '@/components/types'
-import Portrait from '@/public/portrait.webp'
+import Portrait from '@/public/portrait4.webp'
 import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaRegPaperPlane } from 'react-icons/fa'
 import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si'
 import styled from 'styled-components'
-
+4
 
 const ContactList = styled.ul`
     display: flex;
