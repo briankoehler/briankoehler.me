@@ -42,6 +42,10 @@ html, body {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
     background: hsl(0, 0%, 100%);
     color: var(--font-primary);
+
+    @media only screen and (max-width: 950px) {
+        scrollbar-width: none;
+    }
 }
 
 body {
