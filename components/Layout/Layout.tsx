@@ -8,16 +8,16 @@ import Footer from './Footer'
 const ContentWrapper = styled.div`
     padding: 3em 0 1em;
     display: grid;
-    gap: 5em;
+    gap: var(--page-gap);
 
     main {
         display: grid;
-        gap: 5em;
+        gap: inherit;
     }
 
     @media only screen and (max-width: 950px) {
         padding: 2em 0 1em;
-        gap: 3em;
+        gap: calc(var(--page-gap) * (3 / 5));
     }
 `
 

@@ -14,11 +14,17 @@ Root Properties
     --font-large: 1.125rem;
     --font-medium: 1rem;
     --font-small: 0.75rem;
+    
+    /* Gaps */
+    --page-gap: 5em;
+    --medium-list-gap: 1em;
+    --subheading-gap: 1.5em;
+    --small-subheading-gap: 0.5em;
+    
 
     /* Misc */
     --border-primary: hsl(0, 0%, 91%);
     --box-padding: 1em;
-
 }
 
 /*

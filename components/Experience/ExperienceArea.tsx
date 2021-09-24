@@ -8,20 +8,27 @@ import styled from 'styled-components'
 
 const ExperiencesWrapper = styled.section`
 	display: grid;
-	gap: 1.5em;
+	gap: var(--subheading-gap);
 `
 
 const InfoWrapper = styled.div`
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 9fr 16fr;
-    gap: 8em;
+    grid-template-columns: 9fr 3fr 18fr;
+
+    .positions-wrapper {
+        grid-column: 1;
+    }
+
+    .experience-block {
+        grid-column: 3;
+    }
 `
 
 const PositionsWrapper = styled.div<{ height: string, top: string }>`
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: var(--medium-list-gap);
     position: relative;
 
     ::before {
@@ -48,12 +55,12 @@ const ExperienceArea = ({ experiences }: ExperienceAreaProps) => {
         <ExperiencesWrapper>
             <Subheading>Experience</Subheading>
             <InfoWrapper>
-                <PositionsWrapper height={`calc((100% - ${(experiences.length - 1) * 0.5}em) / ${experiences.length})`} top={`calc((((100% - ${(experiences.length - 1) * 0.5}em) / ${experiences.length}) + 0.5em) * ${activeBlock})`}>
+                <PositionsWrapper className='positions-wrapper' height={`calc((100% - ${(experiences.length - 1)} * var(--medium-list-gap)) / ${experiences.length})`} top={`calc((((100% - ${(experiences.length - 1)} * var(--medium-list-gap)) / ${experiences.length}) + var(--medium-list-gap)) * ${activeBlock})`}>
                     {
                         experiences.map((experience: Experience, index: number) => <PositionBlock key={index} company={experience.company} current={index === activeBlock} onClick={() => setActiveBlock(index)}>{experience.position}</PositionBlock>)
                     }
                 </PositionsWrapper>
-                <ExperienceBlock {...experiences[activeBlock]} />
+                <ExperienceBlock className='experience-block' {...experiences[activeBlock]} />
             </InfoWrapper>
         </ExperiencesWrapper>
     )

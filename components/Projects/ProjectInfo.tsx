@@ -56,7 +56,7 @@ const Stack = styled.div`
 
 const ProjectInfo = ({ className, name, description, stack, github, link }: Project & { className: string }) => {
     return (
-        <ProjectInfoWrapper>
+        <ProjectInfoWrapper className={className}>
             <Header>
                 <ProjectTitle>{name}</ProjectTitle>
                 <div>

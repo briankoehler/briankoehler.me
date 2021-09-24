@@ -4,7 +4,7 @@ import { InteractionButton } from '../Button'
 
 const ContactFormWrapper = styled.form`
 	display: grid;
-	gap: 1.5em;
+	gap: var(--medium-list-gap);
 	border: 1px solid var(--border-primary);
 	border-radius: 4px;
 	padding: var(--box-padding);

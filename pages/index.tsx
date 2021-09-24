@@ -17,12 +17,12 @@ import styled from 'styled-components'
 const ContactList = styled.ul`
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: var(--medium-list-gap);
 `
 
 const ContactLink = styled.a`
     display: flex;
-    gap: 1em;
+    gap: var(--medium-list-gap);
     align-items: center;
     width: max-content;
 `

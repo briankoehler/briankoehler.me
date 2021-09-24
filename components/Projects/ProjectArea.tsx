@@ -6,14 +6,15 @@ import styled from 'styled-components'
 
 const ProjectsAreaWrapper = styled.div`
     display: grid;
-    gap: 4em;
+    gap: var(--page-gap);
 `
 
 const ProjectWrapper = styled.div<{ revert: boolean }>`
     display: grid;
-    gap: 4em;
+    gap: var(--page-gap);
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ${props => props.revert ? `'image image image info info'` : `'info info image image image'`};
 
     span {
         filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
@@ -21,29 +22,15 @@ const ProjectWrapper = styled.div<{ revert: boolean }>`
 
     .project-image {
         grid-area: image;
-        grid-column: ${props => props.revert ? '1 / span 2' : '2 / span 2'};
-        grid-row: 1;
     }
 
     .project-info {
-        grid-area: desc;
-        grid-column: ${props => props.revert ? '2' : '1'};
-        grid-row: 1;
+        grid-area: info;
     }
 
     @media only screen and (max-width: 950px) {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-
-        .project-image {
-            grid-row: 2;
-            grid-column: 1;
-        }
-
-        .project-info {
-            grid-row: 1;
-            grid-column: 1;
-        }
+        grid-template-areas: 'info' 'image';
     }
 `
 
