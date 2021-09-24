@@ -13,7 +13,7 @@ const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
     font-size: var(--font-medium);
     font-family: 'Rubik';
     font-size: var(--font-large);
-    transition: background 0.2s, box-shadow 0.2s;
+    transition: box-shadow 0.2s;
 
     :hover {
         box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.05);
@@ -23,6 +23,21 @@ const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
         color: var(--font-secondary);
         font-size: var(--font-small);
         white-space: nowrap;
+    }
+
+    @media only screen and (max-width: 950px) {
+        font-size: var(--font-medium);
+        width: 100%;
+        padding: 1em 0.25em;
+
+        p:nth-child(1) {
+            display: none;
+        }
+
+        .company {
+            font-size: 0.7rem;
+            color: var(--font-primary);
+        }
     }
 `
 

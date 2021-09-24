@@ -15,6 +15,7 @@ const Header = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: var(--font-large);
+    gap: 1em;
 `
 
 const ResponsibilitiesWrapper = styled.div`
