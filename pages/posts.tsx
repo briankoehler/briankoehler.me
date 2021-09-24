@@ -11,7 +11,7 @@ type PostsPageProps = {
 
 const PostsPage = ({ posts }: PostsPageProps) => {
 	return (
-		<Layout>
+		<Layout title='Brian Koehler - Posts' description='Posts by Brian Koehler.' url='https://briankoehler.me/posts' >
 			<Heading bigText='Brain of Brian.' littleText='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere dui dui, vel laoreet urna sagittis ut. Donec laoreet, sapien non aliquet semper, quam purus interdum diam, id iaculis justo magna eget augue. Aenean volutpat lorem at ante blandit volutpat. Nam molestie ultrices libero, non consequat lacus suscipit eu.' />
 			<PostsList posts={posts} />
 		</Layout>

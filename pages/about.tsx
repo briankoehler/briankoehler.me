@@ -12,7 +12,7 @@ type AboutPageProps = {
 
 const AboutPage = ({ experiences }: AboutPageProps) => {
 	return (
-		<Layout>
+		<Layout title='Brian Koehler - About' description='FAQ about Brian Koehler.' url='https://briankoehler.me/about' >
 			<Heading bigText='Get to know me.' littleText='The one-stop shop to find anything about me from my experience, to my favorite technologies, and even what I enjoy doing.' />
 			<Technologies />
 			<ExperienceArea experiences={experiences} />

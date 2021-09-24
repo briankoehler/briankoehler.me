@@ -12,7 +12,7 @@ type ProjectsPageProps = {
 
 const ProjectsPage = ({ projects, url }: ProjectsPageProps) => {
     return (
-        <Layout>
+        <Layout title='Brian Koehler - Projects' description='Projects of Brian Koehler.' url='https://briankoehler.me/projects' >
             <Heading bigText='Check out my work.' littleText='A collection of my favorite projects I’ve contributed to or hacked at solo. Each project also has a list of technologies that I learned a lot about.' />
             <ProjectArea projects={projects} url={url} />
         </Layout>
