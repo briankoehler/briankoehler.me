@@ -21,6 +21,10 @@ const BlocksWrapper = styled.ul`
 	li {
 		list-style: none;
 	}
+
+	@media only screen and (max-width: 950px) {
+		grid-template-columns: repeat(auto-fit, 6em);
+	}
 `
 
 interface TechData {
@@ -29,13 +33,13 @@ interface TechData {
 }
 
 const data: TechData[] = [
-	{ name: 'JavaScript', icon: <SiJavascript size='4em' /> },
-	{ name: 'Python', icon: <SiPython size='4em' /> },
-	{ name: 'ReactJS', icon: <SiReact size='4em' /> },
-	{ name: 'Next.js', icon: <SiNextDotJs size='4em' /> },
-	{ name: 'Git(Hub)', icon: <SiGithub size='4em' /> },
-	{ name: 'HTML', icon: <SiHtml5 size='4em' /> },
-	{ name: 'CSS', icon: <SiCss3 size='4em' /> },
+	{ name: 'JavaScript', icon: <SiJavascript className='tech-icon' /> },
+	{ name: 'Python', icon: <SiPython className='tech-icon' /> },
+	{ name: 'ReactJS', icon: <SiReact className='tech-icon' /> },
+	{ name: 'Next.js', icon: <SiNextDotJs className='tech-icon' /> },
+	{ name: 'Git(Hub)', icon: <SiGithub className='tech-icon' /> },
+	{ name: 'HTML', icon: <SiHtml5 className='tech-icon' /> },
+	{ name: 'CSS', icon: <SiCss3 className='tech-icon' /> },
 ]
 
 const Technologies = () => {
