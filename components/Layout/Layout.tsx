@@ -1,9 +1,9 @@
+import Footer from '@/components/Layout/Footer'
 import Navbar from '@/components/Layout/Navbar'
 import Head from 'next/head'
 import React, { ReactNode, useEffect, useState } from 'react'
 import { FaLongArrowAltUp } from 'react-icons/fa'
 import styled from 'styled-components'
-import Footer from './Footer'
 
 
 const ContentWrapper = styled.div`

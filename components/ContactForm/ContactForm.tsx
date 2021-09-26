@@ -1,5 +1,5 @@
+import { InteractionButton } from '@/components/Button'
 import styled from 'styled-components'
-import { InteractionButton } from '../Button'
 
 
 const ContactFormWrapper = styled.form`
