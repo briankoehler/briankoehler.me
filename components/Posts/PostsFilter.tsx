@@ -12,11 +12,6 @@ const PostsFilterWrapper = styled.div`
 	grid-template-rows: min-content min-content min-content;
 `
 
-const FilterInput = styled.input`
-	outline: none;
-	width: 50%;
-`
-
 const SelectTagsWrapper = styled.div`
 	display: flex;
 	gap: 0.5em;
@@ -25,19 +20,18 @@ const SelectTagsWrapper = styled.div`
 
 const TagButton = styled.button<{ selected: boolean }>`
 	outline: none;
-	border: ${props => props.selected ? '1px solid transparent' : '1px solid var(--border-primary)'};
+	border: ${props => props.selected ? '1px solid var(--font-accent)' : '1px solid var(--border-primary)'};
 	border-radius: 4px;
-	background: ${props => props.selected ? 'var(--font-primary)' : 'none'};
-	color: ${props => props.selected ? 'white' : 'var(--font-secondary)'};
+	background: none;
+	color: ${props => props.selected ? 'var(--font-accent)' : 'var(--font-secondary)'};
 	padding: 0.25em;
 	max-width: max-content;
 	cursor: pointer;
-	transition: all 0.2s;
+	transition: all 0.2s ease-in-out;
 
 	:hover {
-		background: var(--font-primary);
-		color: white;
-		border: 1px solid transparent;
+		border: 1px solid var(--font-accent);
+		color: var(--font-accent);
 	}
 `
 

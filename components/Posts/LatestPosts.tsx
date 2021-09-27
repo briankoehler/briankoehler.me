@@ -65,6 +65,9 @@ const LatestPosts = ({ className, posts }: LatestPostsProps) => {
 
             <PostsListWrapper>
                 {
+                    visiblePosts.length == 0 && <p>😲 The archives are empty!</p>
+                }
+                {
                     visiblePosts.map((post: Post, index: number) => <PostSnippet key={index} post={post} />)
                 }
             </PostsListWrapper>
