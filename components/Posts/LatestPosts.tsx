@@ -25,30 +25,39 @@ type LatestPostsProps = {
 
 const LatestPosts = ({ className, posts }: LatestPostsProps) => {
     /* Filter Context */
-    const { filter, selectedTags } = useContext(PostsFilterContext)
+    const { query, selectedTags } = useContext(PostsFilterContext)
 
     /* Visible Posts */
     const [visiblePosts, setVisiblePosts] = useState<Post[]>(posts)
 
     useEffect(() => {
-        if (!selectedTags) {
+        /* If no filtering possible (like on index page) */
+        if (!selectedTags && !query) {
             setVisiblePosts(posts)
             return
         }
 
-        if (selectedTags.length === 0) {
-            setVisiblePosts(posts)
-            return
+        let filteredPosts: Post[] = posts
+        if (query) {
+            filteredPosts = filteredPosts.filter((post: Post) => {
+                /* Convert cases */
+                const lowercaseQuery = query.toLowerCase()
+                const lowercaseTitle = post.title.toLowerCase()
+
+                /* Determine if tag names includes query */
+                const queryTag = (tag: Tag) => tag.name.toLowerCase().includes(lowercaseQuery)
+
+                /* Now actually filter */
+                return lowercaseTitle.includes(lowercaseQuery) || post.tags.some(queryTag)
+            })
+        }
+        if (selectedTags.length > 0) {
+            filteredPosts = filteredPosts.filter((post: Post) => post.tags.some((tag: Tag) => selectedTags.some((selectedTag: Tag) => tag.id === selectedTag.id)))
         }
 
-        const test: Post[] = []
-        posts.forEach((post: Post) => {
-            if (post.tags.some((tag: Tag) => selectedTags.some(selectedTag => selectedTag.id === tag.id))) {
-                test.push(post)
-            }
-        })
-        setVisiblePosts(test)
-    }, [selectedTags])
+        /* Change what's visible to user! */
+        setVisiblePosts(filteredPosts)
+    }, [selectedTags, query])
 
     return (
         <LatestPostsWrapper className={className}>

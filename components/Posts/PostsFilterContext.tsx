@@ -3,8 +3,8 @@ import { createContext, Dispatch, ReactNode, useReducer, useState } from 'react'
 
 
 type PostsFilterContextType = {
-	filter: string,
-	setFilter: (filter: string) => void,
+	query: string,
+	setQuery: (filter: string) => void,
 	selectedTags: Tag[],
 	toggleTag: Dispatch<Tag>
 }
@@ -17,7 +17,7 @@ type PostsFilterProviderProps = {
 
 export const PostsFilterProvider = ({ children }: PostsFilterProviderProps) => {
 	/* States */
-	const [filter, setFilter] = useState<string>('')
+	const [query, setQuery] = useState<string>('')
 	const [selectedTags, toggleTag] = useReducer((state: Tag[], tag: Tag) => {
 		if (state.includes(tag)) {
 			return state.filter(t => t !== tag)
@@ -26,7 +26,7 @@ export const PostsFilterProvider = ({ children }: PostsFilterProviderProps) => {
 	}, [])
 
 	return (
-		<PostsFilterContext.Provider value={{ filter, setFilter, selectedTags, toggleTag }}>
+		<PostsFilterContext.Provider value={{ query, setQuery, selectedTags, toggleTag }}>
 			{children}
 		</PostsFilterContext.Provider>
 	)

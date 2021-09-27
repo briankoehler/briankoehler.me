@@ -1,3 +1,5 @@
+import InputField from '@/components/Input'
+import Subheading from '@/components/Subheading'
 import { Tag } from '@/components/types'
 import { useContext } from 'react'
 import styled from 'styled-components'
@@ -5,12 +7,19 @@ import { PostsFilterContext } from './PostsFilterContext'
 
 
 const PostsFilterWrapper = styled.div`
+	display: grid;
+	gap: 1em;
+	grid-template-rows: min-content min-content min-content;
+`
 
+const FilterInput = styled.input`
+	outline: none;
+	width: 50%;
 `
 
 const SelectTagsWrapper = styled.div`
 	display: flex;
-	gap: var(--medium-list-gap);
+	gap: 0.5em;
 	flex-wrap: wrap;
 `
 
@@ -24,6 +33,12 @@ const TagButton = styled.button<{ selected: boolean }>`
 	max-width: max-content;
 	cursor: pointer;
 	transition: all 0.2s;
+
+	:hover {
+		background: var(--font-primary);
+		color: white;
+		border: 1px solid transparent;
+	}
 `
 
 type PostsFilterProps = {
@@ -33,15 +48,16 @@ type PostsFilterProps = {
 
 const PostsFilter = ({ className, tags }: PostsFilterProps) => {
 	/* Filter Context */
-	const { filter, setFilter, selectedTags, toggleTag } = useContext(PostsFilterContext)
+	const { query, setQuery, selectedTags, toggleTag } = useContext(PostsFilterContext)
 
 	return (
 		<PostsFilterWrapper className={className}>
-			<input value={filter} onChange={(e) => setFilter(e.target.value)} />
+			<Subheading>Filter</Subheading>
+			<InputField value={query} onChange={(e) => setQuery(e.target.value)} />
 
 			<SelectTagsWrapper>
 				{
-					tags.map((tag: Tag, index: number) => <TagButton key={index} onClick={() => toggleTag(tag)} selected={selectedTags.includes(tag)}>#{tag.name}</TagButton>)
+					tags.sort((a: Tag, b: Tag) => a.name.localeCompare(b.name)).map((tag: Tag, index: number) => <TagButton key={index} onClick={() => toggleTag(tag)} selected={selectedTags.includes(tag)}>#{tag.name}</TagButton>)
 				}
 			</SelectTagsWrapper>
 		</PostsFilterWrapper>
