@@ -48,7 +48,7 @@ const ProjectArea = ({ projects, url }: ProjectAreaProps) => {
                     return (
                         <ProjectWrapper revert={index % 2 === 0} key={index}>
                             <span className='project-image'>
-                                <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.url}`} width={project.image.width} height={project.image.height} priority />
+                                <Image className='image' alt={`Image of ${project.name}`} src={`http://${url}${project.image.url}`} placeholder='blur' blurDataURL='/projectplaceholder.png' width={project.image.width} height={project.image.height} priority />
                             </span>
                             <ProjectInfo className='project-info' {...project} />
                         </ProjectWrapper>
