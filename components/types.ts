@@ -6,10 +6,16 @@ export interface Post {
     date: string,
     writing: string,
     slug: string,
+    tags: Tag[]
     // writing: string,
     // published_at: string,
     // created_at: string,
     // updated_at: string
+}
+
+export interface Tag {
+    id: number,
+    name: string
 }
 
 export interface Responsibility {

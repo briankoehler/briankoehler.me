@@ -1,9 +1,9 @@
+import DynamicIcon from '@/components/DynamicIcon'
 import { Project } from '@/components/types'
 import React from 'react'
 import { FiExternalLink } from 'react-icons/fi'
 import { SiGithub } from 'react-icons/si'
 import styled from 'styled-components'
-import DynamicIcon from '../DynamicIcon'
 
 
 const ProjectInfoWrapper = styled.div`

@@ -1,4 +1,4 @@
-import { Post } from '@/components/types'
+import { Post, Tag } from '@/components/types'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -44,6 +44,21 @@ const PostSnippetDate = styled.p`
     font-size: var(--font-small);
 `
 
+const TagsWrapper = styled.div`
+    display: flex;
+    gap: var(--medium-list-gap);
+    padding: 0;
+`
+
+const TagLabel = styled.p`
+    color: var(--font-secondary);
+    border-radius: 4px;
+    padding: 0.5em;
+    font-size: var(--font-small);
+    padding-left: 0;
+    padding-right: 0;
+`
+
 type PostSnippetProps = {
     post: Post
 }
@@ -56,7 +71,14 @@ const PostSnippet = ({ post }: PostSnippetProps) => {
                     <PostSnippetTitle>{post.title}</PostSnippetTitle>
                     <PostSnippetDate>{post.date}</PostSnippetDate>
                 </PostSnippetHead>
+
                 <PostSnippetDescription>{post.description}</PostSnippetDescription>
+
+                <TagsWrapper>
+                    {
+                        post.tags.map((tag: Tag, index: number) => <TagLabel key={index}>#{tag.name}</TagLabel>)
+                    }
+                </TagsWrapper>
             </PostSnippetWrapper>
         </Link>
     )
