@@ -29,10 +29,13 @@ const TextAreaField = styled.textarea`
 	font-size: var(--font-medium);
 	padding: 0.5em;
     -webkit-appearance: none;
-	transition: border 0.2s;
 
-	:focus {
-		border: 1px solid var(--font-secondary);
+	:focus, :active {
+		padding-bottom: calc(0.5em - 0.5px);
+		padding-top: calc(0.5em - 0.5px);
+		border-bottom: 2px solid var(--font-accent);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 `
 

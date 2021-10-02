@@ -27,7 +27,7 @@ const TagButton = styled.button<{ selected: boolean }>`
 	padding: 0.25em;
 	max-width: max-content;
 	cursor: pointer;
-	transition: all 0.2s ease-in-out;
+	transition: all 0.05s ease-in-out;
 
 	:hover {
 		border: 1px solid var(--font-accent);

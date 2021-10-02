@@ -12,7 +12,7 @@ import Link from 'next/link'
 import { FaRegPaperPlane } from 'react-icons/fa'
 import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si'
 import styled from 'styled-components'
-4
+
 
 const ContactList = styled.ul`
     display: flex;
