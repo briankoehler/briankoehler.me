@@ -8,16 +8,48 @@ import styled from 'styled-components'
 
 const Writing = styled(ReactMarkdown)`
 	font-size: var(--font-large);
+	font-size: 1.25rem;
 	line-height: 175%;
-	max-width: 75%;
+	/* max-width: 80%; */
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
 
 	a {
 		color: hsl(202, 100%, 50%);
-		font-weight: 500;
+
+		:not(h2 a) {
+			font-weight: 500;
+		}
 
 		&:hover {
 			color: hsl(202, 100%, 44%);
 		}
+	}
+
+	* + h2 {
+		margin-top: 1em;
+	}
+
+	ul {
+		padding-left: 3em;
+		display: flex;
+		flex-direction: column;
+		gap: var(--medium-list-gap);
+	}
+
+	ul li {
+		list-style: square;
+	}
+
+	code {
+		font-family: 'Consolas';
+		color: orange;
+		font-weight: 600;
+	}
+
+	li p {
+		display: inline;
 	}
 `
 
@@ -29,7 +61,7 @@ const PostPage = ({ post }: PostPageProps) => {
 	return (
 		<Layout title={`Brian Koehler - ${post.title}`} description={post.description} url={`https://briankoehler.me/posts/${post.slug}`} >
 			<Heading bigText={post.title} littleText={post.description} />
-			<Writing children={post.writing} />
+			<Writing children={post.writing} components={{ h1: 'h2' }} />
 		</Layout>
 	)
 }
