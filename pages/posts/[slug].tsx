@@ -61,7 +61,7 @@ const PostPage = ({ post }: PostPageProps) => {
 	return (
 		<Layout title={`Brian Koehler - ${post.title}`} description={post.description} url={`https://briankoehler.me/posts/${post.slug}`} >
 			<Heading bigText={post.title} littleText={post.description} />
-			<Writing children={post.writing} components={{ h1: 'h2' }} />
+			<Writing components={{ h1: 'h2' }}>{post.writing}</Writing>
 		</Layout>
 	)
 }
