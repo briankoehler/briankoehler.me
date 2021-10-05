@@ -64,12 +64,18 @@ type PostSnippetProps = {
 }
 
 const PostSnippet = ({ post }: PostSnippetProps) => {
+
+    /* Get current date as yyyy-mm-dd */
+    const today: Date = new Date()
+    const todayString: String = today.toISOString().split('T')[0]
+    const yesterdayString: String = new Date(today.setDate(today.getDate() - 1)).toISOString().split('T')[0]
+
     return (
         <Link href={`/posts/${post.slug}`} passHref>
             <PostSnippetWrapper>
                 <PostSnippetHead>
                     <PostSnippetTitle>{post.title}</PostSnippetTitle>
-                    <PostSnippetDate>{post.date}</PostSnippetDate>
+                    <PostSnippetDate>{post.date === todayString || post.date === yesterdayString ? post.date === todayString ? 'Today' : yesterdayString : post.date}</PostSnippetDate>
                 </PostSnippetHead>
 
                 <PostSnippetDescription>{post.description}</PostSnippetDescription>
