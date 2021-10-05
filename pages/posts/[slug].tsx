@@ -1,13 +1,12 @@
 import Heading from '@/components/Heading'
 import Layout from '@/components/Layout/Layout'
 import { Post } from '@/components/types'
-import marked from 'marked'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import ReactHtmlParser from 'react-html-parser'
+import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 
 
-const Writing = styled.p`
+const Writing = styled(ReactMarkdown)`
 	font-size: var(--font-large);
 	line-height: 175%;
 	max-width: 75%;
@@ -30,9 +29,7 @@ const PostPage = ({ post }: PostPageProps) => {
 	return (
 		<Layout title={`Brian Koehler - ${post.title}`} description={post.description} url={`https://briankoehler.me/posts/${post.slug}`} >
 			<Heading bigText={post.title} littleText={post.description} />
-			<Writing>
-				{ReactHtmlParser(marked(post.writing))}
-			</Writing>
+			<Writing children={post.writing} />
 		</Layout>
 	)
 }
