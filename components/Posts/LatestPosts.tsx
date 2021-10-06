@@ -2,6 +2,7 @@ import { PostsFilterContext } from '@/components/Posts/PostsFilterContext'
 import PostSnippet from '@/components/Posts/PostSnippet'
 import Subheading from '@/components/Subheading'
 import { Post, Tag } from '@/components/types'
+import ViewMore from '@/components/ViewMore'
 import { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 
@@ -18,12 +19,19 @@ const PostsListWrapper = styled.div`
     flex-direction: column;
 `
 
+const LatestPostsHeading = styled.div`
+    display: flex;
+    gap: 1em;
+    align-items: center;
+`
+
 type LatestPostsProps = {
     className?: string,
+    mini?: boolean
     posts: Post[]
 }
 
-const LatestPosts = ({ className, posts }: LatestPostsProps) => {
+const LatestPosts = ({ className, posts, mini }: LatestPostsProps) => {
     /* Filter Context */
     const { query, selectedTags } = useContext(PostsFilterContext)
 
@@ -61,7 +69,10 @@ const LatestPosts = ({ className, posts }: LatestPostsProps) => {
 
     return (
         <LatestPostsWrapper className={className}>
-            <Subheading>Latest Posts</Subheading>
+            <LatestPostsHeading>
+                <Subheading>Latest Posts</Subheading>
+                {mini && <ViewMore href='/posts' />}
+            </LatestPostsHeading>
 
             <PostsListWrapper>
                 {
