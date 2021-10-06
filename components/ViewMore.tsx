@@ -27,7 +27,7 @@ type ViewMoreProps = {
 
 const ViewMore = ({ className, href }: ViewMoreProps) => {
 	return (
-		<Link href={href}>
+		<Link href={href} passHref>
 			<ViewMoreWrapper className={className}>
 				<p>View More</p>
 				<div>
