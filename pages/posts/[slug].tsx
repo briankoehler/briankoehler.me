@@ -43,9 +43,9 @@ const Writing = styled(ReactMarkdown)`
 	}
 
 	code {
-		font-family: 'Consolas';
+		font-family: 'Fira Code';
 		color: orange;
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	li p {

@@ -1,5 +1,6 @@
 import { Post, Tag } from '@/components/types'
 import Link from 'next/link'
+import readingTime from 'reading-time'
 import styled from 'styled-components'
 
 
@@ -46,15 +47,15 @@ const PostSnippetDate = styled.p`
 
 const TagsWrapper = styled.div`
     display: flex;
+    align-items: center;
     gap: var(--medium-list-gap);
     padding: 0;
+    color: var(--font-secondary);
+    font-size: var(--font-small);
 `
 
 const TagLabel = styled.p`
-    color: var(--font-secondary);
-    border-radius: 4px;
     padding: 0.5em;
-    font-size: var(--font-small);
     padding-left: 0;
     padding-right: 0;
 `
@@ -66,21 +67,23 @@ type PostSnippetProps = {
 const PostSnippet = ({ post }: PostSnippetProps) => {
 
     /* Get current date as yyyy-mm-dd */
-    const today: Date = new Date()
-    const todayString: String = today.toISOString().split('T')[0]
-    const yesterdayString: String = new Date(today.setDate(today.getDate() - 1)).toISOString().split('T')[0]
+    const offset: number = new Date().getTimezoneOffset()
+    const todayString: string = new Date(Date.now() - offset * 60000).toISOString().split('T')[0]
+    const yesterdayString: string = new Date(Date.now() - 1 * 86400000 - offset * 60000).toISOString().split('T')[0]
 
     return (
         <Link href={`/posts/${post.slug}`} passHref>
             <PostSnippetWrapper>
                 <PostSnippetHead>
                     <PostSnippetTitle>{post.title}</PostSnippetTitle>
-                    <PostSnippetDate>{post.date === todayString || post.date === yesterdayString ? post.date === todayString ? 'Today' : yesterdayString : post.date}</PostSnippetDate>
+                    <PostSnippetDate>{post.date === todayString || post.date === yesterdayString ? post.date === todayString ? 'Today' : 'Yesterday' : post.date}</PostSnippetDate>
                 </PostSnippetHead>
 
                 <PostSnippetDescription>{post.description}</PostSnippetDescription>
 
                 <TagsWrapper>
+                    <p>{readingTime(post.writing).text}</p>
+                    &middot;
                     {
                         post.tags.map((tag: Tag, index: number) => <TagLabel key={index}>#{tag.name}</TagLabel>)
                     }
