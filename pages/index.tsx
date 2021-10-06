@@ -112,7 +112,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                 <FeaturedProject className='featured-project' featuredProject={featuredProject} url={url} />
 
                 {/* Some latest posts */}
-                <LatestPosts className='latest-posts' posts={posts} />
+                <LatestPosts className='latest-posts' posts={posts} mini />
 
                 {/* Contact form heading */}
                 <Heading className='socials' bigText='Wanna get in&nbsp;contact?' littleText={`Check out the links below, or fill out this form and I'll get back to you in a jiffy.`}>
