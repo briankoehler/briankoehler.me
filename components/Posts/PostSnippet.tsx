@@ -61,10 +61,11 @@ const TagLabel = styled.p`
 `
 
 type PostSnippetProps = {
-    post: Post
+    post: Post,
+    mini?: boolean
 }
 
-const PostSnippet = ({ post }: PostSnippetProps) => {
+const PostSnippet = ({ post, mini }: PostSnippetProps) => {
 
     /* Get current date as yyyy-mm-dd */
     const offset: number = new Date().getTimezoneOffset()
@@ -79,7 +80,7 @@ const PostSnippet = ({ post }: PostSnippetProps) => {
                     <PostSnippetDate>{post.date === todayString || post.date === yesterdayString ? post.date === todayString ? 'Today' : 'Yesterday' : post.date}</PostSnippetDate>
                 </PostSnippetHead>
 
-                <PostSnippetDescription>{post.description}</PostSnippetDescription>
+                {!mini && <PostSnippetDescription>{post.description}</PostSnippetDescription>}
 
                 <TagsWrapper>
                     <p>{readingTime(post.writing).text}</p>
