@@ -51,12 +51,13 @@ const LatestPosts = ({ className, posts, mini }: LatestPostsProps) => {
                 /* Convert cases */
                 const lowercaseQuery = query.toLowerCase()
                 const lowercaseTitle = post.title.toLowerCase()
+                const lowercaseDescription = post.description.toLowerCase()
 
                 /* Determine if tag names includes query */
                 const queryTag = (tag: Tag) => tag.name.toLowerCase().includes(lowercaseQuery)
 
                 /* Now actually filter */
-                return lowercaseTitle.includes(lowercaseQuery) || post.tags.some(queryTag)
+                return lowercaseTitle.includes(lowercaseQuery) || post.tags.some(queryTag) || lowercaseDescription.includes(lowercaseQuery)
             })
         }
         if (selectedTags.length > 0) {
@@ -79,7 +80,7 @@ const LatestPosts = ({ className, posts, mini }: LatestPostsProps) => {
                     visiblePosts.length == 0 && <p>😲 The archives are empty!</p>
                 }
                 {
-                    visiblePosts.map((post: Post, index: number) => <PostSnippet key={index} post={post} />)
+                    visiblePosts.map((post: Post, index: number) => <PostSnippet key={index} post={post} mini={mini} />)
                 }
             </PostsListWrapper>
         </LatestPostsWrapper>

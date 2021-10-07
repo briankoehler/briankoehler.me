@@ -9,7 +9,7 @@ Root Properties
     --font-primary: hsl(75, 12%, 7%);
     --font-secondary: hsl(0, 0%, 48%);
     --font-accent: hsl(202, 100%, 50%);
-    // --font-secondary-accent: 
+    --font-accent-secondary: hsl(39, 100%, 50%);
 
     /* Sizes */
     --font-large: 1.125rem;
@@ -17,12 +17,11 @@ Root Properties
     --font-small: 0.75rem;
     
     /* Gaps */
-    --page-gap: 5em;
+    --page-gap: 7em;
     --medium-list-gap: 1em;
-    --subheading-gap: 1.5em;
+    --subheading-gap: 1em;
     --small-subheading-gap: 0.5em;
     
-
     /* Misc */
     --border-primary: hsl(0, 0%, 91%);
     --box-padding: 1em;

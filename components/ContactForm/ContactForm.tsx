@@ -1,5 +1,6 @@
 import { InteractionButton } from '@/components/Button'
 import InputField from '@/components/Input'
+import { FaRegPaperPlane } from 'react-icons/fa'
 import styled from 'styled-components'
 
 
@@ -57,7 +58,7 @@ const ContactForm = () => {
 				<TextAreaField id='message' name='message' placeholder={`Cool stuff! Let's collab 🤙`} required />
 			</fieldset>
 
-			<InteractionButton type='submit'>Send</InteractionButton>
+			<InteractionButton type='submit' icon={<FaRegPaperPlane size='1em' />}>Send</InteractionButton>
 		</ContactFormWrapper>
 	)
 }

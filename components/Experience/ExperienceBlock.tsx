@@ -18,11 +18,16 @@ const Header = styled.div`
     gap: 1em;
 `
 
-const ResponsibilitiesWrapper = styled.div`
+const ResponsibilitiesWrapper = styled.ul`
     display: grid;
     gap: calc(var(--medium-list-gap) / 2);
     color: var(--font-secondary);
     line-height: 150%;
+    padding-left: 1em;
+
+    li {
+        list-style: square;
+    }
 `
 
 const Period = styled.p`
@@ -39,7 +44,7 @@ const ExperienceBlock = ({ className, company, position, period, url, responsibi
             </Header>
             <ResponsibilitiesWrapper>
                 {
-                    responsibilities.map((responsibility: Responsibility, index: number) => <p key={index}>{responsibility.value}</p>)
+                    responsibilities.map((responsibility: Responsibility, index: number) => <li key={index}>{responsibility.value}</li>)
                 }
             </ResponsibilitiesWrapper>
         </ExperienceBlockWrapper>
