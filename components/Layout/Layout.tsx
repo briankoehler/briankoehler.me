@@ -9,7 +9,8 @@ import styled from 'styled-components'
 const ContentWrapper = styled.div`
     padding: 3em 0 1em;
     display: grid;
-    gap: var(--page-gap);
+    row-gap: var(--page-gap);
+    column-gap: calc(var(--page-gap) * (5 / 7));
 
     main {
         display: grid;
@@ -18,7 +19,7 @@ const ContentWrapper = styled.div`
 
     @media only screen and (max-width: 950px) {
         padding: 2em 0 1em;
-        gap: calc(var(--page-gap) * (3 / 5));
+        row-gap: calc(var(--page-gap) * (3 / 5));
     }
 `
 

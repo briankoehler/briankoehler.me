@@ -27,6 +27,11 @@ const PostsGrid = styled.div`
 	.posts-filter {
 		grid-area: search;
 	}
+
+	@media only screen and (max-width: 950px) {
+		grid-template-columns: 1fr;
+		grid-template-areas: 'heading' 'search' 'posts';
+	}
 `
 
 type PostsPageProps = {

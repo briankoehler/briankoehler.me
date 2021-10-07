@@ -45,7 +45,7 @@ const Writing = styled(ReactMarkdown)`
 
 	code {
 		font-family: 'Fira Code';
-		color: orange;
+		color: var(--font-accent-secondary);
 		font-weight: 500;
 	}
 
@@ -66,35 +66,35 @@ const PostImageWrapper = styled.figure`
 
 type PostPageProps = {
 	post: Post,
-    url: string
+	url: string
 }
 
 const PostPage = ({ post, url }: PostPageProps) => {
 
-    const markdownComponents: object = {
-        h1: 'h2',
-        p: (paragraph: any) => {
-            const { node } = paragraph
-            
-            if (node.children[0].tagName === "img") {
-                const image = node.children[0]
-                const alt = image.properties.alt?.replace(/ *\{[^)]*\} */g, "")
-                const isPriority = image.properties.alt?.toLowerCase().includes('{priority}')
-                const metaWidth = image.properties.alt.match(/{([^}]+)x/)
-                const metaHeight = image.properties.alt.match(/x([^}]+)}/)
-                const width = metaWidth ? metaWidth[1] : "3360"
-                const height = metaHeight ? metaHeight[1] : "2050"
-                
-                return (
-                    <PostImageWrapper>
-                        <Image src={`http://${url}${image.properties.src}`} width={width} height={height} alt={alt} priority={isPriority} />
-                        <figcaption>{alt}</figcaption>
-                    </PostImageWrapper>
-                )
-            }
-            return <p>{paragraph.children}</p>
-        }
-    }
+	const markdownComponents: object = {
+		h1: 'h2',
+		p: (paragraph: any) => {
+			const { node } = paragraph
+
+			if (node.children[0].tagName === "img") {
+				const image = node.children[0]
+				const alt = image.properties.alt?.replace(/ *\{[^)]*\} */g, "")
+				const isPriority = image.properties.alt?.toLowerCase().includes('{priority}')
+				const metaWidth = image.properties.alt.match(/{([^}]+)x/)
+				const metaHeight = image.properties.alt.match(/x([^}]+)}/)
+				const width = metaWidth ? metaWidth[1] : "3360"
+				const height = metaHeight ? metaHeight[1] : "2050"
+
+				return (
+					<PostImageWrapper>
+						<Image src={`http://${url}${image.properties.src}`} width={width} height={height} alt={alt} priority={isPriority} />
+						<figcaption>{alt}</figcaption>
+					</PostImageWrapper>
+				)
+			}
+			return <p>{paragraph.children}</p>
+		}
+	}
 
 	return (
 		<Layout title={`Brian Koehler - ${post.title}`} description={post.description} url={`https://briankoehler.me/posts/${post.slug}`} >
@@ -123,8 +123,8 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 	const posts = await postsResp.json()
 	const post = posts[0]
 
-    /* Bad practice? */
-    const url = process.env.CMS_URL
+	/* Bad practice? */
+	const url = process.env.CMS_URL
 
 	return { props: { post, url } }
 }
