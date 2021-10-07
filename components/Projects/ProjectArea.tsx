@@ -11,7 +11,7 @@ const ProjectsAreaWrapper = styled.div`
 
 const ProjectWrapper = styled.div<{ revert: boolean }>`
     display: grid;
-    gap: var(--page-gap);
+    gap: calc(var(--page-gap) * (5 / 7));
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: ${props => props.revert ? `'image image image info info'` : `'info info image image image'`};
