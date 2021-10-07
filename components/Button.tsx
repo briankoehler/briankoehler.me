@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { ComponentProps } from 'react'
-import styled from 'styled-components'
+import { ComponentProps, ReactNode } from 'react'
+import styled, { css } from 'styled-components'
 
 
-const buttonStyles = `
+const buttonStyles = css`
 	background: var(--font-primary);
 	color: white;
 	border-radius: 4px;
@@ -17,7 +17,8 @@ const buttonStyles = `
 	font-weight: 500;
 	font-size: var(--font-large);
 	user-select: none;
-	transition: background 0.2s;
+	position: relative;
+	transition: all 0.2s;
 	
 	:active {
 		position: relative;
@@ -25,9 +26,25 @@ const buttonStyles = `
 	}
 	
 	:hover {
-		// box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.25);
-		background: hsl(0, 0%, 21.176470588235293%);
+		padding-left: 2.5em;
+
+		div {
+			margin: 0;
+			padding: 0;
+			left: 0.75em;
+			opacity: 1;
+		}
 	}
+`
+
+const IconWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 1em;
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
 `
 
 const LinkButtonWrapper = styled.a`${buttonStyles}`
@@ -39,17 +56,26 @@ const InteractionButtonWrapper = styled.button`
 
 type LinkButtonProps = {
 	href: string,
-	children: React.ReactNode
+	icon?: ReactNode,
+	children: ReactNode
 }
 
-export const LinkButton = ({ href, children }: LinkButtonProps) => {
+export const LinkButton = ({ href, icon, children }: LinkButtonProps) => {
 	return (
 		<Link href={href} passHref>
-			<LinkButtonWrapper>{children}</LinkButtonWrapper>
+			<LinkButtonWrapper>
+				<IconWrapper>{icon}</IconWrapper>
+				{children}
+			</LinkButtonWrapper>
 		</Link>
 	)
 }
 
-export const InteractionButton = ({ type, children }: ComponentProps<'button'>) => {
-	return <InteractionButtonWrapper type={type} >{children}</InteractionButtonWrapper>
+export const InteractionButton = ({ type, icon, children }: ComponentProps<'button'> & { icon?: ReactNode }) => {
+	return (
+		<InteractionButtonWrapper type={type}>
+			<IconWrapper>{icon}</IconWrapper>
+			{children}
+		</InteractionButtonWrapper>
+	)
 }
