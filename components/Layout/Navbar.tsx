@@ -20,6 +20,14 @@ const NavLinks = styled.ol<{ open: boolean }>`
     margin: 0;
     padding: 0;
 
+    li:nth-child(1) {
+        display: none;
+
+        @media only screen and (max-width: 950px) {
+            display: block;
+        }
+    }
+
     @media only screen and (max-width: 950px) {
         background: white;
         grid-auto-flow: row;
@@ -97,6 +105,11 @@ const Navbar = () => {
 
             {/* Right-side list of links */}
             <NavLinks open={open}>
+                <li>
+                    <Link href='/'>
+                        <a className='underline'>Home</a>
+                    </Link>
+                </li>
                 <li>
                     <Link href='/about'>
                         <a className='underline'>About</a>
