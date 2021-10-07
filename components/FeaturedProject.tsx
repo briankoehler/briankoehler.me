@@ -10,7 +10,7 @@ const FeaturedProjectWrapper = styled.section`
     grid-template-rows: max-content auto;
 
     .project-image {
-        filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
+        filter: drop-shadow(2px 2px 3px hsla(0, 0%, 0%, 0.25));
     }
 `
 

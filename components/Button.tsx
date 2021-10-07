@@ -7,7 +7,6 @@ const buttonStyles = `
 	background: var(--font-primary);
 	color: white;
 	border-radius: 4px;
-	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
 	width: max-content;
 	height: max-content;
@@ -19,13 +18,14 @@ const buttonStyles = `
 	font-size: var(--font-large);
 	user-select: none;
 	transition: background 0.2s;
-
+	
 	:active {
 		position: relative;
 		top: 2px;
 	}
-
+	
 	:hover {
+		// box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.25);
 		background: hsl(0, 0%, 21.176470588235293%);
 	}
 `
