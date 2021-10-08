@@ -93,7 +93,7 @@ const Navbar = () => {
 
     /* Prevent scrolling when open */
     useEffect(() => {
-        document.body.style.overflow = open ? 'hidden' : 'scroll'
+        document.body.style.overflowY = open ? 'hidden' : 'scroll'
     }, [open])
 
     return (
