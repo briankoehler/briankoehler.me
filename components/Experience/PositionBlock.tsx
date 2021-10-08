@@ -2,17 +2,16 @@ import styled from 'styled-components'
 
 
 const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
-    cursor: pointer;
-    border: none;
     background: none;
-    display: grid;
-    place-content: center;
-    border: 1px solid var(--border-primary);
     border-radius: 4px;
-    padding: var(--box-padding);
-    font-size: var(--font-medium);
+    border: 1px solid var(--border-primary);
+    cursor: pointer;
+    display: grid;
     font-family: 'Rubik';
     font-size: var(--font-large);
+    font-size: var(--font-medium);
+    padding: var(--box-padding);
+    place-content: center;
     transition: box-shadow 0.2s;
 
     :hover {
@@ -27,8 +26,8 @@ const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
 
     @media only screen and (max-width: 950px) {
         font-size: var(--font-medium);
-        width: 100%;
         padding: 1em 0.25em;
+        width: 100%;
 
         p:nth-child(1) {
             display: none;

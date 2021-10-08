@@ -1,5 +1,5 @@
 import Heading from '@/components/Heading'
-import Layout from '@/components/Layout/Layout'
+import CustomHead from '@/components/Layout/CustomHead'
 import ProjectArea from '@/components/Projects/ProjectArea'
 import { Project } from '@/components/types'
 import { GetStaticProps } from 'next'
@@ -12,10 +12,12 @@ type ProjectsPageProps = {
 
 const ProjectsPage = ({ projects, url }: ProjectsPageProps) => {
     return (
-        <Layout title='Brian Koehler - Projects' description='Projects of Brian Koehler.' url='https://briankoehler.me/projects' >
+        <>
+            <CustomHead title='Brian Koehler - Projects' description='Projects of Brian Koehler.' url='https://briankoehler.me/projects' />
+
             <Heading bigText='Check out my work.' littleText='A collection of my favorite projects I’ve contributed to or hacked at solo. Each project also has a list of technologies that I learned a lot about.' />
             <ProjectArea projects={projects} url={url} />
-        </Layout>
+        </>
     )
 }
 

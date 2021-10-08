@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 
 const HeadingWrapper = styled.section`
+    align-content: center;
     display: grid;
     gap: var(--subheading-gap);
-    align-content: center;
 `
 
 const BigHello = styled.h1`

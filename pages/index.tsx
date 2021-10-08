@@ -2,7 +2,7 @@ import { LinkButton } from '@/components/Button'
 import ContactForm from '@/components/ContactForm/ContactForm'
 import FeaturedProject from '@/components/FeaturedProject'
 import Heading from '@/components/Heading'
-import Layout from '@/components/Layout/Layout'
+import CustomHead from '@/components/Layout/CustomHead'
 import LatestPosts from '@/components/Posts/LatestPosts'
 import { Post } from '@/components/types'
 import Portrait from '@/public/portrait4.webp'
@@ -27,7 +27,7 @@ const ContactLink = styled.a`
     width: max-content;
 `
 
-const PortraitWrapper = styled.div`
+const PortraitWrapper = styled.section`
     @media only screen and (max-width: 950px) {
         max-width: 60%;
         justify-self: center;
@@ -88,7 +88,9 @@ type Props = {
 
 const HomePage = ({ featuredProject, posts, url }: Props) => {
     return (
-        <Layout title='Brian Koehler' description='Portfolio of Brian Koehler.' url='https://briankoehler.me' >
+        <>
+            <CustomHead title='Brian Koehler' description='Portfolio of Brian Koehler.' url='https://briankoehler.me' />
+
             <IndexGrid>
                 {/* Greeting */}
                 <Heading className='greeting' bigText='I&apos;m Brian, software&nbsp;engineer.' littleText={
@@ -147,7 +149,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                 {/* Contact Form */}
                 <ContactForm />
             </IndexGrid>
-        </Layout>
+        </>
     )
 }
 

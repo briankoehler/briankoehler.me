@@ -5,38 +5,38 @@ import styled from 'styled-components'
 
 
 const ContactFormWrapper = styled.form`
+	border-radius: 4px;
+	border: 1px solid var(--border-primary);
 	display: grid;
 	gap: var(--medium-list-gap);
-	border: 1px solid var(--border-primary);
-	border-radius: 4px;
 	padding: var(--box-padding);
 	width: 100%;
 
 	fieldset {
-		margin: 0;
-		padding: 0;
+		border: none;
 		display: grid;
 		gap: 0.5em;
-		border: none;
+		margin: 0;
+		padding: 0;
 	}
 `
 
 const TextAreaField = styled.textarea`
-	resize: none;
-	font-family: inherit;
-	outline: none;
-	border: 1px solid var(--border-primary);
 	border-radius: 4px;
+	border: 1px solid var(--border-primary);
+	font-family: inherit;
 	font-size: var(--font-medium);
+	outline: none;
 	padding: 0.5em;
+	resize: none;
     -webkit-appearance: none;
 
 	:focus, :active {
-		padding-bottom: calc(0.5em - 0.5px);
-		padding-top: calc(0.5em - 0.5px);
-		border-bottom: 2px solid var(--font-accent);
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
+		border-bottom: 2px solid var(--font-accent);
+		padding-bottom: calc(0.5em - 0.5px);
+		padding-top: calc(0.5em - 0.5px);
 	}
 `
 

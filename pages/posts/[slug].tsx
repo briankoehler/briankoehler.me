@@ -1,5 +1,5 @@
 import Heading from '@/components/Heading'
-import Layout from '@/components/Layout/Layout'
+import CustomHead from '@/components/Layout/CustomHead'
 import { Post } from '@/components/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
@@ -7,11 +7,16 @@ import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 
 
+const ArticleWrapper = styled.article`
+	column-gap: inherit;
+	display: grid;
+	row-gap: inherit;
+`
+
 const Writing = styled(ReactMarkdown)`
 	font-size: var(--font-large);
 	font-size: 1.25rem;
 	line-height: 175%;
-	/* max-width: 80%; */
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
@@ -97,10 +102,14 @@ const PostPage = ({ post, url }: PostPageProps) => {
 	}
 
 	return (
-		<Layout title={`Brian Koehler - ${post.title}`} description={post.description} url={`https://briankoehler.me/posts/${post.slug}`} >
-			<Heading bigText={post.title} littleText={post.description} />
-			<Writing components={markdownComponents} transformImageUri={(uri) => `http://${url}${uri}`}>{post.writing}</Writing>
-		</Layout>
+		<>
+			<CustomHead title={`Brian Koehler - ${post.title}`} description={post.description} url={`https://briankoehler.me/posts/${post.slug}`} />
+
+			<ArticleWrapper>
+				<Heading bigText={post.title} littleText={post.description} />
+				<Writing components={markdownComponents} transformImageUri={(uri) => `http://${url}${uri}`}>{post.writing}</Writing>
+			</ArticleWrapper>
+		</>
 	)
 }
 

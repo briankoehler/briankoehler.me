@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 
 const ViewMoreWrapper = styled.a`
-	display: flex;
-	gap: 0.5em;
-	cursor: pointer;
 	color: var(--font-secondary);
+	cursor: pointer;
+	display: flex;
 	font-size: var(--font-small);
+	gap: 0.5em;
 
 	svg {
 		transition: all 0.1s;

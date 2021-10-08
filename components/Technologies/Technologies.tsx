@@ -12,11 +12,11 @@ const TechnologiesWrapper = styled.section`
 
 const BlocksWrapper = styled.ul`
 	display: grid;
-	justify-content: space-between;
-	grid-template-columns: repeat(auto-fit, 8em);
 	gap: var(--medium-list-gap);
-	padding: 0;
+	grid-template-columns: repeat(auto-fit, 8em);
+	justify-content: space-between;
 	margin: 0;
+	padding: 0;
 
 	li {
 		list-style: none;

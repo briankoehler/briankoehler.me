@@ -2,16 +2,16 @@ import styled from 'styled-components'
 
 
 const TechBlockWrapper = styled.figure`
+	align-items: center;
+	aspect-ratio: calc(8 / 7.5);
+	border-radius: 4px;
+	border: 1px solid var(--border-primary);
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
-	border: 1px solid var(--border-primary);
-	border-radius: 4px;
+	margin: 0;
 	padding: 0.5em;
 	width: 8em;
-	aspect-ratio: calc(8 / 7.5);
-	margin: 0;
 
 	.tech-icon {
 		font-size: 4em;

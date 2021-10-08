@@ -5,12 +5,12 @@ import styled from 'styled-components'
 
 
 const PostSnippetWrapper = styled.a`
-    display: grid;
-    gap: var(--small-subheading-gap);
-    padding: var(--box-padding);
     border-radius: 4px;
     border: 1px solid var(--border-primary);
     cursor: pointer;
+    display: grid;
+    gap: var(--small-subheading-gap);
+    padding: var(--box-padding);
     transition: box-shadow 0.2s;
 
     :hover {
@@ -26,18 +26,18 @@ const PostSnippetHead = styled.div`
 const PostSnippetTitle = styled.h3`
     color: var(--font-primary);
     font-size: var(--font-large);
-    font-weight: regular;
     font-weight: 400;
+    font-weight: regular;
     margin-right: 2ch;
 `
 
 const PostSnippetDescription = styled.p`
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    -webkit-line-clamp: 2;
     color: var(--font-secondary);
+    display: -webkit-box;
     font-size: var(--font-medium);
+    overflow: hidden;
 `
 
 const PostSnippetDate = styled.p`
@@ -46,18 +46,16 @@ const PostSnippetDate = styled.p`
 `
 
 const TagsWrapper = styled.div`
-    display: flex;
     align-items: center;
+    color: var(--font-secondary);
+    display: flex;
+    font-size: var(--font-small);
     gap: var(--medium-list-gap);
     padding: 0;
-    color: var(--font-secondary);
-    font-size: var(--font-small);
 `
 
 const TagLabel = styled.p`
-    padding: 0.5em;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0.5em 0;
 `
 
 type PostSnippetProps = {

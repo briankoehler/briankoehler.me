@@ -1,16 +1,15 @@
 import Footer from '@/components/Layout/Footer'
 import Navbar from '@/components/Layout/Navbar'
-import Head from 'next/head'
 import React, { ReactNode, useEffect, useState } from 'react'
 import { FaLongArrowAltUp } from 'react-icons/fa'
 import styled from 'styled-components'
 
 
 const ContentWrapper = styled.div`
-    padding: 3em 0 1em;
-    display: grid;
-    row-gap: var(--page-gap);
     column-gap: calc(var(--page-gap) * (5 / 7));
+    display: grid;
+    padding: 3em 0 1em;
+    row-gap: var(--page-gap);
 
     main {
         display: grid;
@@ -24,38 +23,34 @@ const ContentWrapper = styled.div`
 `
 
 const ReturnButton = styled.button<{ scrolled: boolean }>`
+    aspect-ratio: 1;
+    background: white;
+    border-radius: 128px;
+    border: 1px solid var(--border-primary);
+    bottom: 5em;
+    cursor: pointer;
     display: grid;
+    min-height: 6em;
     place-content: center;
     position: fixed;
-    bottom: 5em;
     right: ${props => props.scrolled ? '2.5em' : '-7em'};
-    background: white;
-    border: 1px solid var(--border-primary);
-    border-radius: 128px;
-    min-height: 6em;
-    aspect-ratio: 1;
-    filter: drop-shadow(2px 2px 2px hsla(0, 0%, 0%, 0.05));
-    cursor: pointer;
-    transition: right 0.4s ease-in-out, bottom 0.1s ease-in-out, min-height 0.1s ease-in-out, transform 0.1s ease-in-out;
+    transition: right 0.3s ease-in-out, bottom 0.1s ease-in-out, min-height 0.1s ease-in-out, transform 0.1s ease-in-out;
 
     :active {
-        bottom: 4em;
+        bottom: 4.5em;
     }
 
     :hover {
-        min-height: 7em;
-        transform: translateY(0.5em) translateX(0.5em);
+        min-height: 6.5em;
+        transform: translateY(0.25em) translateX(0.25em);
     }
 `
 
 type LayoutProps = {
-    children: ReactNode,
-    title: string,
-    description: string,
-    url: string
+    children: ReactNode
 }
 
-const Layout = ({ children, title, description, url }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
     const [scrolled, setScrolled] = useState(false)
 
     useEffect(() => {
@@ -69,22 +64,6 @@ const Layout = ({ children, title, description, url }: LayoutProps) => {
 
     return (
         <>
-            <Head>
-                <title>{title}</title>
-                <meta name='description' content={description} />
-                <meta charSet='utf-8' />
-                <meta httpEquiv='x-ua-compatible' content='ie=edge' />
-                <meta name='viewport' content='width=device-width, initial-scale=1' />
-                <meta property='og:url' content={url} />
-                <meta property='og:title' content={title} />
-                <meta property='og:description' content={description} />
-                <meta property='og:site_name' content='Brian Koehler' />
-                <meta property='og:image' content='https://briankoehler.me/public/portrait.webp' />
-                <meta property='og:type' content='website' />
-                <meta property='og:locale' content='en_US' />
-                <link href={url} rel='canonical' />
-            </Head>
-
             <ContentWrapper>
                 <Navbar />
                 <main>
