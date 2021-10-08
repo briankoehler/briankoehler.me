@@ -7,20 +7,20 @@ import styled from 'styled-components'
 
 
 const ProjectInfoWrapper = styled.div`
-    display: grid;
-    grid-auto-flow: row;
     align-self: center;
-    gap: 1em;
     border-radius: 4px;
     border: 1px solid var(--border-primary);
-    padding: var(--box-padding);
+    display: grid;
+    gap: 1em;
+    grid-auto-flow: row;
     height: max-content;
+    padding: var(--box-padding);
 `
 
 const Header = styled.div`
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     
     a {
         color: var(--font-secondary);
@@ -34,10 +34,10 @@ const Header = styled.div`
 
 const ProjectTitle = styled.h3`
     color: var(--font-primary);
-    font-size: var(--font-medium);
     font-size: var(--font-large);
-    font-weight: regular;
+    font-size: var(--font-medium);
     font-weight: 400;
+    font-weight: regular;
     margin-right: 2ch;
 `
 
@@ -49,8 +49,8 @@ const ProjectDescription = styled.p`
 
 const Stack = styled.div`
     display: grid;
-    grid-auto-flow: column;
     gap: 2em;
+    grid-auto-flow: column;
     width: max-content;
 `
 

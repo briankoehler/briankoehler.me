@@ -4,21 +4,21 @@ import styled, { css } from 'styled-components'
 
 
 const buttonStyles = css`
-	background: var(--font-primary);
-	color: white;
-	border-radius: 4px;
-	cursor: pointer;
-	width: max-content;
-	height: max-content;
-	padding: 0.75em 1em;
-	display: flex;
-	justify-content: center;
 	align-items: center;
-	font-weight: 500;
+	background: var(--font-primary);
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	display: flex;
 	font-size: var(--font-large);
-	user-select: none;
+	font-weight: 500;
+	height: max-content;
+	justify-content: center;
+	padding: 0.75em 1em;
 	position: relative;
 	transition: all 0.2s;
+	user-select: none;
+	width: max-content;
 	
 	:active {
 		position: relative;
@@ -29,29 +29,40 @@ const buttonStyles = css`
 		padding-left: 2.5em;
 
 		div {
-			margin: 0;
-			padding: 0;
 			left: 0.75em;
+			margin: 0;
 			opacity: 1;
+			padding: 0;
+		}
+	}
+
+	@media only screen and (max-width: 950px) {
+		padding-left: 2.5em;
+
+		div {
+			left: 0.75em;
+			margin: 0;
+			opacity: 1;
+			padding: 0;
 		}
 	}
 `
 
 const IconWrapper = styled.div`
+	align-items: center;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	position: absolute;
 	left: 1em;
 	opacity: 0;
+	position: absolute;
 	transition: all 0.2s ease-in-out;
 `
 
 const LinkButtonWrapper = styled.a`${buttonStyles}`
 const InteractionButtonWrapper = styled.button`
 	${buttonStyles}
-	font-family: inherit;
 	border: none;
+	font-family: inherit;
 `
 
 type LinkButtonProps = {

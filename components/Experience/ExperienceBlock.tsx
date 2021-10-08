@@ -3,25 +3,25 @@ import styled from 'styled-components'
 
 
 const ExperienceBlockWrapper = styled.div`
+    border-radius: 4px;
+    border: 1px solid var(--border-primary);
     display: grid;
     gap: var(--medium-list-gap);
-    padding: var(--box-padding);
-    border: 1px solid var(--border-primary);
-    border-radius: 4px;
     height: max-content;
+    padding: var(--box-padding);
 `
 
 const Header = styled.div`
     display: flex;
-    justify-content: space-between;
     font-size: var(--font-large);
     gap: 1em;
+    justify-content: space-between;
 `
 
 const ResponsibilitiesWrapper = styled.ul`
+    color: var(--font-secondary);
     display: grid;
     gap: calc(var(--medium-list-gap) / 2);
-    color: var(--font-secondary);
     line-height: 150%;
     padding-left: 1em;
 

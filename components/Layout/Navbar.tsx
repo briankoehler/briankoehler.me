@@ -4,18 +4,18 @@ import styled from 'styled-components'
 
 
 const NavWrapper = styled.header`
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    min-width: 100%;
-    font-weight: 400;
+    display: flex;
     font-size: var(--font-large);
+    font-weight: 400;
+    justify-content: space-between;
+    min-width: 100%;
 `
 
 const NavLinks = styled.ol<{ open: boolean }>`
     display: grid;
-    grid-auto-flow: column;
     gap: 2em;
+    grid-auto-flow: column;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -29,19 +29,19 @@ const NavLinks = styled.ol<{ open: boolean }>`
     }
 
     @media only screen and (max-width: 950px) {
-        background: white;
-        grid-auto-flow: row;
         align-content: center;
-        position: absolute;
-        padding: 0 1em;
-        min-width: 100vw;
-        min-height: 100vh;
-        top: 0;
-        left: 0;
-        z-index: 2;
+        background: white;
         clip-path: circle(${props => props.open ? '200' : '0'}% at 100% 0);
+        grid-auto-flow: row;
+        left: 0;
+        min-height: 100vh;
+        min-width: 100vw;
+        padding: 0 1em;
         pointer-events: ${props => !props.open && 'none'};
+        position: absolute;
+        top: 0;
         transition: clip-path 0.5s;
+        z-index: 2;
 
         li {
             font-size: 3rem;
@@ -50,36 +50,36 @@ const NavLinks = styled.ol<{ open: boolean }>`
 `
 
 const MenuToggle = styled.button<{ open: boolean }>`
-    border: none;
     background: none;
+    border: none;
+    cursor: pointer;
     display: grid;
     gap: 0.3em;
-    cursor: pointer;
     padding: 0;
     z-index: 2;
 
     span {
-        display: block;
-        height: 0.4em;
         background: var(--font-primary);
         border-radius: 4px;
+        display: block;
+        height: 0.4em;
         transition: all 0.2s ease-in-out;
     }
 
     span:nth-child(1) {
-        width: 3em;
         transform: ${props => props.open && 'rotate(45deg) translateX(0.35rem)'};
+        width: 3em;
     }
 
     span:nth-child(2) {
         display: ${props => props.open && 'none'};
-        width: 2em;
         transform: translateX(calc(3em - 2em));
+        width: 2em;
     }
 
     span:nth-child(3) {
-        width: 3em;
         transform: ${props => props.open && 'rotate(-45deg) translateX(0.35rem)'};
+        width: 3em;
     }
 
     @media only screen and (min-width: 950px) {
@@ -104,28 +104,30 @@ const Navbar = () => {
             </Link>
 
             {/* Right-side list of links */}
-            <NavLinks open={open}>
-                <li>
-                    <Link href='/'>
-                        <a className='underline'>Home</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href='/about'>
-                        <a className='underline'>About</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href='/projects'>
-                        <a className='underline'>Projects</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href='/posts'>
-                        <a className='underline'>Posts</a>
-                    </Link>
-                </li>
-            </NavLinks>
+            <nav>
+                <NavLinks open={open}>
+                    <li>
+                        <Link href='/'>
+                            <a className='underline'>Home</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='/about'>
+                            <a className='underline'>About</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='/projects'>
+                            <a className='underline'>Projects</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='/posts'>
+                            <a className='underline'>Posts</a>
+                        </Link>
+                    </li>
+                </NavLinks>
+            </nav>
 
             {/* Toggle Menu */}
             <MenuToggle open={open} onClick={toggleOpen}>

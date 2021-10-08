@@ -4,12 +4,12 @@ import styled from 'styled-components'
 
 
 const FooterWrapper = styled.footer`
-	display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 100%;
-    font-weight: 400;
 	color: var(--font-secondary);
+	display: flex;
+    align-items: center;
+    font-weight: 400;
+    justify-content: space-between;
+    min-width: 100%;
 	
 	ul {
 		display: flex;

@@ -4,17 +4,17 @@ import Image from 'next/image'
 import styled from 'styled-components'
 
 
-const ProjectsAreaWrapper = styled.div`
+const ProjectsAreaWrapper = styled.section`
     display: grid;
     gap: var(--page-gap);
 `
 
 const ProjectWrapper = styled.div<{ revert: boolean }>`
+    align-items: center;
     display: grid;
     gap: calc(var(--page-gap) * (5 / 7));
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: ${props => props.revert ? `'image image image info info'` : `'info info image image image'`};
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
     span {
         filter: drop-shadow(2px 2px 8px hsla(0, 0%, 0%, 0.25));
@@ -29,9 +29,9 @@ const ProjectWrapper = styled.div<{ revert: boolean }>`
     }
 
     @media only screen and (max-width: 950px) {
-        grid-template-columns: 1fr;
-        grid-template-areas: 'info' 'image';
         gap: calc(var(--page-gap) / 2);
+        grid-template-areas: 'info' 'image';
+        grid-template-columns: 1fr;
     }
 `
 

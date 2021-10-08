@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { PostsFilterContext } from './PostsFilterContext'
 
 
-const PostsFilterWrapper = styled.div`
+const PostsFilterWrapper = styled.section`
 	display: grid;
 	gap: 1em;
 	grid-template-rows: min-content min-content min-content;
@@ -14,19 +14,19 @@ const PostsFilterWrapper = styled.div`
 
 const SelectTagsWrapper = styled.div`
 	display: flex;
-	gap: 0.5em;
 	flex-wrap: wrap;
+	gap: 0.5em;
 `
 
 const TagButton = styled.button<{ selected: boolean }>`
-	outline: none;
-	border: ${props => props.selected ? '1px solid var(--font-accent)' : '1px solid var(--border-primary)'};
-	border-radius: 4px;
 	background: none;
+	border-radius: 4px;
+	border: ${props => props.selected ? '1px solid var(--font-accent)' : '1px solid var(--border-primary)'};
 	color: ${props => props.selected ? 'var(--font-accent)' : 'var(--font-secondary)'};
-	padding: 0.25em;
-	max-width: max-content;
 	cursor: pointer;
+	max-width: max-content;
+	outline: none;
+	padding: 0.25em;
 	transition: all 0.05s ease-in-out;
 
 	:hover {

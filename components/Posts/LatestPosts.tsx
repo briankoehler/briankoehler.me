@@ -13,16 +13,16 @@ const LatestPostsWrapper = styled.section`
     grid-template-rows: max-content auto;
 `
 
-const PostsListWrapper = styled.div`
-    gap: var(--medium-list-gap);
+const PostsListWrapper = styled.ul`
     display: flex;
     flex-direction: column;
+    gap: var(--medium-list-gap);
 `
 
 const LatestPostsHeading = styled.div`
+    align-items: center;
     display: flex;
     gap: 1em;
-    align-items: center;
 `
 
 type LatestPostsProps = {

@@ -1,5 +1,5 @@
 import Heading from '@/components/Heading'
-import Layout from '@/components/Layout/Layout'
+import CustomHead from '@/components/Layout/CustomHead'
 import LatestPosts from '@/components/Posts/LatestPosts'
 import PostsFilter from '@/components/Posts/PostsFilter'
 import { PostsFilterProvider } from '@/components/Posts/PostsFilterContext'
@@ -41,7 +41,9 @@ type PostsPageProps = {
 
 const PostsPage = ({ posts, tags }: PostsPageProps) => {
 	return (
-		<Layout title='Brian Koehler - Posts' description='Posts by Brian Koehler.' url='https://briankoehler.me/posts' >
+		<>
+			<CustomHead title='Brian Koehler - Posts' description='Posts by Brian Koehler.' url='https://briankoehler.me/posts' />
+
 			<PostsGrid>
 				<Heading className='posts-heading' bigText='Brain of Brian.' littleText='Some tutorials and documented thoughts that have managed to escape from my brain. Currently under heavy construction; ignore the mess please.' />
 
@@ -50,7 +52,7 @@ const PostsPage = ({ posts, tags }: PostsPageProps) => {
 					<LatestPosts className='posts-list' posts={posts} />
 				</PostsFilterProvider>
 			</PostsGrid>
-		</Layout>
+		</>
 	)
 }
 

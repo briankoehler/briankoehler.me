@@ -13,9 +13,9 @@ const ExperiencesWrapper = styled.section`
 
 const InfoWrapper = styled.div`
     display: grid;
-    grid-template-columns: 9fr 3fr 18fr;
-    grid-template-areas: 'positions . experience';
     gap: inherit;
+    grid-template-areas: 'positions . experience';
+    grid-template-columns: 9fr 3fr 18fr;
 
     .positions-wrapper {
         grid-area: positions;
@@ -38,15 +38,15 @@ const PositionsWrapper = styled.div<{ experienceCount: number, activeBlock: numb
     position: relative;
 
     ::before {
-        content: '';
-        box-sizing: border-box;
-        width: 100%;
-        height: calc((100% - ${props => props.experienceCount - 1} * var(--medium-list-gap)) / ${props => props.experienceCount});
-        border: 1px solid var(--font-primary);
         border-radius: 4px;
+        border: 1px solid var(--font-primary);
+        box-sizing: border-box;
+        content: '';
+        height: calc((100% - ${props => props.experienceCount - 1} * var(--medium-list-gap)) / ${props => props.experienceCount});
         position: absolute;
         top: calc((((100% - ${props => props.experienceCount - 1} * var(--medium-list-gap)) / ${props => props.experienceCount}) + var(--medium-list-gap)) * ${props => props.activeBlock});
         transition: top 0.2s;
+        width: 100%;
     }
 
     @media only screen and (max-width: 950px) {
@@ -56,10 +56,10 @@ const PositionsWrapper = styled.div<{ experienceCount: number, activeBlock: numb
 
         ::before {
             height: 100%;
-            width: calc((100% - ${props => props.experienceCount - 1} * var(--medium-list-gap)) / ${props => props.experienceCount});
             left: calc((((100% - ${props => props.experienceCount - 1} * var(--medium-list-gap)) / ${props => props.experienceCount}) + var(--medium-list-gap)) * ${props => props.activeBlock});
             top: 0;
             transition: left 0.2s;
+            width: calc((100% - ${props => props.experienceCount - 1} * var(--medium-list-gap)) / ${props => props.experienceCount});
         }
     }
 `

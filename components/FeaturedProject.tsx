@@ -15,9 +15,9 @@ const FeaturedProjectWrapper = styled.section`
 `
 
 const FeaturedProjectHeading = styled.div`
+    align-items: center;
     display: flex;
     gap: 1em;
-    align-items: center;
 `
 
 type FeaturedProjectProps = {
