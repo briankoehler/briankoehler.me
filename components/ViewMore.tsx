@@ -1,3 +1,4 @@
+import { ClassProp } from '@/components/types'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -22,10 +23,9 @@ const ViewMoreWrapper = styled.a`
 
 type ViewMoreProps = {
 	href: string
-	className?: string,
 }
 
-const ViewMore = ({ className, href }: ViewMoreProps) => {
+const ViewMore = ({ className, href }: ViewMoreProps & ClassProp) => {
 	return (
 		<Link href={href} passHref>
 			<ViewMoreWrapper className={className}>

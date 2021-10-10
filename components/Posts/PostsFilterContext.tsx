@@ -1,5 +1,5 @@
-import { Tag } from '@/components/types'
-import { createContext, Dispatch, ReactNode, useReducer, useState } from 'react'
+import { ChildrenProp, Tag } from '@/components/types'
+import { createContext, Dispatch, useReducer, useState } from 'react'
 
 
 type PostsFilterContextType = {
@@ -11,11 +11,7 @@ type PostsFilterContextType = {
 
 export const PostsFilterContext = createContext<PostsFilterContextType>({} as PostsFilterContextType)
 
-type PostsFilterProviderProps = {
-	children: ReactNode
-}
-
-export const PostsFilterProvider = ({ children }: PostsFilterProviderProps) => {
+export const PostsFilterProvider = ({ children }: ChildrenProp) => {
 	/* States */
 	const [query, setQuery] = useState<string>('')
 	const [selectedTags, toggleTag] = useReducer((state: Tag[], tag: Tag) => {

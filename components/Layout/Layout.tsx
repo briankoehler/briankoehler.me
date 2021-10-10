@@ -1,6 +1,7 @@
 import Footer from '@/components/Layout/Footer'
 import Navbar from '@/components/Layout/Navbar'
-import React, { ReactNode, useEffect, useState } from 'react'
+import { ChildrenProp } from '@/components/types'
+import React, { useEffect, useState } from 'react'
 import { FaLongArrowAltUp } from 'react-icons/fa'
 import styled from 'styled-components'
 
@@ -46,11 +47,7 @@ const ReturnButton = styled.button<{ scrolled: boolean }>`
     }
 `
 
-type LayoutProps = {
-    children: ReactNode
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }: ChildrenProp) => {
     const [scrolled, setScrolled] = useState(false)
 
     useEffect(() => {

@@ -96,6 +96,15 @@ const Navbar = () => {
         document.body.style.overflow = open ? 'hidden' : 'scroll'
     }, [open])
 
+    /* Avoid toggling mobile nav menu, and re-enable scrolling if necessary */
+    const handleNavSelection = () => {
+        if (window.innerWidth <= 950) {
+            toggleOpen()
+            return
+        }
+        document.body.style.overflow = 'scroll'
+    }
+
     return (
         <NavWrapper>
             {/* Left-side name */}
@@ -108,22 +117,22 @@ const Navbar = () => {
                 <NavLinks open={open}>
                     <li>
                         <Link href='/'>
-                            <a className='underline'>Home</a>
+                            <a className='underline' onClick={handleNavSelection}>Home</a>
                         </Link>
                     </li>
                     <li>
                         <Link href='/about'>
-                            <a className='underline'>About</a>
+                            <a className='underline' onClick={handleNavSelection}>About</a>
                         </Link>
                     </li>
                     <li>
                         <Link href='/projects'>
-                            <a className='underline'>Projects</a>
+                            <a className='underline' onClick={handleNavSelection}>Projects</a>
                         </Link>
                     </li>
                     <li>
                         <Link href='/posts'>
-                            <a className='underline'>Posts</a>
+                            <a className='underline' onClick={handleNavSelection}>Posts</a>
                         </Link>
                     </li>
                 </NavLinks>

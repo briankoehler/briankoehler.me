@@ -1,6 +1,6 @@
 import InputField from '@/components/Input'
 import Subheading from '@/components/Subheading'
-import { Tag } from '@/components/types'
+import { ClassProp, Tag } from '@/components/types'
 import { useContext } from 'react'
 import styled from 'styled-components'
 import { PostsFilterContext } from './PostsFilterContext'
@@ -36,11 +36,10 @@ const TagButton = styled.button<{ selected: boolean }>`
 `
 
 type PostsFilterProps = {
-	className?: string,
 	tags: Tag[]
 }
 
-const PostsFilter = ({ className, tags }: PostsFilterProps) => {
+const PostsFilter = ({ className, tags }: PostsFilterProps & ClassProp) => {
 	/* Filter Context */
 	const { query, setQuery, selectedTags, toggleTag } = useContext(PostsFilterContext)
 

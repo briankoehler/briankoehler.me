@@ -1,3 +1,4 @@
+import { ChildrenProp } from '@/components/types'
 import Link from 'next/link'
 import { ComponentProps, ReactNode } from 'react'
 import styled, { css } from 'styled-components'
@@ -67,11 +68,10 @@ const InteractionButtonWrapper = styled.button`
 
 type LinkButtonProps = {
 	href: string,
-	icon?: ReactNode,
-	children: ReactNode
+	icon?: ReactNode
 }
 
-export const LinkButton = ({ href, icon, children }: LinkButtonProps) => {
+export const LinkButton = ({ href, icon, children }: LinkButtonProps & ChildrenProp) => {
 	return (
 		<Link href={href} passHref>
 			<LinkButtonWrapper>
