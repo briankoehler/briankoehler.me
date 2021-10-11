@@ -1,4 +1,4 @@
-import { Experience, Responsibility } from '@/components/types'
+import { ClassProp, Experience, Responsibility } from '@/components/types'
 import styled from 'styled-components'
 
 
@@ -35,7 +35,7 @@ const Period = styled.p`
     font-size: var(--font-small);
 `
 
-const ExperienceBlock = ({ className, company, position, period, url, responsibilities }: Experience & { className: string }) => {
+const ExperienceBlock = ({ className, company, position, period, url, responsibilities }: Experience & ClassProp) => {
     return (
         <ExperienceBlockWrapper className={className}>
             <Header>

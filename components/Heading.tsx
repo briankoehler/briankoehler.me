@@ -1,4 +1,7 @@
+import { ChildrenProp, ClassProp } from '@/components/types'
+import React from 'react'
 import styled from 'styled-components'
+
 
 
 const HeadingWrapper = styled.section`
@@ -20,13 +23,11 @@ const ShortAbout = styled.p`
 `
 
 type HeadingProps = {
-    className?: string,
     bigText: string,
     littleText: (string | React.ReactNode)[] | string,
-    children?: React.ReactNode
 }
 
-const Heading = ({ className, bigText, littleText, children }: HeadingProps) => {
+const Heading = ({ className, bigText, littleText, children }: HeadingProps & ClassProp & ChildrenProp) => {
     return (
         <HeadingWrapper className={className}>
             <BigHello>{bigText}</BigHello>

@@ -1,3 +1,4 @@
+import { ChildrenProp } from '@/components/types'
 import styled from 'styled-components'
 
 
@@ -42,12 +43,11 @@ const PositionBlockWrapper = styled.button<{ onClick: (key: number) => void }>`
 
 type PositionBlockProps = {
     company: string,
-    children: React.ReactNode,
     current: boolean,
     onClick: () => void
 }
 
-const PositionBlock = ({ company, children, onClick }: PositionBlockProps) => {
+const PositionBlock = ({ company, children, onClick }: PositionBlockProps & ChildrenProp) => {
     return (
         <PositionBlockWrapper onClick={onClick}>
             <p>{children}</p>

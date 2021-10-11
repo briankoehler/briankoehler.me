@@ -51,7 +51,10 @@ const TagsWrapper = styled.div`
     display: flex;
     font-size: var(--font-small);
     gap: var(--medium-list-gap);
-    padding: 0;
+
+    p {
+        padding: 0;
+    }
 `
 
 const TagLabel = styled.p`

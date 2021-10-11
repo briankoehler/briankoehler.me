@@ -1,5 +1,5 @@
 import DynamicIcon from '@/components/DynamicIcon'
-import { Project } from '@/components/types'
+import { ClassProp, Project } from '@/components/types'
 import React from 'react'
 import { FiExternalLink } from 'react-icons/fi'
 import { SiGithub } from 'react-icons/si'
@@ -54,7 +54,7 @@ const Stack = styled.div`
     width: max-content;
 `
 
-const ProjectInfo = ({ className, name, description, stack, github, link }: Project & { className: string }) => {
+const ProjectInfo = ({ className, name, description, stack, github, link }: Project & ClassProp) => {
     return (
         <ProjectInfoWrapper className={className}>
             <Header>
