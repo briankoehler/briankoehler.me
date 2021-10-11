@@ -6,11 +6,11 @@ import styled, { css } from 'styled-components'
 
 const buttonStyles = css`
 	align-items: center;
-	background: var(--font-primary);
+    border: none;
 	border-radius: 4px;
-	color: white;
 	cursor: pointer;
 	display: flex;
+    font-family: inherit;
 	font-size: var(--font-large);
 	font-weight: 500;
 	height: max-content;
@@ -49,6 +49,17 @@ const buttonStyles = css`
 	}
 `
 
+const primaryButtonStyles = css`
+    background: var(--font-primary);
+    color: white;
+`
+
+const secondaryButtonStyles = css`
+    background: white;
+    border: 1px solid var(--font-primary);
+    color: var(--font-primary);
+`
+
 const IconWrapper = styled.div`
 	align-items: center;
 	display: flex;
@@ -59,34 +70,46 @@ const IconWrapper = styled.div`
 	transition: all 0.2s ease-in-out;
 `
 
-const LinkButtonWrapper = styled.a`${buttonStyles}`
-const InteractionButtonWrapper = styled.button`
-	${buttonStyles}
-	border: none;
-	font-family: inherit;
+const ButtonWrapper = styled.a<{level?: 'primary' | 'secondary'}>`
+    ${buttonStyles}
+    ${props => props.level === 'primary' ? primaryButtonStyles : secondaryButtonStyles}
 `
 
 type LinkButtonProps = {
 	href: string,
-	icon?: ReactNode
+	icon?: ReactNode,
+    level?: 'primary' | 'secondary'
 }
 
-export const LinkButton = ({ href, icon, children }: LinkButtonProps & ChildrenProp) => {
+type InteractionButtonProps = {
+    icon?: ReactNode,
+    level?: 'primary' | 'secondary'
+}
+
+export const LinkButton = ({ href, icon, children, level }: LinkButtonProps & ChildrenProp) => {
 	return (
 		<Link href={href} passHref>
-			<LinkButtonWrapper>
+			<ButtonWrapper level={level}>
 				<IconWrapper>{icon}</IconWrapper>
 				{children}
-			</LinkButtonWrapper>
+			</ButtonWrapper>
 		</Link>
 	)
 }
 
-export const InteractionButton = ({ type, icon, children }: ComponentProps<'button'> & { icon?: ReactNode }) => {
+export const InteractionButton = ({ type, icon, children, level }: ComponentProps<'button'> & InteractionButtonProps) => {
 	return (
-		<InteractionButtonWrapper type={type}>
+		<ButtonWrapper type={type} level={level}>
 			<IconWrapper>{icon}</IconWrapper>
 			{children}
-		</InteractionButtonWrapper>
+		</ButtonWrapper>
 	)
+}
+
+LinkButton.defaultProps = {
+    level: 'primary'
+}
+
+InteractionButton.defaultProps = {
+    level: 'primary'
 }
