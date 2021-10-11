@@ -79,6 +79,7 @@ const IndexGrid = styled.div`
 const IndexButtonsWrapper = styled.div`
     display: flex;
     gap: var(--medium-list-gap);
+    flex-wrap: wrap;
 `
 
 type Props = {
