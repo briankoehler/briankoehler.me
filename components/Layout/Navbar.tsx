@@ -1,9 +1,10 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useReducer } from 'react'
 import styled from 'styled-components'
 
 
-const NavWrapper = styled.header`
+const NavWrapper = styled(motion.header)`
     align-items: center;
     display: flex;
     font-size: var(--font-large);
@@ -87,6 +88,11 @@ const MenuToggle = styled.button<{ open: boolean }>`
     }
 `
 
+const variants = {
+    hidden: { opacity: 0, y: -15 },
+    show: { opacity: 1, y: 0, transition: { staggerChildren: 0.1, type: 'spring', stiffness: 200 } }
+}
+
 const Navbar = () => {
     /* States */
     const [open, toggleOpen] = useReducer((state) => state === true ? false : true, false)
@@ -106,46 +112,47 @@ const Navbar = () => {
     }
 
     return (
-        <NavWrapper>
-            {/* Left-side name */}
-            <Link href='/'>
-                <a className='underline'>Brian Koehler</a>
-            </Link>
+        <NavWrapper variants={variants} initial='hidden' animate='show'>
+            <AnimatePresence>
+                {/* Left-side name */}
+                <Link href='/'>
+                    <motion.a className='underline' variants={variants}>Brian Koehler</motion.a>
+                </Link>
 
-            {/* Right-side list of links */}
-            <nav>
-                <NavLinks open={open}>
-                    <li>
-                        <Link href='/'>
-                            <a className='underline' onClick={handleNavSelection}>Home</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href='/about'>
-                            <a className='underline' onClick={handleNavSelection}>About</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href='/projects'>
-                            <a className='underline' onClick={handleNavSelection}>Projects</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href='/posts'>
-                            <a className='underline' onClick={handleNavSelection}>Posts</a>
-                        </Link>
-                    </li>
-                </NavLinks>
-            </nav>
+                {/* Right-side list of links */}
+                <nav>
+                    <NavLinks open={open}>
+                        <motion.li variants={variants}>
+                            <Link href='/'>
+                                <a className='underline' onClick={handleNavSelection}>Home</a>
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={variants}>
+                            <Link href='/about'>
+                                <a className='underline' onClick={handleNavSelection}>About</a>
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={variants}>
+                            <Link href='/projects'>
+                                <a className='underline' onClick={handleNavSelection}>Projects</a>
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={variants}>
+                            <Link href='/posts'>
+                                <a className='underline' onClick={handleNavSelection}>Posts</a>
+                            </Link>
+                        </motion.li>
+                    </NavLinks>
+                </nav>
 
-            {/* Toggle Menu */}
-            <MenuToggle open={open} onClick={toggleOpen}>
-                <span />
-                <span />
-                <span />
-            </MenuToggle>
-
-        </NavWrapper>
+                {/* Toggle Menu */}
+                <MenuToggle open={open} onClick={toggleOpen}>
+                    <span />
+                    <span />
+                    <span />
+                </MenuToggle>
+            </AnimatePresence>
+        </NavWrapper >
     )
 }
 
