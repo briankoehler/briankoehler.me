@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 
 export interface Post {
     id: number,
@@ -44,4 +45,12 @@ export interface Project {
         height: number,
         url: string
     }
+}
+
+export type ClassProp = {
+    className?: string
+}
+
+export type ChildrenProp = {
+    children?: ReactNode
 }

@@ -1,4 +1,5 @@
 import Subheading from '@/components/Subheading'
+import { ClassProp } from '@/components/types'
 import ViewMore from '@/components/ViewMore'
 import Image from 'next/image'
 import styled from 'styled-components'
@@ -21,7 +22,6 @@ const FeaturedProjectHeading = styled.div`
 `
 
 type FeaturedProjectProps = {
-    className?: string,
     featuredProject: {
         link: string,
         cover: {
@@ -33,7 +33,7 @@ type FeaturedProjectProps = {
     url: string
 }
 
-const FeaturedProject = ({ className, featuredProject, url }: FeaturedProjectProps) => {
+const FeaturedProject = ({ className, featuredProject, url }: FeaturedProjectProps & ClassProp) => {
     return (
         <FeaturedProjectWrapper className={className}>
             <FeaturedProjectHeading>

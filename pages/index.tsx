@@ -6,10 +6,13 @@ import CustomHead from '@/components/Layout/CustomHead'
 import LatestPosts from '@/components/Posts/LatestPosts'
 import { Post } from '@/components/types'
 import Portrait from '@/public/portrait4.webp'
+import * as fs from 'fs'
+import * as http from 'http'
 import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaLongArrowAltDown, FaRegPaperPlane } from 'react-icons/fa'
+import { FaCode, FaRegPaperPlane } from 'react-icons/fa'
+import { HiOutlineDocumentText } from 'react-icons/hi'
 import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si'
 import styled from 'styled-components'
 
@@ -73,6 +76,12 @@ const IndexGrid = styled.div`
     }
 `
 
+const IndexButtonsWrapper = styled.div`
+    display: flex;
+    gap: var(--medium-list-gap);
+    flex-wrap: wrap;
+`
+
 type Props = {
     featuredProject: {
         link: string,
@@ -102,7 +111,10 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                         ' for some nonsensical thoughts.'
                     ]
                 }>
-                    <LinkButton href='#contact' icon={<FaLongArrowAltDown size='1em' />}>Let's connect</LinkButton>
+                    <IndexButtonsWrapper>
+                        <LinkButton href='/projects' icon={<FaCode size='1em' />}>Check my work</LinkButton>
+                        <LinkButton href='/resume.pdf' icon={<HiOutlineDocumentText size='1em' />} level='secondary'>Grab a resume</LinkButton>
+                    </IndexButtonsWrapper>
                 </Heading>
 
                 {/* Cartoon portrait */}
@@ -161,6 +173,15 @@ export const getStaticProps: GetStaticProps = async () => {
     /* Get latest posts */
     const latestPostsResp = await fetch(`http://${process.env.CMS_URL}/posts`)
     const posts = await latestPostsResp.json()
+
+    /* Retrieve resume url from CMS */
+    const resumeResp = await fetch(`http://${process.env.CMS_URL}/resume`)
+    const resume = await resumeResp.json()
+    const resumeUrl = resume.pdf.url
+
+    /* Retrieve resume */
+    const file = fs.createWriteStream('./public/resume.pdf')
+    http.get(`http://${process.env.CMS_URL}${resumeUrl}`, (resp) => resp.pipe(file))
 
     /* Bad practice? */
     const url = process.env.CMS_URL

@@ -1,7 +1,7 @@
 import { PostsFilterContext } from '@/components/Posts/PostsFilterContext'
 import PostSnippet from '@/components/Posts/PostSnippet'
 import Subheading from '@/components/Subheading'
-import { Post, Tag } from '@/components/types'
+import { ClassProp, Post, Tag } from '@/components/types'
 import ViewMore from '@/components/ViewMore'
 import { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
@@ -26,12 +26,11 @@ const LatestPostsHeading = styled.div`
 `
 
 type LatestPostsProps = {
-    className?: string,
     mini?: boolean
     posts: Post[]
 }
 
-const LatestPosts = ({ className, posts, mini }: LatestPostsProps) => {
+const LatestPosts = ({ className, posts, mini }: LatestPostsProps & ClassProp) => {
     /* Filter Context */
     const { query, selectedTags } = useContext(PostsFilterContext)
 
