@@ -3,6 +3,7 @@ import ContactForm from '@/components/ContactForm/ContactForm'
 import FeaturedProject from '@/components/FeaturedProject'
 import Heading from '@/components/Heading'
 import CustomHead from '@/components/Layout/CustomHead'
+import Layout from '@/components/Layout/Layout'
 import LatestPosts from '@/components/Posts/LatestPosts'
 import { Post } from '@/components/types'
 import Portrait from '@/public/portrait4.webp'
@@ -97,7 +98,7 @@ type Props = {
 
 const HomePage = ({ featuredProject, posts, url }: Props) => {
     return (
-        <>
+        <Layout>
             <CustomHead title='Brian Koehler' description='Portfolio of Brian Koehler.' url='https://briankoehler.me' />
 
             <IndexGrid>
@@ -161,7 +162,7 @@ const HomePage = ({ featuredProject, posts, url }: Props) => {
                 {/* Contact Form */}
                 <ContactForm />
             </IndexGrid>
-        </>
+        </Layout>
     )
 }
 

@@ -1,12 +1,29 @@
-import Layout from '@/components/Layout/Layout'
+import Footer from '@/components/Layout/Footer'
+import Navbar from '@/components/Layout/Navbar'
 import '@/styles/globals.scss'
+import { AnimatePresence } from 'framer-motion'
 import type { AppProps } from 'next/app'
+import styled from 'styled-components'
 
-function MyApp({ Component, pageProps }: AppProps) {
+
+const AppWrapper = styled.div`
+    display: grid;
+    gap: var(--page-gap);
+`
+
+function MyApp({ Component, pageProps, router }: AppProps) {
+    const url = `https://briankoehler.me${router.route}`
+
     return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <AppWrapper>
+            <Navbar />
+
+            <AnimatePresence exitBeforeEnter>
+                <Component key={url} {...pageProps} />
+            </AnimatePresence>
+
+            <Footer />
+        </AppWrapper>
     )
 }
 

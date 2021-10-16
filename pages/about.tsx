@@ -1,6 +1,7 @@
 import ExperienceArea from '@/components/Experience/ExperienceArea'
 import Heading from '@/components/Heading'
 import CustomHead from '@/components/Layout/CustomHead'
+import Layout from '@/components/Layout/Layout'
 import Technologies from '@/components/Technologies/Technologies'
 import { Experience } from '@/components/types'
 import type { GetStaticProps } from 'next'
@@ -12,13 +13,13 @@ type AboutPageProps = {
 
 const AboutPage = ({ experiences }: AboutPageProps) => {
 	return (
-		<>
+		<Layout>
 			<CustomHead title='Brian Koehler - About' description='FAQ about Brian Koehler.' url='https://briankoehler.me/about' />
 
 			<Heading bigText='Get to know me.' littleText='The one-stop shop to find anything about me from my experience, to my favorite technologies, and even what I enjoy doing.' />
 			<Technologies />
 			<ExperienceArea experiences={experiences} />
-		</>
+		</Layout>
 	)
 }
 

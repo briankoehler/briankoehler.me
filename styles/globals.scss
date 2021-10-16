@@ -55,7 +55,7 @@ html, body {
 body {
     -moz-osx-font-smoothing: grayscale; 
     -webkit-font-smoothing: antialiased;
-    // image-rendering: -webkit-optimize-contrast;
+    padding: 3em 0 1em;
     margin: auto;
     max-width: 60%;
     overflow-y: scroll;
@@ -69,6 +69,10 @@ body {
     
     @media only screen and (max-width: 1200px) {
         max-width: 95%;
+    }
+
+    @media only screen and (max-width: 950px) {
+        padding: 2em 0 1em;
     }
 }
 

@@ -1,5 +1,6 @@
 import Heading from '@/components/Heading'
 import CustomHead from '@/components/Layout/CustomHead'
+import Layout from '@/components/Layout/Layout'
 import { Post } from '@/components/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
@@ -102,14 +103,14 @@ const PostPage = ({ post, url }: PostPageProps) => {
 	}
 
 	return (
-		<>
+		<Layout>
 			<CustomHead title={`Brian Koehler - ${post.title}`} description={post.description} url={`https://briankoehler.me/posts/${post.slug}`} />
 
 			<ArticleWrapper>
 				<Heading bigText={post.title} littleText={post.description} />
 				<Writing components={markdownComponents} transformImageUri={(uri) => `http://${url}${uri}`}>{post.writing}</Writing>
 			</ArticleWrapper>
-		</>
+		</Layout>
 	)
 }
 

@@ -1,24 +1,16 @@
-import Footer from '@/components/Layout/Footer'
-import Navbar from '@/components/Layout/Navbar'
 import { ChildrenProp } from '@/components/types'
+import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { FaLongArrowAltUp } from 'react-icons/fa'
 import styled from 'styled-components'
 
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(motion.main)`
     column-gap: calc(var(--page-gap) * (5 / 7));
     display: grid;
-    padding: 3em 0 1em;
     row-gap: var(--page-gap);
 
-    main {
-        display: grid;
-        gap: inherit;
-    }
-
     @media only screen and (max-width: 950px) {
-        padding: 2em 0 1em;
         row-gap: calc(var(--page-gap) * (3 / 5));
     }
 `
@@ -47,6 +39,12 @@ const ReturnButton = styled.button<{ scrolled: boolean }>`
     }
 `
 
+const variants = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { type: 'linear', stiffness: 500 } },
+    exit: { opacity: 0, y: -10, transition: { type: 'linear', stiffness: 500 } }
+}
+
 const Layout = ({ children }: ChildrenProp) => {
     const [scrolled, setScrolled] = useState(false)
 
@@ -60,18 +58,12 @@ const Layout = ({ children }: ChildrenProp) => {
     }
 
     return (
-        <>
-            <ContentWrapper>
-                <Navbar />
-                <main>
-                    {children}
-                    <ReturnButton onClick={scrollToTop} scrolled={scrolled}>
-                        <FaLongArrowAltUp size='4em' />
-                    </ReturnButton>
-                </main>
-                <Footer />
-            </ContentWrapper>
-        </>
+        <ContentWrapper variants={variants} initial='hidden' animate='show' exit='exit'>
+            {children}
+            <ReturnButton onClick={scrollToTop} scrolled={scrolled}>
+                <FaLongArrowAltUp size='4em' />
+            </ReturnButton>
+        </ContentWrapper>
     )
 }
 
