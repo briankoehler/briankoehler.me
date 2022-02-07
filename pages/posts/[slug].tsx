@@ -37,6 +37,10 @@ const Writing = styled(ReactMarkdown)`
 		margin-top: 1em;
 	}
 
+    * + h3 {
+        margin-top: 0.5em;
+    }
+
 	ul {
 		padding-left: 3em;
 		display: flex;
@@ -54,6 +58,16 @@ const Writing = styled(ReactMarkdown)`
 		font-weight: 500;
 	}
 
+    pre {
+        border: 1px solid var(--border-primary);
+        border-radius: 4px;
+        padding: 1em;
+    }
+
+    pre + pre {
+        margin-top: -0.5em;
+    }
+
 	li p {
 		display: inline;
 	}
@@ -61,6 +75,8 @@ const Writing = styled(ReactMarkdown)`
 
 const PostImageWrapper = styled.figure`
     margin: 0;
+    min-height: 15em;
+    position: relative;
     
     figcaption {
         font-style: italic;
@@ -78,6 +94,7 @@ const PostPage = ({ post, url }: PostPageProps) => {
 
 	const markdownComponents: object = {
 		h1: 'h2',
+        h2: 'h3',
 		p: (paragraph: any) => {
 			const { node } = paragraph
 
@@ -89,12 +106,15 @@ const PostPage = ({ post, url }: PostPageProps) => {
 				const metaHeight = image.properties.alt.match(/x([^}]+)}/)
 				const width = metaWidth ? metaWidth[1] : "3360"
 				const height = metaHeight ? metaHeight[1] : "2050"
+                
+                const isGif = image.properties.src.includes('https')
 
-				return (
-					<PostImageWrapper>
-						<Image src={`http://${url}${image.properties.src}`} width={width} height={height} alt={alt} priority={isPriority} />
-						<figcaption>{alt}</figcaption>
-					</PostImageWrapper>
+				return (         
+                    <PostImageWrapper>
+                        {isGif && <Image src={image.properties.src} layout='fill' objectFit='contain' alt={alt} priority={isPriority} />}
+                        {!isGif && <Image src={`http://${url}${image.properties.src}`} width={width} height={height} alt={alt} priority={isPriority} />}
+                        {!isGif && <figcaption>{alt}</figcaption>}
+                    </PostImageWrapper>
 				)
 			}
 			return <p>{paragraph.children}</p>
